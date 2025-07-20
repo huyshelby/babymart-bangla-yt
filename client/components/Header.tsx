@@ -9,8 +9,12 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
+    // Set initial animation complete after component mount
+    const timer = setTimeout(() => setAnimationComplete(true), 800);
+
     const handleScroll = () => {
       const newScrolled = window.scrollY > 50;
       setScrolled(newScrolled);
@@ -25,6 +29,7 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -50,37 +55,60 @@ export function Header() {
           : "bg-gradient-to-b from-black/80 via-black/50 to-transparent py-6"
       }`}
     >
-      {/* Decorative elements */}
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange-400 via-red-500 to-yellow-500"></div>
+      {/* Animated decorative elements */}
+      <div className="absolute inset-x-0 top-0 h-1.5 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-yellow-500 animate-shimmer"></div>
+      </div>
+
+      {/* Decorative food-themed background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-[10%] w-4 h-4 rounded-full bg-yellow-300/30 animate-float-slow"></div>
+        <div className="absolute top-10 right-[15%] w-3 h-3 rounded-full bg-orange-300/20 animate-float"></div>
+        <div className="absolute bottom-2 left-[25%] w-2 h-2 rounded-full bg-red-300/20 animate-float-slow"></div>
+        <div className="absolute bottom-5 right-[30%] w-2.5 h-2.5 rounded-full bg-yellow-300/20 animate-float"></div>
+      </div>
 
       {scrolled && (
-        <div
-          className="absolute inset-0 bg-white opacity-95"
-          style={{
-            backgroundImage: "url('/images/food-pattern.svg')",
-            backgroundSize: "200px",
-            backgroundRepeat: "repeat",
-            mixBlendMode: "soft-light",
-            opacity: 0.05,
-          }}
-        ></div>
+        <>
+          <div
+            className="absolute inset-0 bg-white opacity-95"
+            style={{
+              backgroundImage: "url('/images/food-pattern.svg')",
+              backgroundSize: "200px",
+              backgroundRepeat: "repeat",
+              mixBlendMode: "soft-light",
+              opacity: 0.05,
+            }}
+          ></div>
+          <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-orange-200 to-transparent"></div>
+        </>
       )}
 
       <div className="container mx-auto px-6 flex justify-between items-center relative">
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-orange-400 shadow-lg transition-transform duration-300 group-hover:scale-110">
+          <div
+            className={`relative h-16 w-16 overflow-hidden rounded-full border-2 border-orange-400 shadow-lg transition-all duration-500 ${
+              animationComplete ? "animate-gentle-pulse" : ""
+            } group-hover:scale-110 group-hover:border-orange-500`}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full z-0 animate-spin-slow"></div>
             <Image
               src="/images/logo.png"
               alt="Bò Né Sài Gòn Logo"
               fill
               className="object-contain p-1.5 z-10 transition-transform duration-500 group-hover:rotate-3"
             />
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-300 to-orange-400 rounded-full blur-md opacity-0 group-hover:opacity-20 transition duration-300 z-0"></div>
           </div>
           <div className="flex flex-col">
-            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm transition-all duration-300">
-              BÒ NÉ, BÒ KHO SAI GON
-            </span>
+            <div className="overflow-hidden">
+              <span
+                className={`text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent drop-shadow-sm transition-all duration-300 bg-[size:200%] animate-text-shimmer`}
+              >
+                BÒ NÉ, BÒ KHO SAI GON
+              </span>
+            </div>
             <div
               className={`flex items-center space-x-2 transition-all duration-300`}
             >
@@ -101,7 +129,7 @@ export function Header() {
               <span
                 className={`text-xs ${
                   scrolled ? "text-gray-500" : "text-gray-400"
-                }`}
+                } italic`}
               >
                 Since 2005
               </span>
@@ -127,36 +155,56 @@ export function Header() {
               }`}
               style={{
                 transitionDelay: `${index * 50}ms`,
+                opacity: animationComplete ? 1 : 0,
+                transform: animationComplete
+                  ? "translateY(0)"
+                  : "translateY(10px)",
               }}
             >
               {item.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 transition-all duration-300 group-hover:w-full"></span>
+              <span
+                className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400/30 blur-sm transition-all duration-500 group-hover:w-full"
+                style={{ transitionDelay: "0.1s" }}
+              ></span>
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center space-x-4">
-          <Link href="tel:0935330134">
+        <div
+          className="hidden lg:flex items-center space-x-4"
+          style={{
+            opacity: animationComplete ? 1 : 0,
+            transform: animationComplete ? "translateX(0)" : "translateX(20px)",
+            transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+            transitionDelay: "0.4s",
+          }}
+        >
+          <Link href="tel:0935330134" className="relative">
+            <span className="absolute -inset-3 bg-gradient-to-r from-orange-400 to-red-500 rounded-full blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
             <Button
               variant="default"
               className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-medium px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 relative overflow-hidden group"
             >
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-300 group-hover:blur-md"></div>
               <div className="relative flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
+                <div className="relative">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 animate-phone-ring"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
                 0935.330.134
               </div>
             </Button>
@@ -175,7 +223,9 @@ export function Header() {
           <span className="absolute -inset-1 bg-gradient-to-r from-orange-300 to-yellow-300 rounded-full blur opacity-0 group-hover:opacity-30 transition duration-300"></span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 relative"
+            className={`h-6 w-6 relative transition-transform duration-300 ${
+              mobileMenuOpen ? "rotate-90 scale-95" : ""
+            }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -197,7 +247,7 @@ export function Header() {
           onClick={closeMobileMenu}
         >
           <div
-            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-gradient-to-br from-orange-50 via-white to-yellow-50 shadow-xl transform transition-transform duration-500 ease-out overflow-y-auto"
+            className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-gradient-to-br from-orange-50 via-white to-yellow-50 shadow-xl transform transition-transform duration-500 ease-out overflow-y-auto custom-scrollbar"
             onClick={(e) => e.stopPropagation()}
             style={{ animation: "slideIn 0.3s ease-out forwards" }}
           >
@@ -212,6 +262,20 @@ export function Header() {
               }}
             ></div>
 
+            {/* Decorative spice illustration */}
+            <div className="absolute bottom-0 left-0 w-full h-40 opacity-10 pointer-events-none">
+              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-orange-300/20 to-transparent"></div>
+              <div
+                className="absolute bottom-5 left-5 w-20 h-20"
+                style={{
+                  backgroundImage: "url('/images/spice-illustration.svg')",
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "bottom left",
+                }}
+              ></div>
+            </div>
+
             <div className="relative z-10">
               <div className="flex justify-between items-center p-6 border-b border-orange-100">
                 <div className="flex items-center space-x-2">
@@ -222,11 +286,11 @@ export function Header() {
                       alt="Bò Né Sài Gòn Logo"
                       width={40}
                       height={40}
-                      className="rounded-full border border-orange-300 relative z-10"
+                      className="rounded-full border border-orange-300 relative z-10 animate-gentle-pulse"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+                    <span className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 animate-text-shimmer bg-[size:200%]">
                       BÒ NÉ, BÒ KHO
                     </span>
                     <span className="text-xs text-orange-400">SAI GON</span>
@@ -234,7 +298,7 @@ export function Header() {
                 </div>
                 <button
                   onClick={closeMobileMenu}
-                  className="p-2 rounded-full hover:bg-orange-100 transition-colors text-gray-500 group"
+                  className="p-2 rounded-full hover:bg-orange-100 transition-all duration-300 text-gray-500 group hover:rotate-90"
                 >
                   <div className="absolute -inset-1 bg-orange-200 rounded-full blur opacity-0 group-hover:opacity-30 transition duration-300"></div>
                   <svg
@@ -255,7 +319,10 @@ export function Header() {
               </div>
 
               <div className="py-6 px-6">
-                <div className="space-y-2">
+                <div className="space-y-2 relative">
+                  {/* Decorative line */}
+                  <div className="absolute left-5 top-4 bottom-4 w-0.5 bg-gradient-to-b from-orange-100 via-yellow-100 to-transparent"></div>
+
                   {[
                     {
                       href: "#about",
@@ -286,7 +353,7 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex items-center p-4 rounded-lg text-gray-700 hover:bg-orange-100 hover:text-orange-700 transition-all duration-300 group"
+                      className="flex items-center p-4 rounded-lg text-gray-700 hover:bg-orange-100 hover:text-orange-700 transition-all duration-300 group hover:translate-x-1"
                       onClick={closeMobileMenu}
                       style={{
                         animation: `fadeInSlideUp 0.3s ease-out forwards`,
@@ -295,10 +362,11 @@ export function Header() {
                         transform: "translateY(10px)",
                       }}
                     >
-                      <span className="bg-gradient-to-br from-orange-100 to-yellow-100 text-orange-600 p-2 rounded-full mr-3 group-hover:from-orange-200 group-hover:to-yellow-200 transition-colors duration-300 shadow-sm">
+                      <span className="bg-gradient-to-br from-orange-100 to-yellow-100 text-orange-600 p-2 rounded-full mr-3 group-hover:from-orange-200 group-hover:to-yellow-200 transition-all duration-300 shadow-sm relative">
+                        <span className="absolute inset-0 rounded-full bg-orange-500/10 animate-ping-slow opacity-75"></span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
+                          className="h-5 w-5 relative z-10"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -325,28 +393,32 @@ export function Header() {
                     transform: "translateY(10px)",
                   }}
                 >
-                  <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-lg p-4 mb-6 border border-orange-100 shadow-sm">
+                  <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-lg p-4 mb-6 border border-orange-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="flex items-center mb-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-orange-500 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
+                      <div className="relative">
+                        <span className="absolute -inset-1 rounded-full bg-orange-500/20 animate-ping opacity-30"></span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 text-orange-500 mr-2 relative z-10"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                      </div>
                       <h4 className="font-semibold text-orange-800">Địa Chỉ</h4>
                     </div>
                     <p className="text-gray-700 text-sm">
@@ -356,25 +428,29 @@ export function Header() {
 
                   <Link
                     href="tel:0935330134"
-                    className="flex items-center justify-center w-full gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold py-3.5 px-4 rounded-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-md hover:shadow-lg relative group"
+                    className="flex items-center justify-center w-full gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold py-3.5 px-4 rounded-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-md hover:shadow-lg relative group overflow-hidden"
                     onClick={closeMobileMenu}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 bg-[size:200%] animate-shimmer-slow opacity-60"></div>
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 to-red-600 rounded-lg blur opacity-20 group-hover:opacity-50 transition duration-300"></div>
                     <div className="relative flex items-center gap-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
+                      <div className="relative">
+                        <span className="absolute -inset-1 bg-white/30 rounded-full animate-ping-slow opacity-50"></span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 animate-phone-ring"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                          />
+                        </svg>
+                      </div>
                       Gọi Ngay: 0935.330.134
                     </div>
                   </Link>
@@ -405,6 +481,158 @@ export function Header() {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        @keyframes shimmer {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+
+        @keyframes shimmer-slow {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes float-slow {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
+
+        @keyframes gentle-pulse {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 0.9;
+          }
+        }
+
+        @keyframes ping-slow {
+          0% {
+            transform: scale(0.95);
+            opacity: 0.5;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 0.3;
+          }
+          100% {
+            transform: scale(0.95);
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes phone-ring {
+          0%,
+          100% {
+            transform: rotate(-5deg) scale(1);
+          }
+          25% {
+            transform: rotate(5deg) scale(1.1);
+          }
+          50% {
+            transform: rotate(-5deg) scale(1);
+          }
+          75% {
+            transform: rotate(5deg) scale(1.1);
+          }
+        }
+
+        .animate-shimmer {
+          animation: shimmer 2s linear infinite;
+          background-size: 200% 100%;
+        }
+
+        .animate-shimmer-slow {
+          animation: shimmer-slow 4s linear infinite;
+          background-size: 200% 100%;
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-float-slow {
+          animation: float-slow 5s ease-in-out infinite;
+        }
+
+        .animate-gentle-pulse {
+          animation: gentle-pulse 3s ease-in-out infinite;
+        }
+
+        .animate-ping-slow {
+          animation: ping-slow 3s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 15s linear infinite;
+        }
+
+        .animate-phone-ring {
+          animation: phone-ring 2s ease-in-out infinite;
+        }
+
+        .animate-text-shimmer {
+          animation: shimmer 3s linear infinite;
+          background-size: 200% auto;
+        }
+
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(251, 146, 60, 0.5) rgba(251, 146, 60, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(251, 146, 60, 0.1);
+          border-radius: 20px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(251, 146, 60, 0.5);
+          border-radius: 20px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(251, 146, 60, 0.7);
         }
       `}</style>
     </header>

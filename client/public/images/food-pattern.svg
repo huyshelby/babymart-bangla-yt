@@ -1,1 +1,68 @@
- 
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.07">
+    <!-- Steak Icon -->
+    <g transform="translate(50, 50) scale(0.8)">
+      <path d="M70 20C98.6 20 120 41.4 120 70C120 98.6 98.6 120 70 120C41.4 120 20 98.6 20 70C20 41.4 41.4 20 70 20Z" fill="currentColor"/>
+      <path d="M40 50C40 50 50 35 80 35C110 35 100 85 70 85C40 85 40 50 40 50Z" fill="none" stroke="currentColor" stroke-width="5"/>
+    </g>
+    
+    <!-- Pan Icon -->
+    <g transform="translate(200, 80) scale(0.7)">
+      <path d="M30 60C30 43.4315 43.4315 30 60 30H100C116.569 30 130 43.4315 130 60V60C130 76.5685 116.569 90 100 90H60C43.4315 90 30 76.5685 30 60V60Z" fill="currentColor"/>
+      <rect x="130" y="50" width="50" height="20" rx="5" fill="currentColor"/>
+    </g>
+    
+    <!-- Spices Icon -->
+    <g transform="translate(350, 50) scale(0.6)">
+      <circle cx="60" cy="60" r="30" fill="currentColor"/>
+      <circle cx="60" cy="60" r="15" fill="none" stroke="white" stroke-width="3"/>
+      <circle cx="60" cy="40" r="5" fill="white"/>
+      <circle cx="75" cy="55" r="5" fill="white"/>
+      <circle cx="60" cy="75" r="5" fill="white"/>
+      <circle cx="45" cy="60" r="5" fill="white"/>
+    </g>
+    
+    <!-- Bowl Icon -->
+    <g transform="translate(100, 200) scale(0.7)">
+      <path d="M40 60C40 38.9543 56.9543 22 78 22C99.0457 22 116 38.9543 116 60V80C116 91.0457 107.046 100 96 100H60C48.9543 100 40 91.0457 40 80V60Z" fill="currentColor"/>
+      <path d="M50 60H106" stroke="white" stroke-width="3"/>
+    </g>
+    
+    <!-- Bread Icon -->
+    <g transform="translate(250, 220) scale(0.7)">
+      <path d="M30 50C30 36.1929 41.1929 25 55 25H85C98.8071 25 110 36.1929 110 50V60C110 73.8071 98.8071 85 85 85H55C41.1929 85 30 73.8071 30 60V50Z" fill="currentColor"/>
+      <path d="M40 45C40 45 55 55 70 55C85 55 100 45 100 45" stroke="white" stroke-width="3"/>
+    </g>
+    
+    <!-- Carrot Icon -->
+    <g transform="translate(380, 200) scale(0.7) rotate(45)">
+      <path d="M60 20L70 30L40 100L30 90L60 20Z" fill="currentColor"/>
+      <path d="M60 20C60 20 80 10 90 20" stroke="currentColor" stroke-width="3"/>
+      <path d="M70 20C70 20 80 0 90 10" stroke="currentColor" stroke-width="3"/>
+    </g>
+    
+    <!-- Repeat the pattern -->
+    
+    <!-- Steak Icon -->
+    <g transform="translate(50, 350) scale(0.8)">
+      <path d="M70 20C98.6 20 120 41.4 120 70C120 98.6 98.6 120 70 120C41.4 120 20 98.6 20 70C20 41.4 41.4 20 70 20Z" fill="currentColor"/>
+      <path d="M40 50C40 50 50 35 80 35C110 35 100 85 70 85C40 85 40 50 40 50Z" fill="none" stroke="currentColor" stroke-width="5"/>
+    </g>
+    
+    <!-- Pan Icon -->
+    <g transform="translate(200, 380) scale(0.7)">
+      <path d="M30 60C30 43.4315 43.4315 30 60 30H100C116.569 30 130 43.4315 130 60V60C130 76.5685 116.569 90 100 90H60C43.4315 90 30 76.5685 30 60V60Z" fill="currentColor"/>
+      <rect x="130" y="50" width="50" height="20" rx="5" fill="currentColor"/>
+    </g>
+    
+    <!-- Spices Icon -->
+    <g transform="translate(350, 350) scale(0.6)">
+      <circle cx="60" cy="60" r="30" fill="currentColor"/>
+      <circle cx="60" cy="60" r="15" fill="none" stroke="white" stroke-width="3"/>
+      <circle cx="60" cy="40" r="5" fill="white"/>
+      <circle cx="75" cy="55" r="5" fill="white"/>
+      <circle cx="60" cy="75" r="5" fill="white"/>
+      <circle cx="45" cy="60" r="5" fill="white"/>
+    </g>
+  </g>
+</svg> 
