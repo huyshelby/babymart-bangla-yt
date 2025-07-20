@@ -72,7 +72,7 @@ export default function Home() {
             <div
               className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/75"
               style={{
-                backgroundImage: "url('/images/hero-bg.jpg')",
+                backgroundImage: "url('/images/snap.jpeg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundBlendMode: "multiply",
@@ -120,8 +120,8 @@ export default function Home() {
               style={{ animationDelay: "0.5s" }}
             >
               <Image
-                src="/images/baby-bottle.svg"
-                alt="Baby bottle"
+                src="/images/steak.svg"
+                alt="steak"
                 width={80}
                 height={80}
               />
@@ -131,8 +131,8 @@ export default function Home() {
               style={{ animationDelay: "1.2s" }}
             >
               <Image
-                src="/images/baby-rattle.svg"
-                alt="Baby rattle"
+                src="/images/sausage.svg"
+                alt="sausage"
                 width={64}
                 height={64}
               />
@@ -168,13 +168,14 @@ export default function Home() {
               }`}
             >
               <div className="inline-block mb-2 rounded-full bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm text-white backdrop-blur-md">
-                <span className="animate-pulse-slow">✨</span> Chào mừng đến với
-                BabyMart <span className="animate-pulse-slow">✨</span>
+                <span className="animate-pulse-slow">✨</span> Nguồn Cung Cấp
+                Thực Phẩm Chế Biến Sẵn{" "}
+                <span className="animate-pulse-slow">✨</span>
               </div>
 
               <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 animate-slide-up relative">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-100 to-white">
-                  Sản Phẩm Cho Bé Yêu Của Bạn
+                  Nguồn Cung Cấp Thực Phẩm Chế Biến Sẵn
                 </span>
                 <div className="absolute -bottom-1 left-0 right-0 h-1 mx-auto w-3/4 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-70"></div>
               </h1>
@@ -183,7 +184,7 @@ export default function Home() {
                 className="text-lg md:text-2xl font-semibold mb-8 animate-slide-up text-orange-100"
                 style={{ animationDelay: "0.1s" }}
               >
-                CHẤT LƯỢNG - AN TOÀN - GIÁ CẢ HỢP LÝ
+                UY TÍN - AN TOÀN - CHUẨN VỊ SÀI GÒN
               </p>
 
               <div

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ContactPopup } from "@/components/ContactPopup";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -56,7 +57,10 @@ export default function RootLayout({
           content="telephone=no, date=no, email=no, address=no"
         />
       </head>
-      <body className="min-h-screen bg-gray-50 antialiased">{children}</body>
+      <body className="min-h-screen bg-gray-50 antialiased">
+        {children}
+        <ContactPopup />
+      </body>
     </html>
   );
 }
