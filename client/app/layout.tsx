@@ -11,23 +11,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | BabyMart - Đồ Dùng Trẻ Em Chất Lượng",
-    default: "BabyMart - Đồ Dùng Trẻ Em Chất Lượng",
+    template: "%s | BÒ NÉ, BÒ KHO SAI GON",
+    default: "BÒ NÉ, BÒ KHO SAI GON",
   },
   description:
-    "Chuyên cung cấp các sản phẩm dành cho trẻ em chất lượng cao, an toàn. Cam kết an toàn vệ sinh, giá cả cạnh tranh. Đối tác tin cậy cho các bậc phụ huynh.",
-  keywords: [
-    "đồ dùng trẻ em",
-    "quần áo trẻ em",
-    "sữa",
-    "tã",
-    "đồ chơi",
-    "an toàn",
-    "chất lượng",
-  ],
-  authors: [{ name: "BabyMart" }],
-  creator: "BabyMart Team",
-  publisher: "BabyMart",
+    "Chuyên cung cấp các sản phẩm bò né, bò kho sai gón chất lượng cao, an toàn. Cam kết an toàn vệ sinh, giá cả cạnh tranh. Đối tác tin cậy cho các bậc phụ huynh.",
+  keywords: ["bò né", "bò kho sai gón", "bò né sai gón", "bò né sai gón"],
+  authors: [{ name: "BÒ NÉ, BÒ KHO SAI GON" }],
+  creator: "BÒ NÉ, BÒ KHO SAI GON",
+  publisher: "BÒ NÉ, BÒ KHO SAI GON",
   robots: {
     index: true,
     follow: true,
