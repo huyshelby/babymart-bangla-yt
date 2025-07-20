@@ -67,40 +67,125 @@ export default function Home() {
       <main className="bg-gray-50">
         {/* Hero Section */}
         <section className="relative text-white min-h-[90vh] flex items-center overflow-hidden">
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/85 to-black/80"
-            style={{
-              backgroundImage: "url('/images/hero-bg.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundBlendMode: "multiply",
-              opacity: 0.95,
-            }}
-          ></div>
-
-          {/* Decorative elements */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-[10%] w-40 h-40 rounded-full bg-orange-500/10 animate-pulse-slow"></div>
-            <div className="absolute bottom-1/4 right-[15%] w-52 h-52 rounded-full bg-yellow-500/10 animate-float"></div>
-            <div className="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-red-500/5 animate-float-slow"></div>
+          {/* Overlay with texture */}
+          <div className="absolute inset-0 z-0">
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/75"
+              style={{
+                backgroundImage: "url('/images/hero-bg.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundBlendMode: "multiply",
+                opacity: 0.95,
+              }}
+            ></div>
+            <div
+              className="absolute inset-0 mix-blend-soft-light opacity-10"
+              style={{
+                backgroundImage: "url('/images/food-pattern.svg')",
+                backgroundSize: "200px",
+                backgroundRepeat: "repeat",
+              }}
+            ></div>
           </div>
 
-          <div
-            className={`container relative z-10 mx-auto px-6 py-24 md:py-32 text-center ${
-              isLoaded ? "animate-fade-in" : "opacity-0"
-            }`}
-          >
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 animate-slide-up bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-100 to-white">
-                Sản Phẩm Cho Bé Yêu Của Bạn
+          {/* Animated particles */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Large circles */}
+            <div className="absolute top-[15%] left-[10%] w-40 h-40 rounded-full bg-gradient-to-br from-orange-500/10 to-yellow-500/5 animate-pulse-slow"></div>
+            <div className="absolute bottom-[20%] right-[10%] w-52 h-52 rounded-full bg-gradient-to-tl from-yellow-500/10 to-orange-500/5 animate-float"></div>
+            <div className="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-gradient-to-r from-red-500/10 to-pink-500/5 animate-float-slow"></div>
+
+            {/* Small particles */}
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-2 h-2 rounded-full bg-white/10"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animation: `float ${
+                    5 + Math.random() * 10
+                  }s ease-in-out infinite`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              ></div>
+            ))}
+          </div>
+
+          {/* Floating baby products illustrations */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+              className="absolute top-[15%] left-[5%] w-20 h-20 opacity-20 animate-float-slow"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <Image
+                src="/images/baby-bottle.svg"
+                alt="Baby bottle"
+                width={80}
+                height={80}
+              />
+            </div>
+            <div
+              className="absolute top-[25%] right-[10%] w-16 h-16 opacity-20 animate-float"
+              style={{ animationDelay: "1.2s" }}
+            >
+              <Image
+                src="/images/baby-rattle.svg"
+                alt="Baby rattle"
+                width={64}
+                height={64}
+              />
+            </div>
+            <div
+              className="absolute bottom-[30%] left-[15%] w-16 h-16 opacity-20 animate-float-slow"
+              style={{ animationDelay: "0.8s" }}
+            >
+              <Image
+                src="/images/pacifier.svg"
+                alt="Pacifier"
+                width={64}
+                height={64}
+              />
+            </div>
+            <div
+              className="absolute bottom-[25%] right-[20%] w-20 h-20 opacity-20 animate-float"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <Image
+                src="/images/teddy-bear.svg"
+                alt="Teddy bear"
+                width={80}
+                height={80}
+              />
+            </div>
+          </div>
+
+          <div className="container relative z-10 mx-auto px-6 py-24 md:py-32 text-center">
+            <div
+              className={`max-w-4xl mx-auto ${
+                isLoaded ? "animate-fade-in" : "opacity-0"
+              }`}
+            >
+              <div className="inline-block mb-2 rounded-full bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm text-white backdrop-blur-md">
+                <span className="animate-pulse-slow">✨</span> Chào mừng đến với
+                BabyMart <span className="animate-pulse-slow">✨</span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 animate-slide-up relative">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-100 to-white">
+                  Sản Phẩm Cho Bé Yêu Của Bạn
+                </span>
+                <div className="absolute -bottom-1 left-0 right-0 h-1 mx-auto w-3/4 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-70"></div>
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-6 rounded-full"></div>
+
               <p
                 className="text-lg md:text-2xl font-semibold mb-8 animate-slide-up text-orange-100"
                 style={{ animationDelay: "0.1s" }}
               >
                 CHẤT LƯỢNG - AN TOÀN - GIÁ CẢ HỢP LÝ
               </p>
+
               <div
                 className="flex justify-center flex-wrap gap-4 animate-slide-up"
                 style={{ animationDelay: "0.2s" }}
@@ -112,7 +197,29 @@ export default function Home() {
                     className="bg-white text-orange-600 font-bold hover:bg-gray-200 hover:scale-105 transition duration-300 text-lg focus-ring relative overflow-hidden group"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-orange-100 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                    Xem Sản Phẩm
+                    <span className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      Xem Sản Phẩm
+                    </span>
                   </Button>
                 </Link>
                 <Link href="#contact">
@@ -122,9 +229,80 @@ export default function Home() {
                     className="bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold hover:from-orange-600 hover:to-red-700 hover:scale-105 transition duration-300 text-lg focus-ring relative overflow-hidden group"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-300/20 to-red-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    Liên Hệ Ngay
+                    <span className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
+                      Liên Hệ Ngay
+                    </span>
                   </Button>
                 </Link>
+              </div>
+
+              {/* Trust indicators */}
+              <div className="mt-12 flex flex-wrap justify-center gap-4">
+                <div className="bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-orange-400 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
+                  </svg>
+                  <span className="text-sm text-white">Đạt chuẩn ISO</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-orange-400 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm text-white">Sản phẩm an toàn</span>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md rounded-full px-4 py-2 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-orange-400 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="text-sm text-white">Giá cả hợp lý</span>
+                </div>
               </div>
             </div>
           </div>
@@ -277,16 +455,36 @@ export default function Home() {
               chứng nhận chất lượng và an toàn sản phẩm để quý khách hàng hoàn
               toàn an tâm.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-              {certificates.map((cert) => (
-                <CertificateCard
-                  key={cert.id}
-                  imageSrc={cert.imageSrc}
-                  title={cert.title}
-                  onClick={() => openModal(cert.imageSrc, cert.title)}
-                />
-              ))}
+
+            {/* Certificates display */}
+            <div className="relative py-10 mb-8">
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-1/4 w-24 h-24 rounded-full bg-orange-100 opacity-20 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-1/4 w-32 h-32 rounded-full bg-yellow-100 opacity-20 translate-y-1/3"></div>
+
+              {/* Certificate grid with animation and staggered appearance */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+                {certificates.map((cert, index) => (
+                  <div
+                    key={cert.id}
+                    className="transform transition-all duration-500 hover:z-10"
+                    style={{
+                      transform: `perspective(1000px) rotateY(${
+                        index % 2 === 0 ? 2 : -2
+                      }deg) rotateX(${index % 3 === 0 ? 1 : -1}deg)`,
+                      animationDelay: `${index * 0.1}s`,
+                    }}
+                  >
+                    <CertificateCard
+                      imageSrc={cert.imageSrc}
+                      title={cert.title}
+                      onClick={() => openModal(cert.imageSrc, cert.title)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+
             <div className="mt-14 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 text-green-800 p-8 rounded-r-xl rounded-tr-xl shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
                 <div className="bg-green-100 p-3 rounded-full">
@@ -314,6 +512,88 @@ export default function Home() {
                   Sử dụng sản phẩm của chúng tôi là sự bảo vệ vững chắc cho sức
                   khỏe của bé yêu và sự yên tâm của các bậc phụ huynh.&rdquo;
                 </p>
+              </div>
+
+              {/* Add trust badges */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6">
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-medium">
+                    Không Chất Bảo Quản
+                  </span>
+                </div>
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-medium">Đạt Chuẩn ISO</span>
+                </div>
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-medium">Nguyên Liệu Sạch</span>
+                </div>
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-medium">Kiểm Định Quốc Tế</span>
+                </div>
               </div>
             </div>
           </div>
@@ -486,7 +766,7 @@ export default function Home() {
                     Địa chỉ
                   </h3>
                   <p className="text-gray-600 pl-7 text-lg">
-                    123 Đường ABC, Quận XYZ, Thành Phố
+                    66 Huỳnh Ngọc Huệ - Thanh Khê - Đà Nẵng
                   </p>
                 </div>
                 <div>
@@ -511,7 +791,7 @@ export default function Home() {
                     href="tel:0123456789"
                     className="text-orange-600 text-2xl font-bold hover:underline focus-ring rounded pl-7 inline-block"
                   >
-                    0123.456.789
+                    0935.330.134
                   </a>
                 </div>
                 <div>
