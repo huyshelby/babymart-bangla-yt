@@ -197,8 +197,8 @@ export default function Home() {
               }`}
             >
               <div className="inline-block mb-2 rounded-full bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 px-4 py-1.5 text-sm text-white backdrop-blur-md">
-                <span className="animate-pulse-slow">✨</span> Nguồn Cung Cấp
-                Thực Phẩm Chế Biến Sẵn{" "}
+                <span className="animate-pulse-slow">✨</span> Khám Phá Thế Giới
+                Ẩm Thực Chế Biến Sẵn Đa Dạng{" "}
                 <span className="animate-pulse-slow">✨</span>
               </div>
 
@@ -369,9 +369,9 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-6 rounded-full"></div>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-lg">
-              Câu Chuyện Mang "Vị Sài Gòn" Đến Đà Nẵng Chúng tôi không chỉ bán
-              thực phẩm, chúng tôi mang đến giải pháp toàn diện và sự an tâm cho
-              các chủ quán ăn.
+              Câu Chuyện Mang &quot;Vị Sài Gòn&quot; Đến Đà Nẵng Chúng tôi không
+              chỉ bán thực phẩm, chúng tôi mang đến giải pháp toàn diện và sự an
+              tâm cho các chủ quán ăn.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/2">
@@ -422,6 +422,7 @@ export default function Home() {
           id="products"
           className="py-20 bg-white relative overflow-hidden"
         >
+          {/* Background texture */}
           <div
             className="absolute inset-0 opacity-5"
             style={{
@@ -430,6 +431,10 @@ export default function Home() {
               backgroundRepeat: "repeat",
             }}
           ></div>
+
+          {/* Decorative elements */}
+          <div className="absolute top-10 left-10 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-20 w-40 h-40 bg-yellow-500/5 rounded-full blur-3xl"></div>
 
           <div className="container mx-auto px-6 relative">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-800 text-center mb-4">
@@ -442,21 +447,35 @@ export default function Home() {
               Nguyên liệu tươi ngon, tẩm ướp theo công thức gia truyền, đảm bảo
               hương vị đồng nhất và hấp dẫn.
             </p>
+
+            {/* Enhanced product grid with hover effects */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {featuredProducts.map((product, index) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  priority={index < 2} // Only prioritize loading the first two products
-                />
+                <div key={product.id} className="group relative">
+                  {/* Badge for popular items */}
+                  {index === 0 && (
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse-slow">
+                        Bán chạy
+                      </div>
+                    </div>
+                  )}
+                  {/* Product card with enhanced hover effects */}
+                  <ProductCard
+                    product={product}
+                    priority={index < 2} // Only prioritize loading the first two products
+                  />
+                </div>
               ))}
             </div>
+
             <div className="text-center mt-14">
               <Link href="/products">
                 <Button
                   variant="outline"
-                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
+                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] relative overflow-hidden group"
                 >
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -skew-x-12 group-hover:translate-x-full"></span>
                   Xem tất cả sản phẩm
                 </Button>
               </Link>
@@ -464,18 +483,24 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quality Commitment Section */}
+        {/* Quality Commitment Section - Enhanced */}
         <section id="quality" className="py-20 relative overflow-hidden">
           <div className="absolute -bottom-20 -left-20 opacity-10 w-80 h-80">
             <Image
-              src="/images/spoon-divider.svg"
+              src="/images/spoon.svg"
               alt="Decorative"
               width={320}
               height={320}
             />
           </div>
 
-          <div className="container mx-auto px-6">
+          {/* Background effect */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 w-full h-40 bg-gradient-to-b from-gray-50 to-transparent"></div>
+            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-gray-50 to-transparent"></div>
+          </div>
+
+          <div className="container mx-auto px-6 relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-800 text-center mb-4">
               <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                 Cam Kết Chất Lượng
@@ -484,42 +509,80 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-6 rounded-full"></div>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-lg">
               Minh bạch là sức mạnh. Chúng tôi tự tin công khai toàn bộ hồ sơ
-              chứng nhận chất lượng và an toàn sản phẩm để quý khách hàng hoàn
+              chứng nhận chất lượng và an toàn thực phẩm để quý khách hàng hoàn
               toàn an tâm.
             </p>
 
-            {/* Certificates display */}
+            {/* Certificates display - Card style */}
             <div className="relative py-10 mb-8">
-              {/* Decorative elements */}
-              <div className="absolute top-0 left-1/4 w-24 h-24 rounded-full bg-orange-100 opacity-20 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-1/4 w-32 h-32 rounded-full bg-yellow-100 opacity-20 translate-y-1/3"></div>
-
-              {/* Certificate grid with animation and staggered appearance */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+              {/* Certificate grid with staggered appearance */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
                 {certificates.map((cert, index) => (
                   <div
                     key={cert.id}
-                    className="transform transition-all duration-500 hover:z-10"
-                    style={{
-                      transform: `perspective(1000px) rotateY(${
-                        index % 2 === 0 ? 2 : -2
-                      }deg) rotateX(${index % 3 === 0 ? 1 : -1}deg)`,
-                      animationDelay: `${index * 0.1}s`,
-                    }}
+                    className="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl hover:scale-105"
                   >
-                    <CertificateCard
-                      imageSrc={cert.imageSrc}
-                      title={cert.title}
-                      onClick={() => openModal(cert.imageSrc, cert.title)}
-                    />
+                    <div className="p-2 bg-gradient-to-r from-orange-500 to-red-600">
+                      <div className="bg-white rounded-lg p-4">
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-xl font-bold text-gray-800">
+                            {cert.title}
+                          </h3>
+                          <div className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                            Đã xác thực
+                          </div>
+                        </div>
+                        <div
+                          className="relative h-[220px] mb-4 rounded-lg overflow-hidden border border-gray-200 group cursor-pointer"
+                          onClick={() => openModal(cert.imageSrc, cert.title)}
+                        >
+                          <Image
+                            src={cert.imageSrc}
+                            alt={cert.title}
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                            <span className="text-white text-sm font-medium">
+                              Nhấn để xem chi tiết
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <svg
+                              className="w-5 h-5 text-green-500 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              ></path>
+                            </svg>
+                            <p className="text-sm text-gray-600">
+                              Đạt tiêu chuẩn ATTP
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => openModal(cert.imageSrc, cert.title)}
+                            className="text-orange-600 hover:text-orange-800 text-sm font-medium"
+                          >
+                            Xem chi tiết
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Commitment statement */}
             <div className="mt-14 bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 text-green-800 p-8 rounded-r-xl rounded-tr-xl shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                <div className="bg-green-100 p-3 rounded-full">
+                <div className="bg-gradient-to-br from-green-100 to-green-200 p-4 rounded-full shadow-inner">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-green-600"
@@ -535,20 +598,26 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <p className="font-semibold text-lg">
-                  &ldquo;Tất cả sản phẩm của chúng tôi đều đạt tiêu chuẩn{" "}
-                  <strong className="text-green-900">An toàn</strong> về chất
-                  liệu và không chứa hóa chất độc hại. Các chỉ số về kim loại
-                  nặng và chất gây dị ứng đều
-                  <strong className="text-green-900"> Không phát hiện</strong>.
-                  Sử dụng sản phẩm của chúng tôi là sự bảo vệ vững chắc cho sức
-                  khỏe của bé yêu và sự yên tâm của các bậc phụ huynh.&rdquo;
-                </p>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-green-800 mb-2">
+                    Cam kết an toàn thực phẩm
+                  </h3>
+                  <p className="font-semibold text-lg">
+                    &ldquo;Tất cả sản phẩm của chúng tôi đều đạt tiêu chuẩn{" "}
+                    <strong className="text-green-900">An toàn</strong> về chất
+                    liệu và không chứa hóa chất độc hại. Các chỉ số về kim loại
+                    nặng và chất gây dị ứng đều
+                    <strong className="text-green-900"> Không phát hiện</strong>
+                    . Sử dụng sản phẩm của chúng tôi là sự bảo vệ vững chắc cho
+                    sức khỏe của thực khách và sự yên tâm của các đối
+                    tác.&rdquo;
+                  </p>
+                </div>
               </div>
 
-              {/* Add trust badges */}
-              <div className="flex flex-wrap justify-center gap-4 mt-6">
-                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6 bg-white/80 p-4 rounded-xl">
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm border border-green-100">
                   <div className="bg-green-100 rounded-full p-1 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -569,7 +638,7 @@ export default function Home() {
                     Không Chất Bảo Quản
                   </span>
                 </div>
-                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm border border-green-100">
                   <div className="bg-green-100 rounded-full p-1 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -588,7 +657,7 @@ export default function Home() {
                   </div>
                   <span className="text-xs font-medium">Đạt Chuẩn ISO</span>
                 </div>
-                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm border border-green-100">
                   <div className="bg-green-100 rounded-full p-1 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -605,9 +674,9 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <span className="text-xs font-medium">Nguyên Liệu Sạch</span>
+                  <span className="text-xs font-medium">Nguồn Gốc Rõ Ràng</span>
                 </div>
-                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm">
+                <div className="flex items-center bg-white py-2 px-4 rounded-full shadow-sm border border-green-100">
                   <div className="bg-green-100 rounded-full p-1 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -624,7 +693,9 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <span className="text-xs font-medium">Kiểm Định Quốc Tế</span>
+                  <span className="text-xs font-medium">
+                    Kiểm Định Thường Xuyên
+                  </span>
                 </div>
               </div>
             </div>
