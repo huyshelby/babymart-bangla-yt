@@ -34,28 +34,13 @@ export default function Home() {
 
   const certificates = [
     {
-      id: 1,
-      title: "Chứng nhận an toàn 1",
-      imageSrc: "/images/giaychungnhan1.jpg",
-    },
-    {
-      id: 2,
-      title: "Chứng nhận an toàn 2",
-      imageSrc: "/images/giaychungnhan2.jpg",
-    },
-    {
-      id: 3,
-      title: "Chứng nhận an toàn 3",
-      imageSrc: "/images/giaychungnhan3.jpg",
-    },
-    {
       id: 4,
-      title: "Chứng nhận an toàn 4",
+      title: "Chứng nhận an toàn thực phẩm",
       imageSrc: "/images/giaychungnhan4.jpg",
     },
     {
       id: 5,
-      title: "Chứng nhận an toàn 5",
+      title: "Chứng nhận an toàn thực phẩm",
       imageSrc: "/images/giaychungnhan5.jpg",
     },
   ];
@@ -69,21 +54,47 @@ export default function Home() {
         <section className="relative text-white min-h-[90vh] flex items-center overflow-hidden">
           {/* Overlay with texture */}
           <div className="absolute inset-0 z-0">
+            {/* Main background image with enhanced effects */}
             <div
-              className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-black/75"
+              className="absolute inset-0 transform scale-105"
               style={{
-                backgroundImage: "url('/images/snap.jpeg')",
+                backgroundImage: `
+                  linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                  url('/images/snap.jpeg')
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundBlendMode: "multiply",
-                opacity: 0.95,
+                filter: "contrast(1.1) saturate(1.2)",
+                transition: "transform 30s ease-out",
+                animation: "subtle-zoom 30s infinite alternate",
               }}
             ></div>
+
+            {/* Multiple overlay layers for depth effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-orange-900/20 via-transparent to-orange-900/10 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+
+            {/* Light beam effects */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-orange-500/10 rounded-full blur-[100px] mix-blend-soft-light animate-aurora"></div>
+              <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] bg-yellow-500/10 rounded-full blur-[100px] mix-blend-soft-light animate-aurora-delayed"></div>
+            </div>
+
+            {/* Pattern overlay */}
             <div
-              className="absolute inset-0 mix-blend-soft-light opacity-10"
+              className="absolute inset-0 mix-blend-soft-light opacity-5"
               style={{
                 backgroundImage: "url('/images/food-pattern.svg')",
                 backgroundSize: "200px",
+                backgroundRepeat: "repeat",
+              }}
+            ></div>
+
+            {/* Film grain effect */}
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                backgroundImage: "url('/images/noise.svg')",
                 backgroundRepeat: "repeat",
               }}
             ></div>
@@ -113,52 +124,70 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Floating baby products illustrations */}
+          {/* Floating food products illustrations */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div
-              className="absolute top-[15%] left-[5%] w-20 h-20 opacity-20 animate-float-slow"
-              style={{ animationDelay: "0.5s" }}
+              className="absolute top-[15%] left-[5%] w-24 h-24 opacity-30 animate-float-slow filter drop-shadow-lg"
+              style={{
+                animationDelay: "0.5s",
+                filter: "drop-shadow(0 0 15px rgba(255, 165, 0, 0.2))",
+              }}
             >
               <Image
                 src="/images/steak.svg"
                 alt="steak"
-                width={80}
-                height={80}
+                width={96}
+                height={96}
+                className="brightness-110"
               />
             </div>
             <div
-              className="absolute top-[25%] right-[10%] w-16 h-16 opacity-20 animate-float"
-              style={{ animationDelay: "1.2s" }}
+              className="absolute top-[25%] right-[10%] w-20 h-20 opacity-30 animate-float"
+              style={{
+                animationDelay: "1.2s",
+                filter: "drop-shadow(0 0 15px rgba(255, 165, 0, 0.2))",
+              }}
             >
               <Image
                 src="/images/sausage.svg"
                 alt="sausage"
-                width={64}
-                height={64}
+                width={80}
+                height={80}
+                className="brightness-110"
               />
             </div>
-            <div
-              className="absolute bottom-[30%] left-[15%] w-16 h-16 opacity-20 animate-float-slow"
-              style={{ animationDelay: "0.8s" }}
+
+            {/* icon */}
+            {/* <div
+              className="absolute bottom-[30%] left-[15%] w-16 h-16 opacity-30 animate-float-slow"
+              style={{
+                animationDelay: "0.8s",
+                filter: "drop-shadow(0 0 15px rgba(255, 165, 0, 0.2))",
+              }}
             >
               <Image
                 src="/images/pacifier.svg"
                 alt="Pacifier"
                 width={64}
                 height={64}
+                className="brightness-110"
               />
-            </div>
-            <div
-              className="absolute bottom-[25%] right-[20%] w-20 h-20 opacity-20 animate-float"
-              style={{ animationDelay: "0.3s" }}
+            </div> */}
+            {/* <div
+              className="absolute bottom-[25%] right-[20%] w-20 h-20 opacity-30 animate-float"
+              style={{
+                animationDelay: "0.3s",
+                filter: "drop-shadow(0 0 15px rgba(255, 165, 0, 0.2))",
+              }}
             >
               <Image
                 src="/images/teddy-bear.svg"
                 alt="Teddy bear"
                 width={80}
                 height={80}
+                className="brightness-110"
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="container relative z-10 mx-auto px-6 py-24 md:py-32 text-center">
@@ -324,7 +353,7 @@ export default function Home() {
         <section id="about" className="py-20 relative overflow-hidden">
           <div className="absolute top-0 right-0 -rotate-45 opacity-5 w-96 h-96">
             <Image
-              src="/images/spoon-divider.svg"
+              src="/images/spoon.svg"
               alt="Decorative"
               width={384}
               height={384}
@@ -340,15 +369,16 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-6 rounded-full"></div>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-lg">
-              Chúng tôi không chỉ bán sản phẩm, chúng tôi mang đến giải pháp
-              toàn diện và an toàn cho các bậc phụ huynh.
+              Câu Chuyện Mang "Vị Sài Gòn" Đến Đà Nẵng Chúng tôi không chỉ bán
+              thực phẩm, chúng tôi mang đến giải pháp toàn diện và sự an tâm cho
+              các chủ quán ăn.
             </p>
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/2">
                 <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-300 group">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                   <Image
-                    src="/images/about-us.jpg"
+                    src="/images/us.jpg"
                     alt="Về chúng tôi"
                     fill
                     className="rounded-2xl object-cover transition-transform duration-700 group-hover:scale-105"
@@ -357,22 +387,23 @@ export default function Home() {
               </div>
               <div className="md:w-1/2 text-gray-700 space-y-5">
                 <p className="text-xl leading-relaxed">
-                  Với tâm huyết mang đến những sản phẩm chất lượng cao dành cho
-                  trẻ em, chúng tôi đã xây dựng nên một thương hiệu dựa trên nền
-                  tảng của sự tận tâm và trách nhiệm.
+                  Với tâm huyết mang hương vị bò né, bò kho đậm đà chuẩn gốc Sài
+                  Gòn đến với thực khách Đà thành, chúng tôi đã xây dựng nên một
+                  thương hiệu dựa trên nền tảng của sự tử tế và trách nhiệm.
                 </p>
                 <p className="text-lg">
                   Triết lý kinh doanh của chúng tôi gói gọn trong câu nói:{" "}
                   <strong className="text-orange-600 text-xl">
                     &ldquo;Khách hàng là ân nhân&rdquo;
                   </strong>
-                  . Mỗi khách hàng không chỉ là một người mua, mà còn là người
-                  đồng hành cùng chúng tôi trong việc chăm sóc các bé.
+                  . Mỗi đối tác không chỉ là một khách hàng, mà là một người bạn
+                  đồng hành. Chúng tôi hiểu rằng, thành công của quán chính là
+                  thước đo cho sự thành công của chúng tôi.
                 </p>
                 <p className="text-lg">
-                  Vì vậy, chúng tôi không chỉ bán hàng, chúng tôi còn mang đến
-                  sự tận tâm, cam kết về chất lượng ổn định và sự an toàn tuyệt
-                  đối trong từng sản phẩm.
+                  Vì vậy, chúng tôi không chỉ giao hàng, chúng tôi giao cả sự
+                  tận tâm, cam kết về chất lượng ổn định và sự an toàn tuyệt đối
+                  trong từng sản phẩm.
                 </p>
                 <div className="pt-4">
                   <Link href="#products">
@@ -408,8 +439,8 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-6 rounded-full"></div>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-lg">
-              Sản phẩm chất lượng cao, an toàn cho bé, đảm bảo sức khỏe và sự
-              phát triển toàn diện.
+              Nguyên liệu tươi ngon, tẩm ướp theo công thức gia truyền, đảm bảo
+              hương vị đồng nhất và hấp dẫn.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {featuredProducts.map((product, index) => (
@@ -669,11 +700,11 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                  Chính Sách Đại Lý
+                  Chuyển Giao Công Thức
                 </h3>
                 <p className="text-gray-600 text-lg">
-                  Chính sách ưu đãi đặc biệt dành cho đối tác, hỗ trợ marketing
-                  và xây dựng thương hiệu.
+                  Hướng dẫn chi tiết phương pháp chế biến để đảm bảo món ăn ra
+                  lò luôn thơm ngon, chuẩn vị.
                 </p>
               </div>
               <div className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] group">
@@ -694,11 +725,11 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                  Đào Tạo Nhân Viên
+                  Hỗ Trợ Dụng Cụ
                 </h3>
                 <p className="text-gray-600 text-lg">
-                  Hướng dẫn chi tiết về sản phẩm, kỹ năng tư vấn và chăm sóc
-                  khách hàng chuyên nghiệp.
+                  Chính sách cho thuê/mượn các dụng cụ chế biến cần thiết, giúp
+                  bạn giảm chi phí đầu tư ban đầu.
                 </p>
               </div>
             </div>
