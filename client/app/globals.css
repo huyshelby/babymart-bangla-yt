@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./animations.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -76,6 +77,23 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* BabyMart brand colors */
+  --brand-orange: #ff6b35;
+  --brand-orange-light: #ff9a6a;
+  --brand-orange-dark: #e54e00;
+  --brand-blue: #4cb4d7;
+  --brand-blue-light: #7acce5;
+  --brand-blue-dark: #2596bf;
+  --brand-green: #74c365;
+  --brand-green-light: #97d48c;
+  --brand-green-dark: #53a745;
+  --brand-pink: #f4a6c7;
+  --brand-pink-light: #f9cde0;
+  --brand-pink-dark: #e4699b;
+  --brand-yellow: #ffc44c;
+  --brand-yellow-light: #ffd57f;
+  --brand-yellow-dark: #f9ae18;
 }
 
 .dark {
@@ -133,4 +151,62 @@
 
 .modal {
   transition: opacity 0.25s ease;
+}
+
+/* Improved Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold leading-tight;
+}
+
+h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  @apply text-xl md:text-2xl;
+}
+
+p {
+  @apply leading-relaxed;
+}
+
+/* Accessibility */
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500;
+}
+
+/* Product Card Enhancements */
+.product-card {
+  @apply bg-white rounded-lg shadow-sm overflow-hidden transition-all hover:shadow-md;
+}
+
+.product-card-image {
+  @apply aspect-square relative overflow-hidden;
+}
+
+.product-card-image img {
+  @apply object-cover w-full h-full transition-transform duration-300;
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.05);
+}
+
+.product-card-content {
+  @apply p-4;
+}
+
+.product-card-title {
+  @apply font-semibold text-gray-800 mb-1 line-clamp-2 transition-colors hover:text-orange-500;
 }

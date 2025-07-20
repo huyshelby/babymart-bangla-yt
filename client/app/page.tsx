@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
@@ -9,11 +9,19 @@ import { ImageModal } from "@/components/ImageModal";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { products } from "@/data/products";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalTitle, setModalTitle] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Simulate content loaded for fade-in animations
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const openModal = (imageSrc: string, title: string) => {
     setModalImage(imageSrc);
@@ -21,41 +29,8 @@ export default function Home() {
     setModalOpen(true);
   };
 
-  const products = [
-    {
-      id: 1,
-      name: "Quần Áo Trẻ Em",
-      description:
-        "Chất liệu cotton mềm mại, thấm hút tốt, an toàn cho làn da bé.",
-      price: "120.000đ",
-      unit: "bộ",
-      imageSrc: "/images/product1.jpg",
-    },
-    {
-      id: 2,
-      name: "Đồ Chơi Giáo Dục",
-      description:
-        "Đồ chơi phát triển trí tuệ, kích thích khả năng sáng tạo cho bé.",
-      price: "170.000đ",
-      unit: "bộ",
-      imageSrc: "/images/product2.jpg",
-    },
-    {
-      id: 3,
-      name: "Sữa Dinh Dưỡng",
-      description: "Đầy đủ dinh dưỡng, hỗ trợ phát triển toàn diện cho bé yêu.",
-      price: "250.000đ",
-      unit: "hộp",
-      imageSrc: "/images/product3.jpg",
-    },
-    {
-      id: 4,
-      name: "Tã Cao Cấp",
-      description: "Mềm mại, thấm hút tốt, không gây kích ứng da bé.",
-      price: "Liên hệ",
-      imageSrc: "/images/product4.jpg",
-    },
-  ];
+  // Featured products (first 4 products)
+  const featuredProducts = products.slice(0, 4);
 
   const certificates = [
     {
@@ -97,19 +72,29 @@ export default function Home() {
               opacity: 0.8,
             }}
           ></div>
-          <div className="container relative z-10 mx-auto px-6 py-24 md:py-32 text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+          <div
+            className={`container relative z-10 mx-auto px-6 py-24 md:py-32 text-center ${
+              isLoaded ? "animate-fade-in" : "opacity-0"
+            }`}
+          >
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-slide-up">
               Sản Phẩm Cho Bé Yêu Của Bạn
             </h1>
-            <p className="text-lg md:text-2xl font-semibold mb-8">
+            <p
+              className="text-lg md:text-2xl font-semibold mb-8 animate-slide-up"
+              style={{ animationDelay: "0.1s" }}
+            >
               CHẤT LƯỢNG - AN TOÀN - GIÁ CẢ HỢP LÝ
             </p>
-            <div className="flex justify-center flex-wrap gap-4">
+            <div
+              className="flex justify-center flex-wrap gap-4 animate-slide-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               <Link href="#products">
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="bg-white text-orange-600 font-bold hover:bg-gray-200 transition text-lg"
+                  className="bg-white text-orange-600 font-bold hover:bg-gray-200 transition text-lg focus-ring"
                 >
                   Xem Sản Phẩm
                 </Button>
@@ -118,7 +103,7 @@ export default function Home() {
                 <Button
                   variant="default"
                   size="lg"
-                  className="bg-orange-500 text-white font-bold hover:bg-orange-600 transition text-lg"
+                  className="bg-orange-500 text-white font-bold hover:bg-orange-600 transition text-lg focus-ring"
                 >
                   Liên Hệ Ngay
                 </Button>
@@ -183,16 +168,23 @@ export default function Home() {
               phát triển toàn diện.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {products.map((product) => (
+              {featuredProducts.map((product, index) => (
                 <ProductCard
                   key={product.id}
-                  imageSrc={product.imageSrc}
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  unit={product.unit}
+                  product={product}
+                  priority={index < 2} // Only prioritize loading the first two products
                 />
               ))}
+            </div>
+            <div className="text-center mt-12">
+              <Link href="/products">
+                <Button
+                  variant="outline"
+                  className="border-orange-500 text-orange-500 hover:bg-orange-50"
+                >
+                  Xem tất cả sản phẩm
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -243,7 +235,23 @@ export default function Home() {
               chiến lược, đồng hành cùng sự thành công của bạn.
             </p>
             <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="bg-orange-100 text-orange-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                   Tư Vấn Mở Cửa Hàng
                 </h3>
@@ -252,7 +260,23 @@ export default function Home() {
                   kinh nghiệm vận hành hiệu quả.
                 </p>
               </div>
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="bg-orange-100 text-orange-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                   Chính Sách Đại Lý
                 </h3>
@@ -261,7 +285,23 @@ export default function Home() {
                   và xây dựng thương hiệu.
                 </p>
               </div>
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="bg-orange-100 text-orange-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                   Đào Tạo Nhân Viên
                 </h3>
@@ -310,9 +350,18 @@ export default function Home() {
                   </h3>
                   <a
                     href="tel:0123456789"
-                    className="text-orange-600 text-xl font-bold hover:underline"
+                    className="text-orange-600 text-xl font-bold hover:underline focus-ring rounded"
                   >
                     0123.456.789
+                  </a>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">Email</h3>
+                  <a
+                    href="mailto:info@babymart.vn"
+                    className="text-orange-600 hover:underline focus-ring rounded"
+                  >
+                    info@babymart.vn
                   </a>
                 </div>
                 <div>
@@ -332,17 +381,74 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="md:w-1/2 h-[450px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5208774208633!2d106.69945361462193!3d10.771960562322634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f40a3b49e59%3A0xa1bd35b9e39908f7!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaG9hIGjhu41jIFThu7Egbmhpw6puIFRwLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1661692171176!5m2!1svi!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-lg"
-                ></iframe>
+              <div className="md:w-1/2">
+                <form className="space-y-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Họ và tên
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="mt-1 focus:ring-orange-500 focus:border-orange-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Nhập họ tên của bạn"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="mt-1 focus:ring-orange-500 focus:border-orange-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="email@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Số điện thoại
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      className="mt-1 focus:ring-orange-500 focus:border-orange-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="0123 456 789"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Nội dung
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="mt-1 focus:ring-orange-500 focus:border-orange-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      placeholder="Nhập nội dung liên hệ..."
+                    ></textarea>
+                  </div>
+                  <div>
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="w-full bg-orange-500 hover:bg-orange-600"
+                    >
+                      Gửi tin nhắn
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
