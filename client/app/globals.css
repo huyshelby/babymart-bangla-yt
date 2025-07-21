@@ -78,22 +78,16 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* BabyMart brand colors */
-  --brand-orange: #ff6b35;
-  --brand-orange-light: #ff9a6a;
-  --brand-orange-dark: #e54e00;
-  --brand-blue: #4cb4d7;
-  --brand-blue-light: #7acce5;
-  --brand-blue-dark: #2596bf;
-  --brand-green: #74c365;
-  --brand-green-light: #97d48c;
-  --brand-green-dark: #53a745;
-  --brand-pink: #f4a6c7;
-  --brand-pink-light: #f9cde0;
-  --brand-pink-dark: #e4699b;
-  --brand-yellow: #ffc44c;
-  --brand-yellow-light: #ffd57f;
-  --brand-yellow-dark: #f9ae18;
+  /* New brand colors for 33 Ngon - Vietnamese food theme */
+  --brand-green: #166534; /* Dark green from logo */
+  --brand-green-light: #16a34a;
+  --brand-green-dark: #14532d;
+  --brand-red: #dc2626; /* Red from logo */
+  --brand-red-light: #ef4444;
+  --brand-red-dark: #b91c1c;
+  --brand-bg: #fffbeb; /* Light cream background */
+  --brand-bg-light: #ffffff;
+  --brand-bg-dark: #f7fee7;
 }
 
 .dark {
@@ -136,13 +130,14 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
+    font-family: "Be Vietnam Pro", sans-serif;
+    background-color: var(--brand-bg);
   }
 }
 
 /* Custom styles from the template */
 .section-title {
-  @apply text-3xl md:text-4xl font-bold text-gray-800 text-center mb-4;
+  @apply font-black text-2xl md:text-4xl text-center mb-8 uppercase;
 }
 
 .section-subtitle {
@@ -151,6 +146,59 @@
 
 .modal {
   transition: opacity 0.25s ease;
+}
+
+/* Brand-specific classes */
+.brand-text-green {
+  color: var(--brand-green);
+}
+
+.brand-bg-green {
+  background-color: var(--brand-green);
+}
+
+.brand-text-red {
+  color: var(--brand-red);
+}
+
+.brand-bg-red {
+  background-color: var(--brand-red);
+}
+
+/* Table styling */
+.table-header {
+  background-color: var(--brand-green);
+  color: white;
+}
+
+.price-table th,
+.price-table td {
+  @apply py-3 px-4 text-left border-b border-gray-200;
+}
+
+.price-table tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+.price-table tr:hover {
+  @apply bg-gray-100;
+}
+
+/* Hero section */
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.imgur.com/eG13v6F.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Navigation links */
+.nav-link {
+  @apply transition-colors duration-300;
+}
+
+.nav-link:hover {
+  color: var(--brand-red);
 }
 
 /* Improved Typography */
@@ -183,7 +231,7 @@ p {
 
 /* Accessibility */
 .focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500;
 }
 
 /* Product Card Enhancements */
@@ -208,7 +256,7 @@ p {
 }
 
 .product-card-title {
-  @apply font-semibold text-gray-800 mb-1 line-clamp-2 transition-colors hover:text-orange-500;
+  @apply font-semibold text-gray-800 mb-1 line-clamp-2 transition-colors hover:text-red-500;
 }
 
 /* Custom scrollbar for modern browsers */
@@ -221,19 +269,19 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-orange);
+  background: var(--brand-green);
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-orange-dark);
+  background: var(--brand-green-dark);
 }
 
 /* Firefox scrollbar styling */
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--brand-orange) rgba(240, 240, 240, 0.7);
+  scrollbar-color: var(--brand-green) rgba(240, 240, 240, 0.7);
   scroll-behavior: smooth;
 }
 
@@ -248,11 +296,7 @@ html {
   top: 0;
   left: 0;
   height: 4px;
-  background: linear-gradient(
-    to right,
-    var(--brand-orange),
-    var(--brand-orange-light)
-  );
+  background: linear-gradient(to right, var(--brand-green), var(--brand-red));
   z-index: 9999;
   width: 0%;
   transition: width 0.2s;

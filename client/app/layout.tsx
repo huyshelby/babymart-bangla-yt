@@ -11,17 +11,32 @@ const inter = Inter({
   display: "swap",
 });
 
+// Add Be Vietnam Pro font
+import { Be_Vietnam_Pro } from "next/font/google";
+
+const beVietnamPro = Be_Vietnam_Pro({
+  variable: "--font-be-vietnam-pro",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    template: "%s | BÒ NÉ, BÒ KHO SAI GON",
-    default: "BÒ NÉ, BÒ KHO SAI GON",
+    template: "%s | Đại Lý Thực Phẩm 33 Ngon",
+    default: "Đại Lý Thực Phẩm 33 Ngon - Bò Né, Bò Kho Sài Gòn",
   },
   description:
-    "Chuyên cung cấp các sản phẩm bò né, bò kho sai gón chất lượng cao, an toàn. Cam kết an toàn vệ sinh, giá cả cạnh tranh. Đối tác tin cậy cho các bậc phụ huynh.",
-  keywords: ["bò né", "bò kho sai gón", "bò né sai gón", "bò né sai gón"],
-  authors: [{ name: "BÒ NÉ, BÒ KHO SAI GON" }],
-  creator: "BÒ NÉ, BÒ KHO SAI GON",
-  publisher: "BÒ NÉ, BÒ KHO SAI GON",
+    "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm, giá cả cạnh tranh.",
+  keywords: [
+    "thực phẩm 33 ngon",
+    "bò né đà nẵng",
+    "bò kho sài gòn",
+    "cung cấp thực phẩm đà nẵng",
+  ],
+  authors: [{ name: "33 NGON" }],
+  creator: "33 NGON",
+  publisher: "33 NGON",
   robots: {
     index: true,
     follow: true,
@@ -33,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ff6b35",
+  themeColor: "#166534", // Updated to new green color
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -45,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${inter.variable} scroll-smooth`}>
+    <html
+      lang="vi"
+      className={`${inter.variable} ${beVietnamPro.variable} scroll-smooth`}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -57,8 +75,9 @@ export default function RootLayout({
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
+        <link rel="icon" href="/images/logo/logo.jpg" type="image/jpg" />
       </head>
-      <body className="min-h-screen bg-gray-50 antialiased">
+      <body className="min-h-screen bg-[#FFFBEB] antialiased">
         <ScrollProgressBar />
         {children}
         <ContactPopup />
