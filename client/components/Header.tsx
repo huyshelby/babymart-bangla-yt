@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import SmoothScrollLink from "./SmoothScrollLink";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -145,9 +146,10 @@ export function Header() {
             { href: "#partners", label: "Đối Tác" },
             { href: "#contact", label: "Liên Hệ" },
           ].map((item, index) => (
-            <Link
+            <SmoothScrollLink
               key={item.href}
               href={item.href}
+              offset={80}
               className={`relative px-3 py-2 transition-all duration-300 group font-medium ${
                 scrolled
                   ? "text-gray-700 hover:text-orange-600"
@@ -167,7 +169,7 @@ export function Header() {
                 className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400/30 blur-sm transition-all duration-500 group-hover:w-full"
                 style={{ transitionDelay: "0.1s" }}
               ></span>
-            </Link>
+            </SmoothScrollLink>
           ))}
         </nav>
 
@@ -350,9 +352,10 @@ export function Header() {
                       icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
                     },
                   ].map((item, index) => (
-                    <Link
+                    <SmoothScrollLink
                       key={item.href}
                       href={item.href}
+                      offset={80}
                       className="flex items-center p-4 rounded-lg text-gray-700 hover:bg-orange-100 hover:text-orange-700 transition-all duration-300 group hover:translate-x-1"
                       onClick={closeMobileMenu}
                       style={{
@@ -380,7 +383,7 @@ export function Header() {
                         </svg>
                       </span>
                       <span className="font-medium">{item.label}</span>
-                    </Link>
+                    </SmoothScrollLink>
                   ))}
                 </div>
 

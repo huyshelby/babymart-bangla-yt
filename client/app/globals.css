@@ -210,3 +210,60 @@ p {
 .product-card-title {
   @apply font-semibold text-gray-800 mb-1 line-clamp-2 transition-colors hover:text-orange-500;
 }
+
+/* Custom scrollbar for modern browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange-dark);
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-orange) rgba(240, 240, 240, 0.7);
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling behavior for the entire site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Progress bar at the top of the page */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--brand-orange),
+    var(--brand-orange-light)
+  );
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-progress-bar {
+    transition: none;
+  }
+}
