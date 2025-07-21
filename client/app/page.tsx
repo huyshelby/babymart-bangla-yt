@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ImageModal } from "@/components/ImageModal";
@@ -11,6 +11,12 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalTitle, setModalTitle] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after page load
+    setIsLoaded(true);
+  }, []);
 
   const openModal = (imageSrc: string, title: string) => {
     setModalImage(imageSrc);
@@ -23,22 +29,131 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="hero-section text-white py-20 md:py-32">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wider mb-4">
-              Đại Lý Thực Phẩm 33 Ngon
-            </h1>
-            <p className="text-lg md:text-2xl font-medium mb-8">
-              Chuyên cung cấp Bò Né - Bò Kho Sài Gòn tại Đà Nẵng
-            </p>
-            <div className="bg-white/20 backdrop-blur-sm inline-block p-4 rounded-lg">
-              <p
-                className="text-2xl md:text-3xl font-bold brand-text-red"
-                style={{ textShadow: "1px 1px 2px #3c3a3a" }}
+        {/* Hero Section - Enhanced */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+          {/* Background with parallax effect */}
+          <div
+            className="absolute inset-0 bg-black"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("/images/background.jpg")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              filter: "brightness(0.9)",
+            }}
+          >
+            {/* Animated overlay pattern */}
+            <div
+              className="absolute inset-0 opacity-20 animate-aurora"
+              style={{
+                backgroundImage: `url("/images/food-pattern.svg")`,
+                backgroundSize: "300px",
+              }}
+            />
+          </div>
+
+          {/* Content */}
+          <div className="container mx-auto px-6 z-10 relative py-20">
+            {/* Decorative elements */}
+            <div className="absolute left-10 top-10 opacity-70 hidden lg:block animate-float">
+              <Image
+                src="/images/spoon-divider.svg"
+                alt=""
+                width={100}
+                height={40}
+              />
+            </div>
+            <div className="absolute right-10 bottom-10 opacity-70 hidden lg:block animate-float-slow">
+              <Image src="/images/bo-ne.svg" alt="" width={80} height={80} />
+            </div>
+
+            {/* Main content with animations */}
+            <div className="text-center max-w-4xl mx-auto">
+              <div
+                className={`transform ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                } transition-all duration-1000 ease-out`}
               >
-                MUA BÁN THẢ GA - KHÔNG LO VỀ GIÁ
-              </p>
+                <h1 className="text-5xl md:text-7xl font-black uppercase tracking-wider mb-6 text-white">
+                  <span className="animate-text-shimmer inline-block bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent">
+                    Đại Lý Thực Phẩm 33 Ngon
+                  </span>
+                </h1>
+              </div>
+
+              <div
+                className={`transform ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                } transition-all duration-1000 delay-300 ease-out`}
+              >
+                <p className="text-xl md:text-3xl font-medium mb-10 text-white/90">
+                  Chuyên cung cấp Bò Né - Bò Kho Sài Gòn tại Đà Nẵng
+                </p>
+              </div>
+
+              <div
+                className={`transform ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                } transition-all duration-1000 delay-500 ease-out`}
+              >
+                <div className="glass-card relative overflow-hidden p-6 rounded-xl backdrop-blur-md border border-white/20">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 to-amber-600/40 z-0"></div>
+                  <p
+                    className="relative z-10 text-2xl md:text-4xl font-bold text-white"
+                    style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}
+                  >
+                    MUA BÁN THẢ GA - KHÔNG LO VỀ GIÁ
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div
+                className={`mt-10 flex flex-wrap gap-4 justify-center transform ${
+                  isLoaded
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                } transition-all duration-1000 delay-700 ease-out`}
+              >
+                <Link
+                  href="#san-pham"
+                  className="px-8 py-3 bg-white/90 hover:bg-white text-red-600 font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
+                >
+                  Xem Sản Phẩm
+                </Link>
+                <Link
+                  href="#lien-he"
+                  className="px-8 py-3 bg-red-600/90 hover:bg-red-600 text-white font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
+                >
+                  Liên Hệ Ngay
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <div className="w-10 h-10 rounded-full border-2 border-white/50 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-white/70"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </div>
           </div>
         </section>
@@ -165,7 +280,7 @@ export default function Home() {
         <section id="bang-gia" className="py-16 bg-white">
           <div className="container mx-auto px-6">
             <h2 className="section-title brand-text-green">
-              Bảng Giá Sản Phẩm
+              Sản phẩm đa dạng và được đáp ứng kịp thời
             </h2>
             <div className="max-w-5xl mx-auto overflow-x-auto shadow-lg rounded-lg">
               <table className="w-full text-sm md:text-base price-table">
