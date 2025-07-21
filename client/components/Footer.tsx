@@ -37,13 +37,15 @@ export function Footer() {
           {/* Column 1: About */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 relative">
+              <div className="w-14 h-14 relative overflow-hidden rounded-full border-2 border-orange-300 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent z-0"></div>
                 <Image
-                  src="/images/logo/logo.png"
+                  src="/images/logo/logo.jpg"
                   alt="BÒ NÉ, BÒ KHO SAI GON"
                   fill
-                  className="object-contain"
+                  className="object-cover p-0.5 z-10 rounded-full group-hover:brightness-110 transition-all duration-300"
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 via-yellow-300/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               <div>
                 <h3 className="font-bold text-lg bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">

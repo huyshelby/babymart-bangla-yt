@@ -90,15 +90,33 @@ export function Header() {
           <div
             className={`relative h-16 w-16 overflow-hidden rounded-full border-2 border-orange-400 shadow-lg transition-all duration-500 ${
               animationComplete ? "animate-gentle-pulse" : ""
-            } group-hover:scale-110 group-hover:border-orange-500`}
+            } group-hover:scale-110 group-hover:border-orange-500 group-hover:shadow-xl`}
           >
+            {/* Light rays background effect */}
+            <div className="absolute inset-0 origin-center">
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute top-1/2 left-1/2 w-full h-0.5 bg-gradient-to-r from-orange-300/40 to-transparent"
+                  style={{
+                    transform: `rotate(${i * 45}deg)`,
+                    transformOrigin: "left center",
+                    opacity: 0.3,
+                    animation: `pulse-slow ${3 + i * 0.2}s infinite ${
+                      i * 0.1
+                    }s`,
+                  }}
+                ></div>
+              ))}
+            </div>
+
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full z-0"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full z-0 animate-spin-slow"></div>
             <Image
               src="/images/logo/logo.jpg"
               alt="Bò Né Sài Gòn Logo"
               fill
-              className="object-contain p-1.5 z-10 transition-transform duration-500 group-hover:rotate-3"
+              className="object-cover p-1 z-10 transition-transform duration-500 group-hover:scale-[1.03] group-hover:brightness-110 rounded-full"
             />
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-300 to-orange-400 rounded-full blur-md opacity-0 group-hover:opacity-20 transition duration-300 z-0"></div>
           </div>
@@ -281,15 +299,15 @@ export function Header() {
             <div className="relative z-10">
               <div className="flex justify-between items-center p-6 border-b border-orange-100">
                 <div className="flex items-center space-x-2">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full"></div>
+                  <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-orange-300 shadow-lg transition-transform hover:scale-105 duration-300 group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full z-0"></div>
                     <Image
-                      src="/images/logo/logo.png"
+                      src="/images/logo/logo.jpg"
                       alt="Bò Né Sài Gòn Logo"
-                      width={40}
-                      height={40}
-                      className="rounded-full border border-orange-300 relative z-10 animate-gentle-pulse"
+                      fill
+                      className="object-cover p-0.5 z-10 group-hover:brightness-110 transition-all duration-300"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 via-yellow-300/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"></div>
                   </div>
                   <div className="flex flex-col">
                     <span className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 animate-text-shimmer bg-[size:200%]">
