@@ -1,17 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-spoon-fork">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Spoon handle gradient -->
+  <linearGradient id="handleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#D3D3D3" />
+    <stop offset="30%" stop-color="#F5F5F5" />
+    <stop offset="50%" stop-color="#FFFFFF" />
+    <stop offset="70%" stop-color="#F5F5F5" />
+    <stop offset="100%" stop-color="#D3D3D3" />
+  </linearGradient>
+  
+  <!-- Spoon bowl gradient -->
+  <linearGradient id="bowlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#D3D3D3" />
+    <stop offset="30%" stop-color="#F5F5F5" />
+    <stop offset="70%" stop-color="#E0E0E0" />
+    <stop offset="100%" stop-color="#C0C0C0" />
+  </linearGradient>
+  
+  <g transform="rotate(45, 150, 150)">
+    <!-- Spoon handle -->
+    <rect x="140" y="40" width="20" height="180" rx="10" fill="url(#handleGradient)" />
     
-    <title>85</title>
+    <!-- Spoon bowl -->
+    <ellipse cx="150" cy="240" rx="40" ry="30" fill="url(#bowlGradient)" />
+    <ellipse cx="150" cy="240" rx="30" ry="20" fill="#F8F8F8" />
     
-    <defs>
-</defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(2.000000, 0.000000)" fill="#434343">
-            <path d="M4.978,4.072 C4.978,2.226 3.805,0.062 2.497,0.062 C1.189,0.062 0.015,2.226 0.015,4.072 C0.015,5.67 1.068,6.386 2.181,6.716 C2.181,6.716 2.46,11.254 1.517,14.76 C1.318,15.508 2.105,16.016 2.543,16.016 C2.974,16.016 3.755,15.52 3.558,14.785 C2.617,11.235 2.844,6.745 2.844,6.745 C3.91,6.372 4.978,5.627 4.978,4.072 L4.978,4.072 Z" class="si-glyph-fill">
-</path>
-            <path d="M8.814,6.605 C9.888,6.192 10.937,5.965 10.937,4.099 C10.937,3.089 10.414,0.754 10.031,0.066 L10.031,4.054 L8.984,4.054 L8.984,0.054 L8.015,0.055 L8.015,4.054 L6.953,4.054 L6.953,0.066 C6.566,0.764 6.023,3.073 6.023,4.086 C6.023,5.932 7.103,6.176 8.171,6.591 C8.212,7.871 8.268,11.825 7.501,14.722 C7.303,15.469 8.079,15.977 8.51,15.977 C8.935,15.977 9.702,15.481 9.509,14.747 C8.755,11.866 8.763,7.968 8.792,6.606 L8.814,6.606 L8.814,6.605 Z" class="si-glyph-fill">
-</path>
-        </g>
-    </g>
+    <!-- Highlights -->
+    <ellipse cx="150" cy="240" rx="20" ry="12" fill="#FFFFFF" opacity="0.6" />
+    <rect x="145" y="60" width="10" height="160" fill="#FFFFFF" opacity="0.3" />
+    
+    <!-- Shadows -->
+    <ellipse cx="150" cy="240" rx="35" ry="25" stroke="#A0A0A0" stroke-width="1" fill="none" />
+  </g>
 </svg>

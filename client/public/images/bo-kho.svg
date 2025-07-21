@@ -1,0 +1,40 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bowl (background) -->
+  <ellipse cx="200" cy="220" rx="150" ry="80" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  <ellipse cx="200" cy="220" rx="130" ry="70" fill="#8B0000" stroke="#5d0000" stroke-width="1" opacity="0.9"/>
+  
+  <!-- Broth Surface -->
+  <ellipse cx="200" cy="220" rx="120" ry="60" fill="#a52a2a" stroke="none"/>
+  
+  <!-- Beef Cubes -->
+  <rect x="160" y="190" width="30" height="25" rx="5" fill="#5d2906"/>
+  <rect x="210" y="200" width="30" height="25" rx="5" fill="#5d2906"/>
+  <rect x="180" y="210" width="25" height="25" rx="5" fill="#5d2906"/>
+  
+  <!-- Carrots -->
+  <ellipse cx="150" cy="200" rx="10" ry="7" fill="#ff7f50"/>
+  <ellipse cx="220" cy="185" rx="10" ry="7" fill="#ff7f50"/>
+  <ellipse cx="250" cy="210" rx="10" ry="7" fill="#ff7f50"/>
+  
+  <!-- Onions -->
+  <circle cx="170" cy="180" r="8" fill="#f0e68c"/>
+  <circle cx="240" cy="195" r="8" fill="#f0e68c"/>
+  
+  <!-- Herbs -->
+  <path d="M140,175 Q150,165 160,175" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M230,170 Q240,160 250,170" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <path d="M260,190 Q270,180 280,190" stroke="#4caf50" stroke-width="2" fill="none"/>
+  
+  <!-- Steam lines -->
+  <path d="M170,160 Q180,140 190,160" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M200,150 Q210,130 220,150" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M230,160 Q240,140 250,160" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- French Bread Side -->
+  <path d="M300,240 L340,220 L340,250 L300,270 Z" fill="#f6d7a7" stroke="#e0c080" stroke-width="1"/>
+  <path d="M300,240 L340,220 L340,225 L300,245 Z" fill="#ffffff" stroke="none" opacity="0.3"/>
+  
+  <!-- Chopsticks -->
+  <line x1="110" y1="180" x2="160" y2="210" stroke="#8B4513" stroke-width="3"/>
+  <line x1="105" y1="175" x2="155" y2="205" stroke="#8B4513" stroke-width="3"/>
+</svg> 
