@@ -95,7 +95,7 @@ export function Header() {
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full z-0"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full z-0 animate-spin-slow"></div>
             <Image
-              src="/images/logo.png"
+              src="/images/logo/logo.jpg"
               alt="Bò Né Sài Gòn Logo"
               fill
               className="object-contain p-1.5 z-10 transition-transform duration-500 group-hover:rotate-3"
@@ -284,7 +284,7 @@ export function Header() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full"></div>
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logo/logo.png"
                       alt="Bò Né Sài Gòn Logo"
                       width={40}
                       height={40}

@@ -36,12 +36,12 @@ export default function Home() {
     {
       id: 4,
       title: "Chứng nhận an toàn thực phẩm",
-      imageSrc: "/images/giaychungnhan4.jpg",
+      imageSrc: "/images/kiemdinh/giaychungnhan4.jpg",
     },
     {
       id: 5,
       title: "Chứng nhận an toàn thực phẩm",
-      imageSrc: "/images/giaychungnhan5.jpg",
+      imageSrc: "/images/kiemdinh/giaychungnhan5.jpg",
     },
   ];
 

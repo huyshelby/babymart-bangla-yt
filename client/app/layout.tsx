@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ContactPopup } from "@/components/ContactPopup";
-import ScrollToTop from "@/components/ScrollToTop";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const inter = Inter({
@@ -63,7 +62,6 @@ export default function RootLayout({
         <ScrollProgressBar />
         {children}
         <ContactPopup />
-        <ScrollToTop />
       </body>
     </html>
   );
