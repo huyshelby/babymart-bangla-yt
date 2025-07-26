@@ -167,14 +167,14 @@ export default function Home() {
         {/* About Us Section */}
         <section id="gioi-thieu" className="py-16 bg-[#F8F9FA]">
           <div className="container mx-auto px-6">
-            <h2 className="section-title text-[#27AE60]">Về Chúng Tôi</h2>
-            <div className="max-w-4xl mx-auto text-center text-lg text-[#212529] mb-12">
+            <h2 className="section-title text-[#27AE60]">Giới Thiệu Chung</h2>
+            {/* <div className="max-w-4xl mx-auto text-center text-lg text-[#212529] mb-12">
               <p>
                 Đại lý 33 Ngon là đối tác đáng tin cậy của nhiều cửa hàng, quán
                 ăn tại Đà Nẵng, chuyên cung cấp các loại thực phẩm chế biến sẵn,
                 đặc biệt là Bò né và Bò kho chuẩn vị Sài Gòn.
               </p>
-            </div>
+            </div> */}
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="bg-white p-8 rounded-lg shadow-sm">
                 <div className="bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
@@ -197,8 +197,9 @@ export default function Home() {
                   GIÁ CẢ TỐT NHẤT
                 </h3>
                 <p className="text-[#212529]">
-                  Chúng tôi cam kết mang đến mức giá cạnh tranh nhất thị trường,
-                  giúp quý khách tối ưu hóa lợi nhuận kinh doanh.
+                  Chuyên cung cấp các loại thực phẩm cao cấp chế biến Bò né cho
+                  các nhà hàng, quán ăn theo yêu cầu đảm bảo GIÁ CẢ TỐT NHẤT VÀ
+                  CẠNH TRANH.
                 </p>
               </div>
 
@@ -223,8 +224,9 @@ export default function Home() {
                   CHẤT LƯỢNG HÀNG ĐẦU
                 </h3>
                 <p className="text-[#212529]">
-                  Sản phẩm được sản xuất đảm bảo ATVSTP, chuẩn vị gốc, đúng
-                  trọng lượng, được khách hàng tin dùng.
+                  Các thực phẩm được sản xuất đảm bảo ATVSTP, chuẩn vị gốc, đảm
+                  bảo CHẤT LƯỢNG VÀ TRỌNG LƯỢNG và đang được khách hàng yên mến,
+                  tin dùng trên thị trường hiện nay.
                 </p>
               </div>
 
@@ -249,36 +251,194 @@ export default function Home() {
                   DỊCH VỤ TẬN TÂM
                 </h3>
                 <p className="text-[#212529]">
-                  Phục vụ chu đáo, giao hàng tận nơi nhanh chóng cùng nhiều
-                  chương trình khuyến mãi hấp dẫn cho đối tác.
+                  Đến với chúng tôi quý khách yên tâm về GIÁ và luôn được phục
+                  vụ tận tâm chu đáo cùng với nhiều chương trình khuyến mại hấp
+                  dẫn.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Products Section */}
-        <section id="san-pham" className="py-16 bg-[#F8F9FA]">
+        {/* Main Products Section */}
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-6">
-            <h2 className="section-title text-[#27AE60]">Sản Phẩm Nổi Bật</h2>
-            <div className="flex justify-center">
-              <img
-                src="/images/background/sanpham.jpg"
-                alt="Các sản phẩm của 33 Ngon"
-                className="rounded-lg shadow-2xl max-w-full md:max-w-4xl h-auto"
-                onError={(e) => {
-                  // Fallback for image error
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src =
-                    "https://placehold.co/1024x683/cccccc/FFFFFF?text=A%CC%89nh+Sa%CC%89n+Ph%C3%A2%CC%89m";
-                }}
-              />
+            <h2 className="section-title text-[#27AE60]">
+              MỘT SỐ SẢN PHẨM CHÍNH
+            </h2>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {/* Bò Né Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/products/z6821648799474_a215026adaba679db43c7e534b85dace.jpg"
+                      alt="Bò né"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Bò+Né";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">Bò né</h3>
+                    <p className="text-sm text-gray-600">Bò tươi ướp sẵn</p>
+                  </div>
+                </div>
+
+                {/* Bitstet Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/products/z6821648986534_fed0effdd4f409e144c416d976b0a954.jpg"
+                      alt="Bitstet"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Bitstet";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">
+                      Bitstet
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Bò miếng tươi ướp sẵn
+                    </p>
+                  </div>
+                </div>
+
+                {/* Pate Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/mau1.jpg"
+                      alt="Pate"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Pate";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">Pate</h3>
+                    <p className="text-sm text-gray-600">Hương vị thơm ngon</p>
+                  </div>
+                </div>
+
+                {/* Nem nướng Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/snap.jpeg"
+                      alt="Nem nướng"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Nem+Nướng";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">
+                      Nem nướng
+                    </h3>
+                    <p className="text-sm text-gray-600">Thơm ngon đặc biệt</p>
+                  </div>
+                </div>
+
+                {/* Chả quế Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/us.jpg"
+                      alt="Chả quế"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Chả+Quế";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">
+                      Chả quế
+                    </h3>
+                    <p className="text-sm text-gray-600">Đậm đà hương vị</p>
+                  </div>
+                </div>
+
+                {/* Xíu mại Card */}
+                <div className="bg-[#F8F9FA] rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                  <div className="h-48 relative overflow-hidden">
+                    <img
+                      src="/images/uss.jpg"
+                      alt="Xíu mại & Xông khói"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Xíu+Mại+%26+Xông+Khói";
+                      }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#212529]">
+                      Dầu dấm, xíu mại, xông khói
+                    </h3>
+                    <p className="text-sm text-gray-600">Sản phẩm đặc biệt</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-center mt-4 text-[#212529] italic">
-              Bao gồm: Bò né, Bò kho, Patê, Chả quế, Nem nướng và nhiều sản phẩm
-              khác.
-            </p>
+          </div>
+        </section>
+
+        {/* PHƯƠNG CHÂM KINH DOANH Section */}
+        <section id="phuong-cham" className="py-16 bg-[#F8F9FA]">
+          <div className="container mx-auto px-6">
+            <h2 className="section-title text-[#27AE60]">
+              PHƯƠNG CHÂM KINH DOANH
+            </h2>
+            <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+              <div className="space-y-6 text-[#212529]">
+                <p className="text-lg">
+                  Với tâm huyết mang hương vị bò né đậm đà chuẩn gốc Sài Gòn đến
+                  với thực khách Đà thành, chúng tôi đã xây dựng nên một thương
+                  hiệu dựa trên nền tảng của sự tử tế và trách nhiệm.
+                </p>
+
+                <p className="text-lg">
+                  Triết lý kinh doanh của chúng tôi gói gọn trong câu nói:{" "}
+                  <span className="text-[#27AE60] font-bold">
+                    "Khách hàng là ân nhân"
+                  </span>
+                  . Mỗi đối tác không chỉ là một khách hàng, mà là một người bạn
+                  đồng hành. Chúng tôi hiểu rằng, thành công của các bạn chính
+                  là thước đo cho sự thành công của chúng tôi.
+                </p>
+
+                <p className="text-lg">
+                  Vì vậy, chúng tôi không chỉ giao hàng, chúng tôi giao cả sự
+                  tận tâm, cam kết về chất lượng ổn định và sự an toàn tuyệt đối
+                  trong từng sản phẩm.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
