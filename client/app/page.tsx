@@ -35,7 +35,7 @@ export default function Home() {
           <div
             className="absolute inset-0 bg-black"
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("/images/background.jpg")`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
@@ -78,7 +78,7 @@ export default function Home() {
               >
                 <h1 className="text-5xl md:text-7xl font-black uppercase tracking-wider mb-6 text-white">
                   <span className="animate-text-shimmer inline-block bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent">
-                    Đại Lý Thực Phẩm 33 Ngon
+                    CÔNG TY THỰC PHẨM CHẾ BIẾN BÒ NÉ HẠNH
                   </span>
                 </h1>
               </div>
@@ -104,6 +104,12 @@ export default function Home() {
               >
                 <div className="glass-card relative overflow-hidden p-6 rounded-xl backdrop-blur-md border border-white/20">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#27AE60]/40 to-[#27AE60]/40 z-0"></div>
+                  <p
+                    className="relative z-10 text-xl md:text-3xl font-bold text-white mb-2"
+                    style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}
+                  >
+                    UY TÍN – AN TOÀN -CHUẨN VỊ SÀI GÒN
+                  </p>
                   <p
                     className="relative z-10 text-2xl md:text-4xl font-bold text-white"
                     style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}
