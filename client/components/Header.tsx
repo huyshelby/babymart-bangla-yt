@@ -51,10 +51,10 @@ export function Header() {
               // Fallback for image error
               const target = e.target as HTMLImageElement;
               target.onerror = null;
-              target.src = "https://placehold.co/48x48/166534/FFFFFF?text=33";
+              target.src = "https://placehold.co/48x48/27AE60/FFFFFF?text=33";
             }}
           />
-          <Link href="/" className="brand-text-green font-bold text-xl">
+          <Link href="/" className="text-[#27AE60] font-bold text-xl">
             33 NGON
           </Link>
         </div>
@@ -75,7 +75,7 @@ export function Header() {
           </SmoothScrollLink>
           <SmoothScrollLink
             href="#lien-he"
-            className="brand-bg-red text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
+            className="bg-[#27AE60] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
           >
             Liên Hệ Ngay
           </SmoothScrollLink>
@@ -85,7 +85,7 @@ export function Header() {
         <div className="md:hidden">
           <SmoothScrollLink
             href="#lien-he"
-            className="brand-bg-red text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
+            className="bg-[#27AE60] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
           >
             Liên Hệ
           </SmoothScrollLink>
@@ -134,7 +134,7 @@ export function Header() {
                   height={40}
                   className="rounded-full"
                 />
-                <span className="font-bold text-lg brand-text-green">
+                <span className="font-bold text-lg text-[#27AE60]">
                   33 NGON
                 </span>
               </div>
@@ -163,35 +163,35 @@ export function Header() {
               <nav className="space-y-1">
                 <SmoothScrollLink
                   href="#gioi-thieu"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
                   onClick={closeMobileMenu}
                 >
                   Giới Thiệu
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#san-pham"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
                   onClick={closeMobileMenu}
                 >
                   Sản Phẩm
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#bang-gia"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
                   onClick={closeMobileMenu}
                 >
                   Bảng Giá
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#chung-nhan"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-600"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
                   onClick={closeMobileMenu}
                 >
                   Chứng Nhận
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#lien-he"
-                  className="block px-4 py-2 brand-bg-red text-white font-medium mx-4 my-2 rounded-md text-center"
+                  className="block px-4 py-2 bg-[#27AE60] text-white font-medium mx-4 my-2 rounded-md text-center"
                   onClick={closeMobileMenu}
                 >
                   Liên Hệ Ngay

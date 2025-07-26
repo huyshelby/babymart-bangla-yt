@@ -103,7 +103,7 @@ export default function Home() {
                 } transition-all duration-1000 delay-500 ease-out`}
               >
                 <div className="glass-card relative overflow-hidden p-6 rounded-xl backdrop-blur-md border border-white/20">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 to-amber-600/40 z-0"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#27AE60]/40 to-[#27AE60]/40 z-0"></div>
                   <p
                     className="relative z-10 text-2xl md:text-4xl font-bold text-white"
                     style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}
@@ -123,13 +123,13 @@ export default function Home() {
               >
                 <Link
                   href="#san-pham"
-                  className="px-8 py-3 bg-white/90 hover:bg-white text-red-600 font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
+                  className="px-8 py-3 bg-white/90 hover:bg-white text-[#27AE60] font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
                 >
                   Xem Sản Phẩm
                 </Link>
                 <Link
                   href="#lien-he"
-                  className="px-8 py-3 bg-red-600/90 hover:bg-red-600 text-white font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
+                  className="px-8 py-3 bg-[#27AE60]/90 hover:bg-[#27AE60] text-white font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg"
                 >
                   Liên Hệ Ngay
                 </Link>
@@ -159,10 +159,10 @@ export default function Home() {
         </section>
 
         {/* About Us Section */}
-        <section id="gioi-thieu" className="py-16 bg-white">
+        <section id="gioi-thieu" className="py-16 bg-[#F8F9FA]">
           <div className="container mx-auto px-6">
-            <h2 className="section-title brand-text-green">Về Chúng Tôi</h2>
-            <div className="max-w-4xl mx-auto text-center text-lg text-gray-600 mb-12">
+            <h2 className="section-title text-[#27AE60]">Về Chúng Tôi</h2>
+            <div className="max-w-4xl mx-auto text-center text-lg text-[#212529] mb-12">
               <p>
                 Đại lý 33 Ngon là đối tác đáng tin cậy của nhiều cửa hàng, quán
                 ăn tại Đà Nẵng, chuyên cung cấp các loại thực phẩm chế biến sẵn,
@@ -170,8 +170,8 @@ export default function Home() {
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-                <div className="brand-bg-green text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8"
@@ -187,17 +187,17 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 brand-text-green">
+                <h3 className="text-xl font-bold mb-2 text-[#27AE60]">
                   GIÁ CẢ TỐT NHẤT
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[#212529]">
                   Chúng tôi cam kết mang đến mức giá cạnh tranh nhất thị trường,
                   giúp quý khách tối ưu hóa lợi nhuận kinh doanh.
                 </p>
               </div>
 
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-                <div className="brand-bg-green text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8"
@@ -213,17 +213,17 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 brand-text-green">
+                <h3 className="text-xl font-bold mb-2 text-[#27AE60]">
                   CHẤT LƯỢNG HÀNG ĐẦU
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[#212529]">
                   Sản phẩm được sản xuất đảm bảo ATVSTP, chuẩn vị gốc, đúng
                   trọng lượng, được khách hàng tin dùng.
                 </p>
               </div>
 
-              <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
-                <div className="brand-bg-green text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8"
@@ -239,10 +239,10 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 brand-text-green">
+                <h3 className="text-xl font-bold mb-2 text-[#27AE60]">
                   DỊCH VỤ TẬN TÂM
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[#212529]">
                   Phục vụ chu đáo, giao hàng tận nơi nhanh chóng cùng nhiều
                   chương trình khuyến mãi hấp dẫn cho đối tác.
                 </p>
@@ -252,9 +252,9 @@ export default function Home() {
         </section>
 
         {/* Products Section */}
-        <section id="san-pham" className="py-16">
+        <section id="san-pham" className="py-16 bg-[#F8F9FA]">
           <div className="container mx-auto px-6">
-            <h2 className="section-title brand-text-green">Sản Phẩm Nổi Bật</h2>
+            <h2 className="section-title text-[#27AE60]">Sản Phẩm Nổi Bật</h2>
             <div className="flex justify-center">
               <img
                 src="/images/background/sanpham.jpg"
@@ -269,7 +269,7 @@ export default function Home() {
                 }}
               />
             </div>
-            <p className="text-center mt-4 text-gray-600 italic">
+            <p className="text-center mt-4 text-[#212529] italic">
               Bao gồm: Bò né, Bò kho, Patê, Chả quế, Nem nướng và nhiều sản phẩm
               khác.
             </p>
@@ -279,12 +279,12 @@ export default function Home() {
         {/* Price List Section */}
         <section id="bang-gia" className="py-16 bg-white">
           <div className="container mx-auto px-6">
-            <h2 className="section-title brand-text-green">
+            <h2 className="section-title text-[#27AE60]">
               Sản phẩm đa dạng và được đáp ứng kịp thời
             </h2>
             <div className="max-w-5xl mx-auto overflow-x-auto shadow-lg rounded-lg">
               <table className="w-full text-sm md:text-base price-table">
-                <thead className="table-header">
+                <thead className="table-header bg-[#27AE60] text-white">
                   <tr>
                     <th className="w-8">TT</th>
                     <th>Tên sản phẩm</th>
@@ -293,7 +293,7 @@ export default function Home() {
                     <th>Ghi chú</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-[#212529]">
                   <tr>
                     <td>01</td>
                     <td>Bò né ướp sẵn</td>
@@ -362,7 +362,7 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-            <p className="text-center mt-6 text-gray-600">
+            <p className="text-center mt-6 text-[#212529]">
               Và còn nhiều sản phẩm khác. Vui lòng liên hệ để biết thêm chi
               tiết.
             </p>
@@ -370,9 +370,9 @@ export default function Home() {
         </section>
 
         {/* Food Safety Certification Section */}
-        <section id="chung-nhan" className="py-16">
+        <section id="chung-nhan" className="py-16 bg-[#F8F9FA]">
           <div className="container mx-auto px-6">
-            <h2 className="section-title brand-text-green">
+            <h2 className="section-title text-[#27AE60]">
               Chứng Nhận An Toàn Thực Phẩm
             </h2>
             <div className="grid md:grid-cols-2 gap-8 justify-items-center">
@@ -401,7 +401,7 @@ export default function Home() {
                     margin: "0 auto",
                   }}
                 />
-                <p className="text-center font-semibold mt-2">
+                <p className="text-center font-semibold mt-2 text-[#212529]">
                   Kết quả thử nghiệm ATVSTP - Patê
                 </p>
               </div>
@@ -430,7 +430,7 @@ export default function Home() {
                     margin: "0 auto",
                   }}
                 />
-                <p className="text-center font-semibold mt-2">
+                <p className="text-center font-semibold mt-2 text-[#212529]">
                   Kết quả thử nghiệm ATVSTP - Thịt bò ướp sẵn
                 </p>
               </div>
@@ -441,24 +441,22 @@ export default function Home() {
         {/* After-sales & Partners Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="section-title brand-text-green">
-              Đối Tác & Hậu Mãi
-            </h2>
+            <h2 className="section-title text-[#27AE60]">Đối Tác & Hậu Mãi</h2>
             <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-3 brand-text-green">
+              <div className="bg-[#F8F9FA] p-6 rounded-lg">
+                <h3 className="text-2xl font-bold mb-3 text-[#27AE60]">
                   Đối Tác Tin Cậy
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[#212529]">
                   Chúng tôi tự hào là nhà cung cấp cho nhiều quán ăn, nhà hàng
                   lớn nhỏ tại Đà Nẵng và các khu vực lân cận.
                 </p>
               </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-3 brand-text-green">
+              <div className="bg-[#F8F9FA] p-6 rounded-lg">
+                <h3 className="text-2xl font-bold mb-3 text-[#27AE60]">
                   Chế Độ Hậu Mãi
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[#212529]">
                   Nhiều chương trình khuyến mãi hấp dẫn, quà tặng sinh nhật và
                   chiết khấu đặc biệt cho các đối tác thân thiết.
                 </p>
@@ -468,20 +466,22 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="lien-he" className="py-16">
+        <section id="lien-he" className="py-16 bg-[#F8F9FA]">
           <div className="container mx-auto px-6">
-            <h2 className="section-title brand-text-green">
+            <h2 className="section-title text-[#27AE60]">
               Liên Hệ Với Chúng Tôi
             </h2>
             <div className="bg-white p-8 rounded-xl shadow-xl max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-bold mb-4">Thông Tin Liên Hệ</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#212529]">
+                    Thông Tin Liên Hệ
+                  </h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-red-600 mr-3 mt-1"
+                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -500,8 +500,8 @@ export default function Home() {
                         />
                       </svg>
                       <div>
-                        <p className="font-medium">Địa chỉ</p>
-                        <p className="text-gray-600">
+                        <p className="font-medium text-[#212529]">Địa chỉ</p>
+                        <p className="text-[#212529]">
                           66 Huỳnh Ngọc Huệ, Thanh Khê, Đà Nẵng
                         </p>
                       </div>
@@ -509,7 +509,7 @@ export default function Home() {
                     <div className="flex items-start">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-red-600 mr-3 mt-1"
+                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -522,11 +522,11 @@ export default function Home() {
                         />
                       </svg>
                       <div>
-                        <p className="font-medium">Điện thoại</p>
-                        <p className="text-gray-600">
+                        <p className="font-medium text-[#212529]">Điện thoại</p>
+                        <p className="text-[#212529]">
                           <a
                             href="tel:0935330134"
-                            className="text-red-600 hover:underline"
+                            className="text-[#27AE60] hover:underline"
                           >
                             0935.330.134
                           </a>
@@ -536,7 +536,7 @@ export default function Home() {
                     <div className="flex items-start">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-red-600 mr-3 mt-1"
+                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -549,8 +549,10 @@ export default function Home() {
                         />
                       </svg>
                       <div>
-                        <p className="font-medium">Giờ làm việc</p>
-                        <p className="text-gray-600">
+                        <p className="font-medium text-[#212529]">
+                          Giờ làm việc
+                        </p>
+                        <p className="text-[#212529]">
                           Thứ 2 - Chủ Nhật: 6:00 - 21:00
                         </p>
                       </div>
@@ -559,7 +561,9 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-4">Gửi Yêu Cầu</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#212529]">
+                    Gửi Yêu Cầu
+                  </h3>
                   <form className="space-y-4">
                     <div>
                       <input
@@ -587,7 +591,7 @@ export default function Home() {
                     </div>
                     <button
                       type="submit"
-                      className="brand-bg-red text-white py-2 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                      className="bg-[#27AE60] text-white py-2 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
                     >
                       Gửi Yêu Cầu
                     </button>

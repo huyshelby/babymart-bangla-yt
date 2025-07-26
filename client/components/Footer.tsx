@@ -26,14 +26,14 @@ export function Footer() {
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
           className="relative block w-full h-12"
-          style={{ fill: "#166534" }}
+          style={{ fill: "#2C3E50" }}
         >
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
         </svg>
       </div>
 
       {/* Main Footer Content */}
-      <div className="brand-bg-green text-white pt-16 pb-8">
+      <div className="bg-[#2C3E50] text-white pt-16 pb-8">
         <div
           className={`container mx-auto px-6 transition-all duration-1000 ease-out transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -55,12 +55,12 @@ export function Footer() {
                       const target = e.target as HTMLImageElement;
                       target.onerror = null;
                       target.src =
-                        "https://placehold.co/80x80/FFFFFF/166534?text=33";
+                        "https://placehold.co/80x80/FFFFFF/27AE60?text=33";
                     }}
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-center md:text-left">
-                  Đại Lý <span className="text-yellow-300">33 Ngon</span>
+                  Đại Lý <span className="text-[#27AE60]">33 Ngon</span>
                 </h3>
               </div>
 
@@ -74,7 +74,7 @@ export function Footer() {
                 {/* Social Media Icons */}
                 <a
                   href="#"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-red-500 transition-colors"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-[#27AE60] transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ export function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-blue-500 transition-colors"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-[#27AE60] transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ export function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-red-600 transition-colors"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/10 hover:bg-[#27AE60] transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,14 +124,14 @@ export function Footer() {
 
             {/* Column 2: Quick Links */}
             <div className="md:col-span-2 flex flex-col items-center md:items-start">
-              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-yellow-300 after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
+              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-[#27AE60] after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
                 Liên Kết
               </h4>
               <ul className="space-y-2 text-white/80">
                 <li>
                   <Link
                     href="#gioi-thieu"
-                    className="hover:text-yellow-300 transition-colors flex items-center"
+                    className="hover:text-[#27AE60] transition-colors flex items-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="#san-pham"
-                    className="hover:text-yellow-300 transition-colors flex items-center"
+                    className="hover:text-[#27AE60] transition-colors flex items-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="#bang-gia"
-                    className="hover:text-yellow-300 transition-colors flex items-center"
+                    className="hover:text-[#27AE60] transition-colors flex items-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="#chung-nhan"
-                    className="hover:text-yellow-300 transition-colors flex items-center"
+                    className="hover:text-[#27AE60] transition-colors flex items-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +213,7 @@ export function Footer() {
 
             {/* Column 3: Contact Info */}
             <div className="md:col-span-3 flex flex-col items-center md:items-start">
-              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-yellow-300 after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
+              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-[#27AE60] after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
                 Liên Hệ
               </h4>
               <ul className="space-y-4">
@@ -233,7 +233,7 @@ export function Footer() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-yellow-300">Địa chỉ:</p>
+                    <p className="font-medium text-[#27AE60]">Địa chỉ:</p>
                     <p className="text-white/80">
                       66 Huỳnh Ngọc Huệ, Thanh Khê, Đà Nẵng
                     </p>
@@ -251,10 +251,10 @@ export function Footer() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-medium text-yellow-300">Điện thoại:</p>
+                    <p className="font-medium text-[#27AE60]">Điện thoại:</p>
                     <a
                       href="tel:0935330134"
-                      className="text-white hover:text-yellow-300 transition-colors"
+                      className="text-white hover:text-[#27AE60] transition-colors"
                     >
                       0935.330.134
                     </a>
@@ -265,7 +265,7 @@ export function Footer() {
 
             {/* Column 4: Call to action */}
             <div className="md:col-span-3 flex flex-col items-center md:items-start">
-              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-yellow-300 after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
+              <h4 className="text-xl font-bold mb-5 relative after:content-[''] after:absolute after:h-1 after:w-12 after:bg-[#27AE60] after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0">
                 Đặt Hàng Ngay
               </h4>
               <p className="mb-4 text-white/80 text-center md:text-left">
@@ -274,7 +274,7 @@ export function Footer() {
               </p>
               <a
                 href="tel:0935330134"
-                className="relative overflow-hidden group inline-flex items-center bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-transform shadow-lg"
+                className="relative overflow-hidden group inline-flex items-center bg-[#27AE60] text-white font-bold py-3 px-6 rounded-full transform hover:scale-105 transition-transform shadow-lg"
               >
                 <span className="absolute top-0 left-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></span>
                 <svg
@@ -291,7 +291,7 @@ export function Footer() {
           </div>
 
           {/* Footer Bottom / Copyright */}
-          <div className="pt-8 mt-8 border-t border-green-600/30 text-center">
+          <div className="pt-8 mt-8 border-t border-[#405D7D] text-center">
             <div className="grid md:grid-cols-2 gap-4 items-center">
               <p className="text-sm text-white/60 md:text-left">
                 &copy; {currentYear}{" "}
@@ -308,7 +308,7 @@ export function Footer() {
                 <span className="w-8 h-5 bg-white rounded flex items-center justify-center text-[10px] font-bold text-blue-800">
                   VISA
                 </span>
-                <span className="w-8 h-5 bg-white rounded flex items-center justify-center text-[10px] font-bold text-red-600">
+                <span className="w-8 h-5 bg-white rounded flex items-center justify-center text-[10px] font-bold text-[#27AE60]">
                   CASH
                 </span>
                 <span className="w-8 h-5 bg-white rounded flex items-center justify-center text-[10px] font-bold text-blue-600">
@@ -321,7 +321,7 @@ export function Footer() {
       </div>
 
       {/* Bottom wave */}
-      <div className="h-12 bg-green-950"></div>
+      <div className="h-12 bg-[#1E2B3A]"></div>
     </footer>
   );
 }

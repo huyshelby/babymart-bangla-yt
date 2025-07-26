@@ -78,16 +78,15 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* New brand colors for 33 Ngon - Vietnamese food theme */
-  --brand-green: #166534; /* Dark green from logo */
-  --brand-green-light: #16a34a;
-  --brand-green-dark: #14532d;
-  --brand-red: #dc2626; /* Red from logo */
-  --brand-red-light: #ef4444;
-  --brand-red-dark: #b91c1c;
-  --brand-bg: #fffbeb; /* Light cream background */
+  /* Updated brand colors based on new requirements */
+  --brand-green: #27ae60; /* New elegant dark green */
+  --brand-green-light: #2ecc71; /* Lighter shade of the new green */
+  --brand-green-dark: #219653; /* Darker shade of the new green */
+  --brand-text: #212529; /* Dark gray text */
+  --brand-footer: #2c3e50; /* Dark blue-gray for footer */
+  --brand-bg: #f8f9fa; /* Very light gray background */
   --brand-bg-light: #ffffff;
-  --brand-bg-dark: #f7fee7;
+  --brand-bg-dark: #e9ecef;
 }
 
 .dark {
@@ -132,16 +131,19 @@
     @apply bg-background text-foreground;
     font-family: "Be Vietnam Pro", sans-serif;
     background-color: var(--brand-bg);
+    color: var(--brand-text);
   }
 }
 
 /* Custom styles from the template */
 .section-title {
   @apply font-black text-2xl md:text-4xl text-center mb-8 uppercase;
+  color: var(--brand-green);
 }
 
 .section-subtitle {
-  @apply text-center text-gray-600 max-w-2xl mx-auto mb-12;
+  @apply text-center max-w-2xl mx-auto mb-12;
+  color: var(--brand-text);
 }
 
 .modal {
@@ -158,11 +160,11 @@
 }
 
 .brand-text-red {
-  color: var(--brand-red);
+  color: var(--brand-green); /* Changed from red to green */
 }
 
 .brand-bg-red {
-  background-color: var(--brand-red);
+  background-color: var(--brand-green); /* Changed from red to green */
 }
 
 /* Table styling */
@@ -206,7 +208,7 @@
 }
 
 .nav-link:hover {
-  color: var(--brand-red);
+  color: var(--brand-green);
 }
 
 /* Improved Typography */
@@ -217,6 +219,7 @@ h4,
 h5,
 h6 {
   @apply font-bold leading-tight;
+  color: var(--brand-text);
 }
 
 h1 {
@@ -235,11 +238,13 @@ h3 {
 
 p {
   @apply leading-relaxed;
+  color: var(--brand-text);
 }
 
 /* Accessibility */
 .focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus-visible:ring-green-500;
 }
 
 /* Product Card Enhancements */
@@ -264,7 +269,12 @@ p {
 }
 
 .product-card-title {
-  @apply font-semibold text-gray-800 mb-1 line-clamp-2 transition-colors hover:text-red-500;
+  @apply font-semibold mb-1 line-clamp-2 transition-colors;
+  color: var(--brand-text);
+}
+
+.product-card-title:hover {
+  color: var(--brand-green);
 }
 
 /* Custom scrollbar for modern browsers */
@@ -304,7 +314,11 @@ html {
   top: 0;
   left: 0;
   height: 4px;
-  background: linear-gradient(to right, var(--brand-green), var(--brand-red));
+  background: linear-gradient(
+    to right,
+    var(--brand-green),
+    var(--brand-green-dark)
+  );
   z-index: 9999;
   width: 0%;
   transition: width 0.2s;
