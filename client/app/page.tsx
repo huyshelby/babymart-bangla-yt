@@ -261,7 +261,7 @@ export default function Home() {
         </section>
 
         {/* Main Products Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" id="san-pham">
           <div className="container mx-auto px-6">
             <h2 className="section-title text-[#27AE60]">
               MỘT SỐ SẢN PHẨM CHÍNH

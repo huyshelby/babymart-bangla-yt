@@ -174,30 +174,68 @@ export function Header() {
 
         {/* Bottom Row: Navigation */}
         <div className="hidden md:block border-t border-gray-200 pt-3">
-          <nav className="flex justify-center items-center space-x-6">
+          <nav className="flex justify-center items-center space-x-8">
             <SmoothScrollLink
               href="#gioi-thieu"
-              className="nav-link font-medium"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
             >
-              Giới Thiệu
-            </SmoothScrollLink>
-            <SmoothScrollLink href="#san-pham" className="nav-link font-medium">
-              Sản Phẩm
-            </SmoothScrollLink>
-            <SmoothScrollLink href="#bang-gia" className="nav-link font-medium">
-              Bảng Giá
+              <span>Giới Thiệu</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
             </SmoothScrollLink>
             <SmoothScrollLink
-              href="#chung-nhan"
-              className="nav-link font-medium"
+              href="#san-pham"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
             >
-              Chứng Nhận
+              <span>Sản Phẩm</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
+            </SmoothScrollLink>
+            <SmoothScrollLink
+              href="#phuong-cham"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
+            >
+              <span>Phương Châm Kinh Doanh</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
+            </SmoothScrollLink>
+            <SmoothScrollLink
+              href="#he-thong-kho-lanh"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
+            >
+              <span>Hệ thống kho lạnh</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
+            </SmoothScrollLink>
+            <SmoothScrollLink
+              href="#he-thong"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
+            >
+              <span>Thực Phẩm Đầu Vào</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
+            </SmoothScrollLink>
+            <SmoothScrollLink
+              href="#he-thong"
+              className="nav-link font-medium relative py-2 text-gray-700 hover:text-[#27AE60] transition-colors duration-300 group"
+            >
+              <span>Khuyến Mại</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
             </SmoothScrollLink>
             <SmoothScrollLink
               href="#lien-he"
-              className="bg-[#27AE60] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
+              className="bg-[#27AE60] hover:bg-[#219653] text-white px-5 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md flex items-center"
             >
-              Liên Hệ Ngay
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 mr-1.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              Liên Hệ
             </SmoothScrollLink>
           </nav>
         </div>
@@ -270,38 +308,59 @@ export function Header() {
               <nav className="space-y-1">
                 <SmoothScrollLink
                   href="#gioi-thieu"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
+                  className="block px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   Giới Thiệu
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#san-pham"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
+                  className="block px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   Sản Phẩm
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#bang-gia"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
+                  className="block px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   Bảng Giá
                 </SmoothScrollLink>
                 <SmoothScrollLink
                   href="#chung-nhan"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-[#27AE60]"
+                  className="block px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   Chứng Nhận
                 </SmoothScrollLink>
                 <SmoothScrollLink
-                  href="#lien-he"
-                  className="block px-4 py-2 bg-[#27AE60] text-white font-medium mx-4 my-2 rounded-md text-center"
+                  href="#he-thong"
+                  className="block px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
-                  Liên Hệ Ngay
+                  Hệ Thống
+                </SmoothScrollLink>
+                <SmoothScrollLink
+                  href="#lien-he"
+                  className="block px-4 py-3 bg-[#27AE60] text-white font-medium mx-4 my-3 rounded-md text-center shadow-sm hover:bg-[#219653] transition-colors duration-300 flex items-center justify-center"
+                  onClick={closeMobileMenu}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-1.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  Liên Hệ
                 </SmoothScrollLink>
               </nav>
             </div>
