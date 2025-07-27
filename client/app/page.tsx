@@ -414,354 +414,592 @@ export default function Home() {
             <h2 className="section-title text-[#27AE60]">
               PHƯƠNG CHÂM KINH DOANH
             </h2>
-            <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-              <div className="space-y-6 text-[#212529]">
-                <p className="text-lg">
-                  Với tâm huyết mang hương vị bò né đậm đà chuẩn gốc Sài Gòn đến
-                  với thực khách Đà thành, chúng tôi đã xây dựng nên một thương
-                  hiệu dựa trên nền tảng của sự tử tế và trách nhiệm.
-                </p>
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="order-2 md:order-1">
+                  <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                    <div className="space-y-6 text-[#212529]">
+                      <p className="text-lg">
+                        Với tâm huyết mang hương vị bò né, bò kho đậm đà chuẩn
+                        gốc Sài Gòn đến với thực khách Đà thành, chúng tôi đã
+                        xây dựng nên một thương hiệu dựa trên nền tảng của sự tử
+                        tế và trách nhiệm.
+                      </p>
 
-                <p className="text-lg">
-                  Triết lý kinh doanh của chúng tôi gói gọn trong câu nói:{" "}
-                  <span className="text-[#27AE60] font-bold">
-                    "Khách hàng là ân nhân"
-                  </span>
-                  . Mỗi đối tác không chỉ là một khách hàng, mà là một người bạn
-                  đồng hành. Chúng tôi hiểu rằng, thành công của các bạn chính
-                  là thước đo cho sự thành công của chúng tôi.
-                </p>
+                      <p className="text-lg">
+                        Triết lý kinh doanh của chúng tôi gói gọn trong câu nói:{" "}
+                        <span className="text-[#27AE60] font-bold">
+                          "Khách hàng là ân nhân"
+                        </span>
+                        . Mỗi đối tác không chỉ là một khách hàng, mà là một
+                        người bạn đồng hành. Chúng tôi hiểu rằng, thành công của
+                        quán chính là thuộc do cho sự thành công của chúng tôi.
+                      </p>
 
-                <p className="text-lg">
-                  Vì vậy, chúng tôi không chỉ giao hàng, chúng tôi giao cả sự
-                  tận tâm, cam kết về chất lượng ổn định và sự an toàn tuyệt đối
-                  trong từng sản phẩm.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Price List Section */}
-        <section id="bang-gia" className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <h2 className="section-title text-[#27AE60]">
-              Sản phẩm đa dạng và được đáp ứng kịp thời
-            </h2>
-            <div className="max-w-5xl mx-auto overflow-x-auto shadow-lg rounded-lg">
-              <table className="w-full text-sm md:text-base price-table">
-                <thead className="table-header bg-[#27AE60] text-white">
-                  <tr>
-                    <th className="w-8">TT</th>
-                    <th>Tên sản phẩm</th>
-                    <th>ĐVT</th>
-                    <th>Đơn giá (VND)</th>
-                    <th>Ghi chú</th>
-                  </tr>
-                </thead>
-                <tbody className="text-[#212529]">
-                  <tr>
-                    <td>01</td>
-                    <td>Bò né ướp sẵn</td>
-                    <td>kg</td>
-                    <td>120.000</td>
-                    <td>
-                      - Ướp chuẩn vị gốc
-                      <br />- Mỗi bịch 2kg
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>Bò bít tết ướp sẵn</td>
-                    <td>kg</td>
-                    <td>170.000</td>
-                    <td>
-                      - Ướp chuẩn vị gốc
-                      <br />- Mỗi bịch 2kg
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Bò kho (xắt sẵn)</td>
-                    <td>kg</td>
-                    <td>80.000</td>
-                    <td>
-                      - Thịt bò xắt sẵn
-                      <br />- Mỗi bịch 2kg
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Patê</td>
-                    <td>kg</td>
-                    <td>70.000</td>
-                    <td>- Mỗi gói 1 kg</td>
-                  </tr>
-                  <tr>
-                    <td>05</td>
-                    <td>Nem nướng</td>
-                    <td>kg</td>
-                    <td>90.000</td>
-                    <td>- Đóng gói mỗi bịch 0,5kg - 10 thanh</td>
-                  </tr>
-                  <tr>
-                    <td>06</td>
-                    <td>Chả quế</td>
-                    <td>kg</td>
-                    <td>95.000</td>
-                    <td>- Đóng gói mỗi bịch 0,5kg – 2 thanh</td>
-                  </tr>
-                  <tr>
-                    <td>07</td>
-                    <td>Xông khói BigC</td>
-                    <td>bịch</td>
-                    <td>35.000</td>
-                    <td>- 200 gram</td>
-                  </tr>
-                  <tr>
-                    <td>08</td>
-                    <td>Xúc xích Vissan</td>
-                    <td>bịch</td>
-                    <td>32.000</td>
-                    <td>- Mỗi bịch 4 thanh</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-center mt-6 text-[#212529]">
-              Và còn nhiều sản phẩm khác. Vui lòng liên hệ để biết thêm chi
-              tiết.
-            </p>
-          </div>
-        </section>
-
-        {/* Food Safety Certification Section */}
-        <section id="chung-nhan" className="py-16 bg-[#F8F9FA]">
-          <div className="container mx-auto px-6">
-            <h2 className="section-title text-[#27AE60]">
-              Chứng Nhận An Toàn Thực Phẩm
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 justify-items-center">
-              <div className="bg-white p-4 rounded-lg shadow-lg">
-                <img
-                  src="/images/kiemdinh/giaychungnhan1.jpg"
-                  alt="Kết quả thử nghiệm Pate"
-                  className="rounded-md"
-                  onClick={() =>
-                    openModal(
-                      "/images/kiemdinh/giaychungnhan1.jpg",
-                      "Kết quả thử nghiệm ATVSTP - Patê"
-                    )
-                  }
-                  onError={(e) => {
-                    // Fallback for image error
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src =
-                      "https://placehold.co/600x800/cccccc/FFFFFF?text=Ch%C6%B0%CC%81ng+nh%C3%A2%CC%A3n+Pate";
-                  }}
-                  style={{
-                    cursor: "pointer",
-                    maxHeight: "500px",
-                    width: "auto",
-                    margin: "0 auto",
-                  }}
-                />
-                <p className="text-center font-semibold mt-2 text-[#212529]">
-                  Kết quả thử nghiệm ATVSTP - Patê
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-lg">
-                <img
-                  src="/images/kiemdinh/giaychungnhan2.jpg"
-                  alt="Kết quả thử nghiệm Thịt bò ướp sẵn"
-                  className="rounded-md"
-                  onClick={() =>
-                    openModal(
-                      "/images/kiemdinh/giaychungnhan2.jpg",
-                      "Kết quả thử nghiệm ATVSTP - Thịt bò ướp sẵn"
-                    )
-                  }
-                  onError={(e) => {
-                    // Fallback for image error
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src =
-                      "https://placehold.co/600x800/cccccc/FFFFFF?text=Ch%C6%B0%CC%81ng+nh%C3%A2%CC%A3n+Thi%CC%A3t+Bo%CC%80";
-                  }}
-                  style={{
-                    cursor: "pointer",
-                    maxHeight: "500px",
-                    width: "auto",
-                    margin: "0 auto",
-                  }}
-                />
-                <p className="text-center font-semibold mt-2 text-[#212529]">
-                  Kết quả thử nghiệm ATVSTP - Thịt bò ướp sẵn
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* After-sales & Partners Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="section-title text-[#27AE60]">Đối Tác & Hậu Mãi</h2>
-            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
-              <div className="bg-[#F8F9FA] p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-3 text-[#27AE60]">
-                  Đối Tác Tin Cậy
-                </h3>
-                <p className="text-[#212529]">
-                  Chúng tôi tự hào là nhà cung cấp cho nhiều quán ăn, nhà hàng
-                  lớn nhỏ tại Đà Nẵng và các khu vực lân cận.
-                </p>
-              </div>
-              <div className="bg-[#F8F9FA] p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-3 text-[#27AE60]">
-                  Chế Độ Hậu Mãi
-                </h3>
-                <p className="text-[#212529]">
-                  Nhiều chương trình khuyến mãi hấp dẫn, quà tặng sinh nhật và
-                  chiết khấu đặc biệt cho các đối tác thân thiết.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="lien-he" className="py-16 bg-[#F8F9FA]">
-          <div className="container mx-auto px-6">
-            <h2 className="section-title text-[#27AE60]">
-              Liên Hệ Với Chúng Tôi
-            </h2>
-            <div className="bg-white p-8 rounded-xl shadow-xl max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-[#212529]">
-                    Thông Tin Liên Hệ
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      <div>
-                        <p className="font-medium text-[#212529]">Địa chỉ</p>
-                        <p className="text-[#212529]">
-                          66 Huỳnh Ngọc Huệ, Thanh Khê, Đà Nẵng
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                      <div>
-                        <p className="font-medium text-[#212529]">Điện thoại</p>
-                        <p className="text-[#212529]">
-                          <a
-                            href="tel:0935330134"
-                            className="text-[#27AE60] hover:underline"
-                          >
-                            0935.330.134
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6 text-[#27AE60] mr-3 mt-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <div>
-                        <p className="font-medium text-[#212529]">
-                          Giờ làm việc
-                        </p>
-                        <p className="text-[#212529]">
-                          Thứ 2 - Chủ Nhật: 6:00 - 21:00
-                        </p>
-                      </div>
+                      <p className="text-lg">
+                        Vì vậy, chúng tôi không chỉ giao hàng, chúng tôi giao cả
+                        sự tận tâm, cam kết về chất lượng ổn định và sự an toàn
+                        tuyệt đối trong từng sản phẩm.
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-[#212529]">
-                    Gửi Yêu Cầu
+                <div className="order-1 md:order-2 space-y-6">
+                  <div className="rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02]">
+                    <img
+                      src="/images/phuongcham/phuongcham1.jpg"
+                      alt="Phương châm kinh doanh"
+                      className="w-full h-auto"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Phương+Châm+Kinh+Doanh";
+                      }}
+                    />
+                  </div>
+
+                  <div className="rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] hidden md:block">
+                    <img
+                      src="/images/phuongcham/phuongcham2.jpg"
+                      alt="Chất lượng sản phẩm"
+                      className="w-full h-auto"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/600x400/27AE60/FFFFFF?text=Chất+Lượng+Sản+Phẩm";
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cold Storage System Section */}
+        <section id="he-thong-kho-lanh" className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <h2 className="section-title text-[#27AE60]">
+              HỆ THỐNG KHO LẠNH MỚI - HIỆN ĐẠI
+            </h2>
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-8">
+                <p className="text-lg text-[#212529]">
+                  Chúng tôi đầu tư hệ thống kho lạnh hiện đại đảm bảo chất lượng
+                  sản phẩm luôn được bảo quản tốt nhất
+                </p>
+              </div>
+
+              {/* Image gallery - Desktop view (3 columns) */}
+              <div className="hidden md:grid md:grid-cols-3 gap-6 mb-6">
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl hover:scale-[1.02]">
+                  <img
+                    src="/images/hethongkholanh/anh1.jpg"
+                    alt="Hệ thống kho lạnh 1"
+                    className="w-full h-60 object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh";
+                    }}
+                  />
+                </div>
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl hover:scale-[1.02]">
+                  <img
+                    src="/images/hethongkholanh/anh2.jpg"
+                    alt="Hệ thống kho lạnh 2"
+                    className="w-full h-60 object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh";
+                    }}
+                  />
+                </div>
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl hover:scale-[1.02]">
+                  <img
+                    src="/images/hethongkholanh/anh3.jpg"
+                    alt="Hệ thống kho lạnh 3"
+                    className="w-full h-60 object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh";
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Image gallery - Mobile view (carousel-like) */}
+              <div className="grid grid-cols-1 md:hidden gap-6">
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl">
+                  <img
+                    src="/images/hethongkholanh/anh1.jpg"
+                    alt="Hệ thống kho lạnh 1"
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh+1";
+                    }}
+                  />
+                </div>
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl">
+                  <img
+                    src="/images/hethongkholanh/anh2.jpg"
+                    alt="Hệ thống kho lạnh 2"
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh+2";
+                    }}
+                  />
+                </div>
+                <div className="rounded-lg overflow-hidden shadow-lg transform transition-all hover:shadow-xl">
+                  <img
+                    src="/images/hethongkholanh/anh3.jpg"
+                    alt="Hệ thống kho lạnh 3"
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Kho+Lạnh+3";
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <p className="text-[#212529] italic">
+                  Hệ thống kho lạnh hiện đại đảm bảo chất lượng sản phẩm luôn
+                  tươi ngon và an toàn
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Food Safety Section */}
+        <section id="thuc-pham-dau-vao" className="py-16 bg-[#F8F9FA]">
+          <div className="container mx-auto px-6">
+            <h2 className="section-title text-[#27AE60]">
+              THỰC PHẨM ĐẦU VÀO SẠCH – AN TOÀN VSTP
+            </h2>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Left column - Image */}
+                <div className="overflow-hidden rounded-lg shadow-xl">
+                  <div className="relative group">
+                    <img
+                      src="/images/thucphamdauvao/anh1.jpg"
+                      alt="Thực phẩm đầu vào sạch"
+                      className="w-full h-auto rounded-lg transform transition-transform group-hover:scale-105"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/800x600/27AE60/FFFFFF?text=Thực+Phẩm+Đầu+Vào+Sạch";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4">
+                      <p className="text-white font-medium text-center">
+                        Cam kết nguồn thực phẩm sạch
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right column - Content */}
+                <div className="space-y-4">
+                  <p className="text-lg text-[#212529]">
+                    Chúng tôi cam kết sử dụng nguồn thực phẩm đầu vào sạch, đảm
+                    bảo an toàn vệ sinh thực phẩm theo các tiêu chuẩn nghiêm
+                    ngặt.
+                  </p>
+                  <p className="text-lg text-[#212529]">
+                    Tất cả nguyên liệu được kiểm soát chặt chẽ từ khâu nhập
+                    hàng, với quy trình kiểm tra nghiêm ngặt và lựa chọn kỹ càng
+                    từ các nhà cung cấp uy tín.
+                  </p>
+                  <div className="pt-4">
+                    <div className="flex items-center mb-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-[#27AE60] mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-[#212529] font-medium">
+                        Nguồn thịt bò tươi, chất lượng cao
+                      </span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-[#27AE60] mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-[#212529] font-medium">
+                        Gia vị tự nhiên, không chất bảo quản
+                      </span>
+                    </div>
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-[#27AE60] mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-[#212529] font-medium">
+                        Đảm bảo tiêu chuẩn vệ sinh an toàn thực phẩm
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom image */}
+              <div className="mt-10 overflow-hidden rounded-lg shadow-xl">
+                <div className="relative group">
+                  <img
+                    src="/images/thucphamdauvao/anh2.jpg"
+                    alt="Quy trình kiểm soát chất lượng"
+                    className="w-full h-auto rounded-lg"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/1200x500/27AE60/FFFFFF?text=Quy+Trình+Kiểm+Soát+Chất+Lượng";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+                    <p className="text-white font-medium text-xl text-center">
+                      Quy trình kiểm soát chất lượng nghiêm ngặt đảm bảo thực
+                      phẩm an toàn đến tay khách hàng
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Food Dishes Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <h2 className="section-title text-[#27AE60] leading-relaxed">
+              NHIỀU MÓN ẨM THỰC TẠI CÁC NHÀ HÀNG, QUÁN ĂN DO CÔNG TY THỰC PHẨM
+              BÒ NÉ HẠNH CUNG CẤP ĐƯỢC KHÁCH HÀNG YÊU MẾN
+            </h2>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <p className="text-lg text-[#212529]">
+                  Các món ăn được chế biến từ nguyên liệu của công ty chúng tôi
+                  luôn nhận được sự yêu mến từ thực khách
+                </p>
+              </div>
+
+              {/* Image Gallery */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* Image 1 */}
+                <div className="relative overflow-hidden rounded-lg shadow-lg group h-64 md:h-80">
+                  <img
+                    src="/images/monamthuc/anh1.jpg"
+                    alt="Món ăn từ Bò Né Hạnh"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+1";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 flex flex-col justify-end">
+                    <h3 className="text-white font-bold text-lg">
+                      Bò né đặc biệt
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      Hương vị đậm đà, thơm ngon
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image 2 */}
+                <div className="relative overflow-hidden rounded-lg shadow-lg group h-64 md:h-80">
+                  <img
+                    src="/images/monamthuc/anh2.jpg"
+                    alt="Món ăn từ Bò Né Hạnh"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+2";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 flex flex-col justify-end">
+                    <h3 className="text-white font-bold text-lg">
+                      Bò kho đậm vị
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      Mềm, thơm, đúng vị Sài Gòn
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image 3 */}
+                <div className="relative overflow-hidden rounded-lg shadow-lg group h-64 md:h-80">
+                  <img
+                    src="/images/monamthuc/anh3.jpg"
+                    alt="Món ăn từ Bò Né Hạnh"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+3";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 flex flex-col justify-end">
+                    <h3 className="text-white font-bold text-lg">
+                      Bít tết nóng hổi
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      Thịt bò tươi, chất lượng cao
+                    </p>
+                  </div>
+                </div>
+
+                {/* Image 4 */}
+                <div className="relative overflow-hidden rounded-lg shadow-lg group h-64 md:h-80">
+                  <img
+                    src="/images/monamthuc/anh4.jpg"
+                    alt="Món ăn từ Bò Né Hạnh"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 flex flex-col justify-end">
+                    <h3 className="text-white font-bold text-lg">
+                      Món ngon đặc biệt
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      Được khách hàng yêu thích
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 text-center">
+                <p className="text-[#212529] italic mb-6">
+                  Đa dạng các món ăn ngon được chế biến từ nguyên liệu chất
+                  lượng cao của Công ty Thực phẩm Bò Né Hạnh
+                </p>
+                <Link
+                  href="#lien-he"
+                  className="px-8 py-3 bg-[#27AE60] text-white font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg inline-block"
+                >
+                  Đặt Hàng Ngay
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Promotions Section */}
+        <section id="khuyen-mai" className="py-16 bg-[#F8F9FA]">
+          <div className="container mx-auto px-6">
+            <h2 className="section-title text-[#27AE60] leading-relaxed">
+              NHIỀU CHƯƠNG TRÌNH KHUYẾN MẠI, QUÀ TẶNG PHONG PHÚ HẤP DẪN ĐẾN VỚI
+              KHÁCH HÀNG
+            </h2>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <p className="text-lg text-[#212529]">
+                  Chúng tôi thường xuyên tổ chức nhiều chương trình ưu đãi đặc
+                  biệt dành cho khách hàng thân thiết và đối tác
+                </p>
+              </div>
+
+              {/* Promotions Content */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                {/* Left Side - Image */}
+                <div className="relative">
+                  <div className="rounded-lg overflow-hidden shadow-xl transform transition-all hover:shadow-2xl">
+                    <img
+                      src="/images/khuyenmai/anh1.jpg"
+                      alt="Chương trình khuyến mãi"
+                      className="w-full h-auto"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src =
+                          "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt";
+                      }}
+                    />
+                  </div>
+
+                  {/* Floating promo tag */}
+                  <div className="absolute -top-5 -right-5 bg-[#27AE60] text-white rounded-full w-24 h-24 flex items-center justify-center transform rotate-12 shadow-lg font-bold">
+                    <div className="text-center">
+                      <div className="text-xl">SALE</div>
+                      <div className="text-2xl">20%</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - Content */}
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-bold text-[#27AE60]">
+                    Ưu Đãi Đặc Biệt
                   </h3>
-                  <form className="space-y-4">
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Họ và tên"
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                      />
+
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <div className="bg-[#27AE60] rounded-full p-2 mr-4 mt-1 text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-[#212529]">
+                          Khuyến mãi theo doanh số
+                        </h4>
+                        <p className="text-[#212529] mt-1">
+                          Giảm giá đặc biệt cho khách hàng có doanh số cao, áp
+                          dụng với nhiều mức ưu đãi khác nhau.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <input
-                        type="tel"
-                        placeholder="Số điện thoại"
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                      />
+
+                    <div className="flex items-start">
+                      <div className="bg-[#27AE60] rounded-full p-2 mr-4 mt-1 text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-[#212529]">
+                          Quà tặng đặc biệt
+                        </h4>
+                        <p className="text-[#212529] mt-1">
+                          Tặng sản phẩm mới khi mua đủ số lượng, hoặc quà tặng
+                          vào các dịp lễ, Tết, sinh nhật.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <textarea
-                        placeholder="Nội dung"
-                        rows={4}
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                      ></textarea>
+                  </div>
+
+                  <a
+                    href="tel:0935330134"
+                    className="inline-block px-6 py-3 mt-4 bg-[#27AE60] text-white font-bold rounded-full hover:bg-[#219653] transition-colors"
+                  >
+                    Liên Hệ Ngay: 0935.330.134
+                  </a>
+                </div>
+              </div>
+
+              {/* Second Promotion Image */}
+              <div className="mt-16 relative">
+                <div className="rounded-lg overflow-hidden shadow-xl">
+                  <img
+                    src="/images/khuyenmai/anh2.jpg"
+                    alt="Chương trình khuyến mãi đặc biệt"
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src =
+                        "https://placehold.co/1200x500/27AE60/FFFFFF?text=Chương+Trình+Khuyến+Mãi";
+                    }}
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center p-8 md:p-12">
+                    <div className="max-w-md text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                        Đồng Hành Cùng Đối Tác
+                      </h3>
+                      <p className="mb-6">
+                        Chúng tôi không chỉ cung cấp sản phẩm chất lượng mà còn
+                        mang đến nhiều chương trình ưu đãi hấp dẫn giúp đối tác
+                        phát triển kinh doanh.
+                      </p>
+                      <div className="flex items-center">
+                        <div className="mr-4 text-3xl font-bold text-white">
+                          Liên hệ:
+                        </div>
+                        <a
+                          href="tel:0935330134"
+                          className="text-2xl md:text-3xl font-bold text-white hover:underline"
+                        >
+                          0935.330.134
+                        </a>
+                      </div>
                     </div>
-                    <button
-                      type="submit"
-                      className="bg-[#27AE60] text-white py-2 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity"
-                    >
-                      Gửi Yêu Cầu
-                    </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
