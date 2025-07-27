@@ -35,17 +35,27 @@ export default function Home() {
           <div
             className="absolute inset-0 bg-black"
             style={{
-              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.005), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center 40%",
               backgroundAttachment: "fixed",
-              filter: "brightness(0.9)",
+              filter: "brightness(0.95) contrast(1.1)",
+            }}
+          ></div>
+
+          {/* Decorative overlay pattern */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url('/images/noise.svg')`,
+              backgroundSize: "200px",
             }}
           ></div>
 
           {/* Content */}
           <div className="container mx-auto px-4 z-10 relative py-12">
             {/* Decorative elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-2 bg-gradient-to-r from-transparent via-green-400/40 to-transparent rounded-full"></div>
 
             {/* Main content with animations */}
             <div className="text-center max-w-4xl mx-auto">
@@ -56,7 +66,7 @@ export default function Home() {
                     : "translate-y-10 opacity-0"
                 } transition-all duration-1000 ease-out`}
               >
-                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wider mb-4 text-white">
+                <h1 className="text-4xl md:text-6xl font-black uppercase tracking-wider mb-4 text-white drop-shadow-lg">
                   <span className="animate-text-shimmer inline-block bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent">
                     CÔNG TY THỰC PHẨM CHẾ BIẾN PHẨM BÒ NÉ HẠNH
                   </span>
@@ -70,10 +80,17 @@ export default function Home() {
                     : "translate-y-10 opacity-0"
                 } transition-all duration-1000 delay-300 ease-out`}
               >
-                <p className="text-base md:text-lg font-medium mb-6 !text-white max-w-2xl mx-auto">
+                <p className="text-base md:text-lg font-medium mb-6 !text-white max-w-2xl mx-auto drop-shadow-md">
                   Mang đến hương vị truyền thống, chuẩn Sài Gòn với nguyên liệu
                   tươi ngon hàng đầu
                 </p>
+
+                {/* Decorative divider */}
+                <div className="flex items-center justify-center gap-2 mb-6">
+                  <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-white/60"></div>
+                  <div className="w-2 h-2 bg-white/60 rounded-full"></div>
+                  <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-white/60"></div>
+                </div>
               </div>
 
               <div
@@ -83,20 +100,22 @@ export default function Home() {
                     : "translate-y-10 opacity-0"
                 } transition-all duration-1000 delay-500 ease-out`}
               >
-                <div className="glass-card relative overflow-hidden p-4 md:p-6 rounded-xl backdrop-blur-md border border-white/20">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#27AE60]/40 to-[#27AE60]/40 z-0"></div>
+                <div className="glass-card relative overflow-hidden p-5 md:p-7 rounded-2xl backdrop-blur-md border border-white/20 shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#27AE60]/30 to-[#27AE60]/50 z-0"></div>
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-green-400/20 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-green-400/20 rounded-full blur-3xl"></div>
                   <div className="relative z-10 space-y-2 md:space-y-4">
-                    <div className="flex items-center justify-center space-x-2 mb-1 md:mb-2">
-                      <div className="h-1 w-8 bg-white/70 rounded-full"></div>
+                    <div className="flex items-center justify-center space-x-3 mb-1 md:mb-2">
+                      <div className="h-[2px] w-10 bg-gradient-to-r from-transparent to-white/80 rounded-full"></div>
                       <p
                         className="text-lg md:text-2xl font-bold !text-white"
                         style={{
-                          textShadow: "1px 1px 3px rgba(226, 215, 215, 0.5)",
+                          textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)",
                         }}
                       >
                         UY TÍN – AN TOÀN – CHUẨN VỊ SÀI GÒN
                       </p>
-                      <div className="h-1 w-8 bg-white/70 rounded-full"></div>
+                      <div className="h-[2px] w-10 bg-gradient-to-l from-transparent to-white/80 rounded-full"></div>
                     </div>
 
                     <p
@@ -106,7 +125,7 @@ export default function Home() {
                       NGUYÊN LIỆU TUYỂN CHỌN - GIÁ CẢ HỢP LÍ
                     </p>
 
-                    <p className="text-sm md:text-base !text-white">
+                    <p className="text-sm md:text-base !text-white drop-shadow-sm">
                       Phục vụ hơn 100+ nhà hàng & quán ăn tại Đà Nẵng
                     </p>
                   </div>
@@ -115,7 +134,7 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div
-                className={`mt-6 md:mt-8 flex flex-wrap gap-3 md:gap-4 justify-center transform ${
+                className={`mt-8 md:mt-10 flex flex-wrap gap-4 justify-center transform ${
                   isLoaded
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
@@ -123,7 +142,7 @@ export default function Home() {
               >
                 <Link
                   href="#san-pham"
-                  className="px-6 md:px-8 py-2 md:py-3 bg-white/90 hover:bg-white text-[#27AE60] font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg flex items-center"
+                  className="px-6 md:px-8 py-2.5 md:py-3.5 bg-white hover:bg-white/90 text-[#27AE60] font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg flex items-center border border-white/10"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +162,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#lien-he"
-                  className="px-6 md:px-8 py-2 md:py-3 bg-[#27AE60]/90 hover:bg-[#27AE60] text-white font-bold rounded-full transform hover:scale-105 transition-transform shadow-lg flex items-center"
+                  className="px-6 md:px-8 py-2.5 md:py-3.5 bg-gradient-to-r from-[#27AE60] to-[#219653] text-white font-bold rounded-full transform hover:scale-105 hover:shadow-[0_0_15px_rgba(39,174,96,0.5)] transition-all shadow-lg flex items-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -166,11 +185,12 @@ export default function Home() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-            <div className="w-8 h-8 rounded-full border-2 border-white/50 flex items-center justify-center">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center">
+            <p className="text-white/80 text-xs mb-2">Khám phá thêm</p>
+            <div className="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center group hover:border-white/80 transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-white"
+                className="h-4 w-4 text-white/80 group-hover:text-white transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
