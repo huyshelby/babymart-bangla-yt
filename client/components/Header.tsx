@@ -74,7 +74,7 @@ export function Header() {
           </div>
 
           {/* Contact Info - Desktop */}
-          <div className="hidden md:flex flex-col items-end">
+          <div className="hidden md:flex flex-row items-center space-x-4">
             <div className="flex items-center text-sm text-[#212529] hover:text-[#27AE60] transition-colors duration-300 bg-gray-50/80 px-3 py-1.5 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ export function Header() {
                 66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG
               </span>
             </div>
-            <div className="flex items-center text-sm mt-2 hover:text-[#27AE60] transition-colors duration-300">
+            <div className="flex items-center text-sm hover:text-[#27AE60] transition-colors duration-300">
               <div className="flex items-center bg-gray-50/80 px-3 py-1.5 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ export function Header() {
                 </svg>
                 <a
                   href="tel:0935330134"
-                  className="font-medium text-[#27AE60] hover:text-[#219653] transition-colors duration-300 relative group"
+                  className="font-medium text-[#27AE60] hover:text-[#219653] transition-colors duration-300 relative group whitespace-nowrap"
                 >
                   0935 33 0134
                   <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-300 group-hover:w-full absolute -bottom-0.5"></span>
