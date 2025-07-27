@@ -37,36 +37,48 @@ export function Header() {
   };
 
   return (
-    <header className={`bg-white shadow-md sticky top-0 z-50`}>
+    <header
+      className={`bg-white shadow-md sticky top-0 z-50 ${
+        scrolled ? "shadow-lg" : "shadow-md"
+      }`}
+    >
       <div className="container mx-auto px-6 py-3">
         {/* Top Row: Logo and Contact Info */}
         <div className="flex flex-wrap justify-between items-center mb-3">
           {/* Logo and site name */}
-          <div className="flex items-center">
-            <Image
-              src="/images/logo/logo.jpg"
-              alt="Logo 33 Ngon"
-              width={48}
-              height={48}
-              className="h-12 w-12 mr-3 rounded-full"
-              onError={(e) => {
-                // Fallback for image error
-                const target = e.target as HTMLImageElement;
-                target.onerror = null;
-                target.src = "https://placehold.co/48x48/27AE60/FFFFFF?text=33";
-              }}
-            />
-            <Link href="/" className="text-[#27AE60] font-bold text-xl">
+          <div className="flex items-center group">
+            <div className="relative overflow-hidden rounded-full transition-transform duration-300 transform group-hover:scale-105">
+              <Image
+                src="/images/logo/logo.jpg"
+                alt="Logo 33 Ngon"
+                width={48}
+                height={48}
+                className="h-12 w-12 mr-3 rounded-full object-cover"
+                onError={(e) => {
+                  // Fallback for image error
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src =
+                    "https://placehold.co/48x48/27AE60/FFFFFF?text=33";
+                }}
+              />
+              <div className="absolute inset-0 bg-[#27AE60]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+            </div>
+            <Link
+              href="/"
+              className="text-[#27AE60] font-bold text-xl relative group-hover:text-[#219653] transition-colors duration-300"
+            >
               33 NGON
+              <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-500 group-hover:w-full absolute bottom-0"></span>
             </Link>
           </div>
 
           {/* Contact Info - Desktop */}
           <div className="hidden md:flex flex-col items-end">
-            <div className="flex items-center text-sm text-[#212529]">
+            <div className="flex items-center text-sm text-[#212529] hover:text-[#27AE60] transition-colors duration-300 bg-gray-50/80 px-3 py-1.5 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-[#27AE60] mr-1"
+                className="h-4 w-4 text-[#27AE60] mr-2 flex-shrink-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -88,10 +100,42 @@ export function Header() {
                 66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG
               </span>
             </div>
-            <div className="flex items-center text-sm mt-1">
+            <div className="flex items-center text-sm mt-2 hover:text-[#27AE60] transition-colors duration-300">
+              <div className="flex items-center bg-gray-50/80 px-3 py-1.5 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 text-[#27AE60] mr-2 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <a
+                  href="tel:0935330134"
+                  className="font-medium text-[#27AE60] hover:text-[#219653] transition-colors duration-300 relative group"
+                >
+                  0935 33 0134
+                  <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-300 group-hover:w-full absolute -bottom-0.5"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Contact Button & Menu Button */}
+          <div className="md:hidden flex items-center">
+            <a
+              href="tel:0935330134"
+              className="mr-4 bg-[#27AE60] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 hover:shadow-md transition-all duration-300 flex items-center"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-[#27AE60] mr-1"
+                className="h-4 w-4 mr-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -100,29 +144,14 @@ export function Header() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M3 5a1 1 0 011-1h5.5a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1V5zM3 10a1 1 0 011-1h5.5a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zM3 15a1 1 0 011-1h5.5a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1z"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <a
-                href="tel:0935330134"
-                className="font-medium text-[#27AE60] hover:underline"
-              >
-                0935 33 0134
-              </a>
-            </div>
-          </div>
-
-          {/* Mobile Contact Button & Menu Button */}
-          <div className="md:hidden flex items-center">
-            <a
-              href="tel:0935330134"
-              className="mr-4 bg-[#27AE60] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 transition-opacity"
-            >
               Gọi Ngay
             </a>
             <button
               onClick={toggleMobileMenu}
-              className="p-2 text-gray-700 hover:bg-gray-100 rounded-md"
+              className="p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-300"
               aria-label="Menu"
             >
               <svg
