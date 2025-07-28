@@ -5,15 +5,15 @@ import ImageWithFallback from "./ImageWithFallback";
 
 export const PromotionsSection = () => {
   return (
-    <section id="khuyen-mai" className="py-16 bg-[#F8F9FA]">
+    <section id="khuyen-mai" className="py-10 bg-[#F8F9FA]">
       <div className="container mx-auto px-6">
-        <h2 className="section-title text-[#27AE60] leading-relaxed">
+        <h2 className="section-title text-[#27AE60] leading-relaxed mb-6">
           NHIỀU CHƯƠNG TRÌNH KHUYẾN MẠI, QUÀ TẶNG PHONG PHÚ HẤP DẪN ĐẾN VỚI
           KHÁCH HÀNG
         </h2>
 
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <p className="text-lg text-[#212529]">
               Chúng tôi thường xuyên tổ chức nhiều chương trình ưu đãi đặc biệt
               dành cho khách hàng thân thiết và đối tác
@@ -21,7 +21,7 @@ export const PromotionsSection = () => {
           </div>
 
           {/* Promotions Content */}
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             {/* Left Side - Image */}
             <div className="relative">
               <div className="rounded-lg overflow-hidden shadow-xl transform transition-all hover:shadow-2xl aspect-[4/3] relative">
@@ -118,7 +118,7 @@ export const PromotionsSection = () => {
           </div>
 
           {/* Second Promotion Image */}
-          <div className="mt-16 relative">
+          <div className="mt-10 relative">
             <div className="rounded-lg overflow-hidden shadow-xl aspect-[21/9] relative">
               <ImageWithFallback
                 src="/images/khuyenmai/anh2.jpg"

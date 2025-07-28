@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background with parallax effect */}
       <div
         className="absolute inset-0 bg-black"
@@ -29,7 +29,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
       ></div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 z-10 relative py-12">
+      <div className="container mx-auto px-4 z-10 relative py-8">
         {/* Decorative elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-2 bg-gradient-to-r from-transparent via-green-400/40 to-transparent rounded-full"></div>
 
@@ -110,7 +110,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
 
           {/* CTA Buttons */}
           <div
-            className={`mt-8 md:mt-10 flex flex-wrap gap-4 justify-center transform ${
+            className={`mt-6 md:mt-8 flex flex-wrap gap-4 justify-center transform ${
               isLoaded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
@@ -161,7 +161,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex flex-col items-center">
         <p className="text-white/80 text-xs mb-2">Khám phá thêm</p>
         <div className="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center group hover:border-white/80 transition-all">
           <svg

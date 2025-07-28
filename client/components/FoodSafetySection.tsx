@@ -5,13 +5,13 @@ import ImageWithFallback from "./ImageWithFallback";
 
 export const FoodSafetySection = () => {
   return (
-    <section id="thuc-pham-dau-vao" className="py-16 bg-[#F8F9FA]">
+    <section id="thuc-pham-dau-vao" className="py-10 bg-[#F8F9FA]">
       <div className="container mx-auto px-6">
-        <h2 className="section-title text-[#27AE60]">
+        <h2 className="section-title text-[#27AE60] mb-6">
           THỰC PHẨM ĐẦU VÀO SẠCH – AN TOÀN VSTP
         </h2>
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             {/* Left column - Image */}
             <div className="overflow-hidden rounded-lg shadow-xl">
               <div className="relative group aspect-[4/3]">
@@ -105,7 +105,7 @@ export const FoodSafetySection = () => {
           </div>
 
           {/* Bottom image */}
-          <div className="mt-10 overflow-hidden rounded-lg shadow-xl">
+          <div className="mt-8 overflow-hidden rounded-lg shadow-xl">
             <div className="relative group aspect-[21/9]">
               <ImageWithFallback
                 src="/images/thucphamdauvao/anh2.jpg"

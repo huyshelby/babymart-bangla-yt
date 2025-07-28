@@ -6,15 +6,15 @@ import ImageWithFallback from "./ImageWithFallback";
 
 export const FoodDishesSection = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-10 bg-white">
       <div className="container mx-auto px-6">
-        <h2 className="section-title text-[#27AE60] leading-relaxed">
+        <h2 className="section-title text-[#27AE60] leading-relaxed mb-6">
           NHIỀU MÓN ẨM THỰC TẠI CÁC NHÀ HÀNG, QUÁN ĂN DO CÔNG TY THỰC PHẨM BÒ NÉ
           HẠNH CUNG CẤP ĐƯỢC KHÁCH HÀNG YÊU MẾN
         </h2>
 
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <p className="text-lg text-[#212529]">
               Các món ăn được chế biến từ nguyên liệu của công ty chúng tôi luôn
               nhận được sự yêu mến từ thực khách
@@ -22,7 +22,7 @@ export const FoodDishesSection = () => {
           </div>
 
           {/* Image Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Image 1 */}
             <div className="relative overflow-hidden rounded-lg shadow-lg group h-64 md:h-80">
               <ImageWithFallback
@@ -100,8 +100,8 @@ export const FoodDishesSection = () => {
             </div>
           </div>
 
-          <div className="mt-10 text-center">
-            <p className="text-[#212529] italic mb-6">
+          <div className="mt-8 text-center">
+            <p className="text-[#212529] italic mb-4">
               Đa dạng các món ăn ngon được chế biến từ nguyên liệu chất lượng
               cao của Công ty Thực phẩm Bò Né Hạnh
             </p>
