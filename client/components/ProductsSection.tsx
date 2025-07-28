@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import ImageWithFallback from "./ImageWithFallback";
+import BalancedLayout from "./BalancedLayout";
 
 // Import Swiper components and styles
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,35 +24,35 @@ const productData = [
     id: "p1",
     name: "Bò né",
     description: "Bò tươi ướp sẵn",
-    image: "/images/snap.jpeg",
+    image: "/images/products/bone.jpg",
     fallbackImage: "https://placehold.co/600x400/27AE60/FFFFFF?text=Bò+Né",
   },
   {
     id: "p2",
     name: "Bitstet",
     description: "Bò miếng tươi ướp sẵn",
-    image: "/images/us.jpg",
+    image: "/images/products/bittet.jpg",
     fallbackImage: "https://placehold.co/600x400/27AE60/FFFFFF?text=Bitstet",
   },
   {
     id: "p3",
     name: "Pate",
     description: "Hương vị thơm ngon",
-    image: "/images/mau1.jpg",
+    image: "/images/products/pate.jpg",
     fallbackImage: "https://placehold.co/600x400/27AE60/FFFFFF?text=Pate",
   },
   {
     id: "p4",
     name: "Nem nướng",
     description: "Thơm ngon đặc biệt",
-    image: "/images/uss.jpg",
+    image: "/images/products/nemnuong.jpg",
     fallbackImage: "https://placehold.co/600x400/27AE60/FFFFFF?text=Nem+Nướng",
   },
   {
     id: "p5",
     name: "Chả quế",
     description: "Đậm đà hương vị",
-    image: "/images/us.jpg",
+    image: "/images/products/chaque.jpg",
     fallbackImage: "https://placehold.co/600x400/27AE60/FFFFFF?text=Chả+Quế",
   },
   {
@@ -93,7 +94,7 @@ export const ProductsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-10 bg-gradient-to-b from-white to-[#f8f9fa] relative overflow-hidden"
+      className="py-10 bg-gradient-to-b from-white to-[#f8f9fa] relative overflow-hidden flex justify-center"
       id="san-pham"
     >
       {/* Background decorations */}
@@ -103,17 +104,17 @@ export const ProductsSection = () => {
         <div className="absolute left-1/4 top-3/4 w-20 h-20 rounded-full bg-[#27AE60]/10"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <BalancedLayout className="relative z-10">
         <div
           className={`text-center mb-8 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <span className="inline-block px-4 py-1.5 bg-[#E8F5E9] text-[#27AE60] text-sm font-medium rounded-full mb-3">
+          {/* <span className="inline-block px-4 py-1.5 bg-[#E8F5E9] text-[#27AE60] text-sm font-medium rounded-full mb-3">
             Sản phẩm của chúng tôi
-          </span>
+          </span> */}
           <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
-            MỘT SỐ <span className="text-[#27AE60]">SẢN PHẨM CHÍNH</span>
+            <span className="text-[#212529]">MỘT SỐ SẢN PHẨM CHÍNH</span>
             <div className="h-1 w-24 bg-[#27AE60] mx-auto mt-3"></div>
           </h2>
           <p className="max-w-2xl mx-auto text-gray-600">
@@ -124,7 +125,7 @@ export const ProductsSection = () => {
 
         {/* Main product display area with Swiper */}
         <div
-          className={`max-w-6xl mx-auto transition-all duration-1000 delay-300 ${
+          className={`transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -206,33 +207,7 @@ export const ProductsSection = () => {
             ))}
           </Swiper>
         </div>
-
-        {/* View all products button */}
-        {/* <div
-          className={`text-center mt-12 transform transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <Link
-            href="#"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-[#27AE60] text-white font-medium hover:bg-[#229954] transition-colors shadow-md hover:shadow-lg"
-          >
-            <span>Xem tất cả sản phẩm</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 ml-2"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </Link>
-        </div> */}
-      </div>
+      </BalancedLayout>
 
       {/* Add custom styles for Swiper navigation and pagination */}
       <style jsx global>{`

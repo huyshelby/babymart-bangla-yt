@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import BalancedLayout from "./BalancedLayout";
 
 export const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +34,7 @@ export const AboutSection = () => {
     <section
       id="gioi-thieu"
       ref={sectionRef}
-      className="py-12 bg-gradient-to-b from-[#F8F9FA] to-white relative overflow-hidden"
+      className="py-12 bg-gradient-to-b from-[#F8F9FA] to-white relative overflow-hidden flex justify-center"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
@@ -53,10 +54,10 @@ export const AboutSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <BalancedLayout className="relative z-10">
         <div className="text-center mb-10">
           <h2 className="inline-block relative text-3xl md:text-4xl font-bold mb-3 text-[#212529]">
-            <span className="text-[#27AE60]">Giới Thiệu</span> Chung
+            <span className="text-[#212529]">Giới Thiệu Chung</span>
             <div
               className={`h-1 w-24 bg-[#27AE60] mx-auto mt-4 transition-all duration-1000 ${
                 isVisible ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -193,20 +194,7 @@ export const AboutSection = () => {
             </p>
           </div>
         </div>
-
-        {/* Bottom decoration */}
-        {/* <div className="mt-16 flex justify-center">
-          <Image
-            src="/images/spoon-divider.svg"
-            alt="Divider"
-            width={200}
-            height={30}
-            className={`opacity-70 transform transition-all duration-1000 ${
-              isVisible ? "scale-100 opacity-70" : "scale-50 opacity-0"
-            }`}
-          />
-        </div> */}
-      </div>
+      </BalancedLayout>
     </section>
   );
 };

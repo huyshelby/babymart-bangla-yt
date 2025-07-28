@@ -40,11 +40,11 @@ export function Header() {
     <header
       className={`bg-white ${
         scrolled ? "shadow-lg" : "shadow-md"
-      } sticky top-0 z-50 transition-shadow duration-300`}
+      } sticky top-0 z-50 transition-shadow duration-300 w-full flex justify-center`}
     >
-      <div className="container mx-auto px-4 py-2">
+      <div className="max-w-[1300px] w-full py-2">
         {/* Top Row: Logo and Contact Info */}
-        <div className="flex flex-wrap justify-between items-center mb-2">
+        <div className="flex flex-wrap justify-between items-center mb-2 px-6">
           {/* Logo and site name */}
           <div className="flex items-center group">
             <div className="relative overflow-hidden rounded-full transition-transform duration-300 transform group-hover:scale-105">
