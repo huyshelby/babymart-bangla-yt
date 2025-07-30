@@ -14,7 +14,9 @@ export default function BalancedLayout({
   return (
     <div className={`w-full flex justify-center ${className}`}>
       <div
-        className={`max-w-[1300px] w-full ${!fullWidth ? "px-4 md:px-6" : ""}`}
+        className={`max-w-[1300px] w-full ${
+          !fullWidth ? "px-4 sm:px-6 md:px-8 lg:px-12" : ""
+        }`}
       >
         {children}
       </div>

@@ -23,20 +23,20 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Đại Lý Thực Phẩm 33 Ngon",
-    default: "Đại Lý Thực Phẩm 33 Ngon - Bò Né, Bò Kho Sài Gòn",
+    template: "%s | Công ty thực phẩm bò né hạnh",
+    default: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
   },
   description:
     "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm, giá cả cạnh tranh.",
   keywords: [
-    "thực phẩm 33 ngon",
+    "thực phẩm bò né hạnh",
     "bò né đà nẵng",
     "bò kho sài gòn",
     "cung cấp thực phẩm đà nẵng",
   ],
-  authors: [{ name: "33 NGON" }],
-  creator: "33 NGON",
-  publisher: "33 NGON",
+  authors: [{ name: "Bò né hạnh" }],
+  creator: "Bò né hạnh",
+  publisher: "Bò né hạnh",
   robots: {
     index: true,
     follow: true,

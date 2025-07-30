@@ -32,7 +32,7 @@ export function ContactPopup() {
       {/* Main contact button */}
       <button
         onClick={() => setActivePopup(activePopup ? null : "main")}
-        className="bg-gradient-to-r from-orange-500 to-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 relative z-10"
+        className="bg-gradient-to-r from-[#27AE60] to-[#219653] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 relative z-10"
         aria-label="Contact options"
       >
         {activePopup ? (
@@ -68,7 +68,7 @@ export function ContactPopup() {
         )}
 
         {/* Pulse animation ring */}
-        <span className="absolute inset-0 rounded-full border-4 border-orange-300 animate-ping-slow opacity-75"></span>
+        <span className="absolute inset-0 rounded-full border-4 border-[#E8F5E9] animate-ping-slow opacity-75"></span>
       </button>
 
       {/* Contact popups */}
@@ -115,55 +115,10 @@ export function ContactPopup() {
               <h4 className="font-medium text-gray-900">Chat Facebook</h4>
               <p className="text-xs text-gray-500">(8h00 - 20h00)</p>
               <Link
-                href="https://m.me/yourusername"
+                href="https://www.facebook.com/share/1GtqRgPaU4/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-blue-500 hover:text-blue-700"
-              >
-                Bắt đầu chat
-              </Link>
-            </div>
-          )}
-        </div>
-
-        {/* Zalo */}
-        <div
-          className={`flex items-center transition-all duration-300 ${
-            activePopup === "zalo"
-              ? "bg-white rounded-lg shadow-xl p-3 pr-4"
-              : ""
-          }`}
-        >
-          <button
-            onClick={() => togglePopup("zalo")}
-            className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shadow-lg ${
-              activePopup !== "zalo" ? "bg-[#0068FF]" : ""
-            }`}
-          >
-            <div className="relative w-full h-full flex items-center justify-center">
-              <div className="absolute inset-0 bg-[#0068FF] rounded-full"></div>
-              <svg viewBox="0 0 50 50" className="w-8 h-8 relative z-10">
-                <path
-                  d="M25,0C11.2,0,0,11.2,0,25s11.2,25,25,25s25-11.2,25-25S38.8,0,25,0z"
-                  fill="#FFFFFF"
-                />
-                <path
-                  d="M36.2,28c0,0-2,0.6-2.8,0.6c-0.8,0.1-2,0.2-2.2-0.4c-0.2-0.4-0.2-2.2-0.2-2.2s1.8-0.2,2.8-0.8 c1.2-0.7,1.8-2.3-0.4-2.8c-3.3-0.8-4.1,1.5-4.1,1.5v3.1c0,0,0,2.6-2.2,2.6c-1.4,0-2.2-0.9-2.2-2.2l0-5.4c0,0,0.1-1.5-1.8-1.5 c-1.4,0-1.8,1-1.8,1.8c0,0.7,0,5.2,0,5.2s-0.1,2.2-2.2,2.2c-1.3,0-2-0.9-2-2c0-0.6,0-8.2,0-8.2s0-1.6,1.5-1.6 c0.9,0,1-0.6,2.8-0.6c1.4,0,2.1,0.8,2.1,0.8s0.5-1,2.6-0.9c1.8,0,2.8,0.7,2.8,0.7S30,16,32,16c2,0,2.4,1.5,2.4,1.5 s0.5-0.6,2.2-0.6c1.7,0,2.4,1,2.4,1s0.2,0.7,0.2,3v4C39.2,28,36.2,27.9,36.2,28z"
-                  fill="#0068FF"
-                />
-              </svg>
-            </div>
-          </button>
-
-          {activePopup === "zalo" && (
-            <div className="ml-3 animate-fade-in">
-              <h4 className="font-medium text-gray-900">Chat Zalo</h4>
-              <p className="text-xs text-gray-500">(8h00 - 20h00)</p>
-              <Link
-                href="https://zalo.me/yourphone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-blue-500 hover:text-blue-700"
+                className="text-sm text-[#27AE60] hover:text-[#219653]"
               >
                 Bắt đầu chat
               </Link>
@@ -182,11 +137,11 @@ export function ContactPopup() {
           <button
             onClick={() => togglePopup("phone")}
             className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center shadow-lg ${
-              activePopup !== "phone" ? "bg-green-600" : ""
+              activePopup !== "phone" ? "bg-[#27AE60]" : ""
             }`}
           >
             <div className="relative w-full h-full flex items-center justify-center">
-              <div className="absolute inset-0 bg-green-600 rounded-full"></div>
+              <div className="absolute inset-0 bg-[#27AE60] rounded-full"></div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 relative z-10 text-white"
@@ -206,11 +161,11 @@ export function ContactPopup() {
 
           {activePopup === "phone" && (
             <div className="ml-3 animate-fade-in">
-              <h4 className="font-medium text-gray-900">0935.330.134</h4>
+              <h4 className="font-medium text-gray-900">0935 33 0134</h4>
               <p className="text-xs text-gray-500">(8h00 - 20h00)</p>
               <Link
                 href="tel:0935330134"
-                className="text-sm text-green-500 hover:text-green-700"
+                className="text-sm text-[#27AE60] hover:text-[#219653]"
               >
                 Gọi ngay
               </Link>

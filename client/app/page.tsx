@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { ImageModal } from "@/components/ImageModal";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
-import { ProductsSection } from "@/components/ProductsSection";
+import { ProductSection } from "@/components/ProductSection";
 import { BusinessPhilosophySection } from "@/components/BusinessPhilosophySection";
 import { ColdStorageSection } from "@/components/ColdStorageSection";
 import { FoodSafetySection } from "@/components/FoodSafetySection";
@@ -42,7 +42,7 @@ export default function Home() {
         <AboutSection />
 
         {/* Main Products Section */}
-        <ProductsSection />
+        <ProductSection />
 
         {/* PHƯƠNG CHÂM KINH DOANH Section */}
         <BusinessPhilosophySection />
