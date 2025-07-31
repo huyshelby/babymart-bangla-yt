@@ -96,7 +96,7 @@ export const PromotionsSection = () => {
       fallbackSrc:
         "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+1",
       alt: "Chương trình khuyến mãi",
-      title: "Ưu đãi đặc biệt",
+     
     },
   ];
 
@@ -119,21 +119,17 @@ export const PromotionsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-12"
         >
-          <div className="inline-flex items-center mb-3 px-4 py-1.5 bg-[#27AE60]/10 rounded-full">
-            <span className="text-sm text-[#27AE60] font-medium tracking-wider">
-              ƯU ĐÃI ĐẶC BIỆT
-            </span>
-          </div>
           <h2
             className={`${
               isMobile ? "text-2xl" : "text-3xl md:text-4xl"
             } font-bold mb-3`}
           >
-            <span className="text-[#212529]">CHƯƠNG TRÌNH </span>
-            <span className="text-[#27AE60]">KHUYẾN MÃI</span>
+            <span className="text-[#27AE60] uppercase !text-4xl">
+              CHƯƠNG TRÌNH KHUYẾN MÃI
+            </span>
           </h2>
           {!isMobile && (
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="!text-[#27AE60] max-w-2xl mx-auto !text-2xl">
               Chúng tôi tổ chức nhiều chương trình ưu đãi đặc biệt dành cho
               khách hàng và đối tác
             </p>
@@ -154,7 +150,7 @@ export const PromotionsSection = () => {
           {/* Mobile View: Image Carousel */}
           {isMobile ? (
             <div className="mb-8">
-              <Swiper
+              <Swiper 
                 modules={[Pagination, Autoplay, EffectFade]}
                 effect="fade"
                 spaceBetween={0}
@@ -163,10 +159,7 @@ export const PromotionsSection = () => {
                   clickable: true,
                   dynamicBullets: true,
                 }}
-                autoplay={{
-                  delay: 4000,
-                  disableOnInteraction: false,
-                }}
+            
                 loop={true}
                 className="promo-swiper rounded-xl overflow-hidden shadow-xl"
               >
@@ -183,16 +176,12 @@ export const PromotionsSection = () => {
                     />
 
                     {/* Overlay content */}
-                    <div className="absolute inset-0 flex flex-col justify-between p-6 z-20">
+            <div className="absolute inset-0 flex flex-col justify-between p-6 z-20">
                       <div>
-                        <h3 className="text-2xl font-bold !text-white mb-2">
-                          {image.title}
-                        </h3>
+                      
                         <div className="flex items-center">
-                          <div className="w-8 h-0.5 bg-[#27AE60] mr-3"></div>
-                          <p className="!text-white/90 text-sm">
-                            Liên hệ ngay để biết thêm chi tiết
-                          </p>
+                          
+                         
                         </div>
                       </div>
                     </div>
@@ -200,11 +189,54 @@ export const PromotionsSection = () => {
                 ))}
               </Swiper>
 
+              {/* Mobile Full Content - similar to BusinessPhilosophySection */}
+              <div className="mt-6 px-4 py-6 bg-white rounded-xl shadow-md border border-gray-100">
+                <div className="flex justify-start mb-4">
+                  <Image
+                    src="/images/spoon-divider.svg"
+                    alt="Decorative divider"
+                    width={40}
+                    height={40}
+                    className="opacity-70"
+                  />
+                </div>
+
+                <p className=" !text-[#27AE60] !text-2xl leading-relaxed mb-4">
+                  Chúng tôi tổ chức nhiều chương trình ưu đãi đặc biệt dành cho
+                  khách hàng và đối tác. Các chương trình khuyến mãi được cập nhật thường xuyên
+                  để mang lại giá trị tốt nhất.
+                </p>
+
+                <div className="space-y-4 mt-4">
+                  {promotions.map((promo, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="bg-white shadow-md rounded-full p-3 mr-4 mt-1 text-[#27AE60] border border-[#27AE60]/10">
+                        {promo.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold !text-[#27AE60]">
+                          {promo.title}
+                        </h4>
+                        <p className="!text-[#27AE60] !text-lg mt-1">
+                          {promo.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4 flex items-center space-x-2 mt-4">
+                  <div className="w-6 h-1 bg-[#27AE60]/40 rounded-full"></div>
+                  <div className="w-2 h-1 bg-[#27AE60]/60 rounded-full"></div>
+                  <div className="w-1 h-1 bg-[#27AE60]/80 rounded-full"></div>
+                </div>
+              </div>
+
               {/* Mobile CTA Button */}
-              <div className="text-center mt-6">
+              <div className="text-center mt-6 !text-white">
                 <a
                   href="tel:0935330134"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#27AE60] to-[#25A65B] text-white font-medium rounded-xl shadow-lg transform transition-transform active:scale-95"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#27AE60] to-[#25A65B] !text-white font-medium rounded-xl shadow-lg transform transition-transform active:scale-95"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -285,10 +317,10 @@ export const PromotionsSection = () => {
                         {promo.icon}
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold text-[#212529] group-hover:text-[#27AE60] transition-colors">
+                        <h4 className="text-xl font-semibold !text-[#27AE60] group-hover:text-[#27AE60] transition-colors">
                           {promo.title}
                         </h4>
-                        <p className="text-gray-600 mt-1 leading-relaxed">
+                        <p className=" !text-2xl !text-[#27AE60] mt-1 leading-relaxed">
                           {promo.description}
                         </p>
                       </div>
@@ -307,7 +339,7 @@ export const PromotionsSection = () => {
                 >
                   <a
                     href="tel:0935330134"
-                    className="inline-flex items-center px-8 py-3 mt-4 bg-gradient-to-r from-[#27AE60] to-[#25A65B] text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
+                    className="inline-flex items-center px-8 py-3 mt-4 bg-gradient-to-r from-[#27AE60] to-[#25A65B] !text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +376,7 @@ export const PromotionsSection = () => {
         }
 
         .promo-swiper .swiper-pagination-bullet-active {
-          background-color: #27ae60;
+          background-color: white;
           opacity: 1;
         }
       `}</style>

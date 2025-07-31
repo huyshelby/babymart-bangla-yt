@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /private
+Disallow: /admin
+
+# Host
+Host: https://bonehanh.com
+
+# Sitemaps
+Sitemap: https://bonehanh.com/sitemap.xml
+Sitemap: https://bonehanh.com/server-sitemap.xml

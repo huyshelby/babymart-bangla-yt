@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ContactPopup } from "@/components/ContactPopup";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bonehanh.com"),
   title: {
     template: "%s | Công ty thực phẩm bò né hạnh",
     default: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
@@ -33,6 +35,9 @@ export const metadata: Metadata = {
     "bò né đà nẵng",
     "bò kho sài gòn",
     "cung cấp thực phẩm đà nẵng",
+    "thực phẩm đông lạnh đà nẵng",
+    "thực phẩm chế biến sẵn",
+    "nhà cung cấp thực phẩm uy tín",
   ],
   authors: [{ name: "Bò né hạnh" }],
   creator: "Bò né hạnh",
@@ -43,7 +48,35 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
+  },
+  alternates: {
+    canonical: "https://bonehanh.com",
+  },
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: "https://bonehanh.com",
+    title: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
+    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm.",
+    siteName: "Công ty thực phẩm bò né hạnh",
+    images: [
+      {
+        url: "/images/logo/logo.jpg",
+        width: 800,
+        height: 600,
+        alt: "Công ty thực phẩm bò né hạnh Logo",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
+    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho tại Đà Nẵng",
+    images: ["/images/logo/logo.jpg"],
   },
 };
 
@@ -76,11 +109,14 @@ export default function RootLayout({
           content="telephone=no, date=no, email=no, address=no"
         />
         <link rel="icon" href="/images/logo/logo.jpg" type="image/jpg" />
+        <link rel="apple-touch-icon" href="/images/logo/logo.jpg" />
       </head>
       <body className="min-h-screen bg-[#FFFBEB] antialiased">
-        <ScrollProgressBar />
-        {children}
-        <ContactPopup />
+        <AnalyticsProvider>
+          <ScrollProgressBar />
+          {children}
+          <ContactPopup />
+        </AnalyticsProvider>
       </body>
     </html>
   );

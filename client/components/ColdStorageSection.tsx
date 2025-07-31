@@ -174,11 +174,13 @@ export const ColdStorageSection = () => {
               isMobile ? "text-2xl" : "text-3xl md:text-4xl"
             } font-bold text-[#212529] mb-4 relative inline-block`}
           >
-            HỆ THỐNG<span className="!text-[#27AE60]"> KHO LẠNH HIỆN ĐẠI</span>
+            <span className="!text-[#27AE60] uppercase">
+              Hệ thống kho lạnh hiện đại
+            </span>
           </h2>
           <div className="w-24 h-1 bg-[#27AE60] mx-auto mb-4 md:mb-6 rounded-full"></div>
           {!isMobile && (
-            <p className="text-lg text-[#212529] max-w-2xl mx-auto">
+            <p className="!text-2xl !text-[#27AE60] max-w-2xl mx-auto">
               Chúng tôi đầu tư hệ thống kho lạnh hiện đại đảm bảo chất lượng sản
               phẩm luôn được bảo quản tốt nhất, giữ trọn vẹn hương vị và độ tươi
               ngon

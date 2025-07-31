@@ -17,30 +17,16 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 const philosophyValues = [
   {
     id: "value1",
-    title: "Khách hàng là ân nhân",
-    description:
-      "Triết lý kinh doanh của chúng tôi gói gọn trong câu nói này. Mỗi đối tác không chỉ là một khách hàng, mà là một người bạn đồng hành.",
     image: "/images/phuongcham/phuongcham1.jpg",
     fallbackImage:
       "https://placehold.co/600x400/27AE60/FFFFFF?text=Phương+Châm+Kinh+Doanh",
   },
   {
     id: "value2",
-    title: "Chất lượng là nền tảng",
-    description:
-      "Chúng tôi cam kết mang đến những sản phẩm chất lượng cao nhất với hương vị đặc trưng và nguyên liệu tươi ngon.",
+
     image: "/images/phuongcham/phuongcham2.jpg",
     fallbackImage:
       "https://placehold.co/600x400/27AE60/FFFFFF?text=Chất+Lượng+Sản+Phẩm",
-  },
-  {
-    id: "value3",
-    title: "Đồng hành cùng phát triển",
-    description:
-      "Thành công của khách hàng chính là thành công của chúng tôi. Chúng tôi không chỉ giao hàng, chúng tôi giao cả sự tận tâm.",
-    image: "/images/phuongcham/phuongcham1.jpg",
-    fallbackImage:
-      "https://placehold.co/600x400/27AE60/FFFFFF?text=Đồng+Hành+Phát+Triển",
   },
 ];
 
@@ -108,7 +94,9 @@ export const BusinessPhilosophySection = () => {
               isMobile ? "text-2xl" : "text-3xl md:text-4xl"
             } font-bold text-[#27AE60] mb-3 md:mb-6 relative inline-block`}
           >
-            PHƯƠNG CHÂM<span className="!text-[#27AE60]"> KINH DOANH</span>
+            <span className="!text-[#27AE60] uppercase">
+              Phương châm kinh doanh
+            </span>
             <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 sm:w-36 h-1">
               <div
                 className="w-full h-full bg-[#27AE60] rounded-full animate-shimmer-slow opacity-70"
@@ -121,7 +109,7 @@ export const BusinessPhilosophySection = () => {
           </h2>
 
           {!isMobile && (
-            <p className="text-gray-600 max-w-2xl mx-auto mt-4 text-base md:text-lg">
+            <p className="!text-2xl !text-[#27AE60] max-w-2xl mx-auto mt-4 text-base md:text-lg">
               &quot;Chất lượng làm nên thương hiệu&quot; là nền tảng cho mọi
               hoạt động kinh doanh
             </p>
@@ -163,18 +151,18 @@ export const BusinessPhilosophySection = () => {
                     />
                   </div>
 
-                  <p className="text-base md:text-lg leading-relaxed">
+                  <p className=" !text-2xl !text-[#27AE60] text-base md:text-lg leading-relaxed">
                     Với tâm huyết khát khao mang trọn vẹn hương vị Bò Né chuẩn
                     gốc Sài Gòn đến với thực khách Đà thành, chúng tôi kiến tạo
                     một thương hiệu không chỉ bằng công thức, mà bằng sự tử tế
                     và trách nhiệm.
                   </p>
 
-                  <p className="text-base md:text-lg leading-relaxed">
+                  <p className=" !text-2xl !text-[#27AE60] text-base md:text-lg leading-relaxed">
                     Triết lý kinh doanh của chúng tôi gói gọn trong 5 chữ :
-                    <p className="text-lg md:text-xl font-medium  text-[#27AE60]">
+                    <span className="!text-2xl md:text-xl font-medium  text-[#27AE60]">
                       &ldquo;Khách hàng là ân nhân&rdquo;
-                    </p>
+                    </span>
                     <br />
                     Chúng tôi tìm kiếm khách hàng là tìm kiếm những người bạn
                     đồng hành. Bởi chúng tôi tin rằng, thành công của bạn chính
@@ -223,10 +211,6 @@ export const BusinessPhilosophySection = () => {
                 effect="fade"
                 navigation
                 pagination={{ clickable: true, dynamicBullets: true }}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
                 loop={true}
                 className="h-full philosophy-swiper rounded-2xl"
               >
@@ -236,29 +220,59 @@ export const BusinessPhilosophySection = () => {
                     <ImageWithFallback
                       src={item.image}
                       fallbackSrc={item.fallbackImage}
-                      alt={item.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
                       className="object-cover"
+                      alt="Phương châm kinh doanh"
                     />
-                    {/* Display text overlay on the image for mobile view */}
-                    {isMobile && (
-                      <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
-                        <div className="!text-white mb-8">
-                          <h3 className="text-2xl font-bold mb-2 !text-white">
-                            {item.title}
-                          </h3>
-                          <div className="w-16 h-1 bg-[#27AE60] rounded-full mb-3"></div>
-                          <p className="text-sm !text-white/90">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>
+              
+              {/* Remove the overlay content and leave this area empty */}
+        
             </div>
+
+            {/* Mobile text content - only visible on mobile, now below the image */}
+            {isMobile && (
+              <div className="mt-6 px-4 py-6 bg-white rounded-xl shadow-md border border-gray-100">
+                <div className="flex justify-start mb-4">
+                  <Image
+                    src="/images/spoon-divider.svg"
+                    alt="Decorative divider"
+                    width={40}
+                    height={40}
+                    className="opacity-70"
+                  />
+                </div>
+
+                <p className=" !text-2xl !text-[#27AE60] text-base leading-relaxed mb-4">
+                  Với tâm huyết khát khao mang trọn vẹn hương vị Bò Né chuẩn
+                  gốc Sài Gòn đến với thực khách Đà thành, chúng tôi kiến tạo
+                  một thương hiệu không chỉ bằng công thức, mà bằng sự tử tế
+                  và trách nhiệm.
+                </p>
+
+                <p className=" !text-2xl !text-[#27AE60] text-base leading-relaxed mb-4">
+                  Triết lý kinh doanh của chúng tôi gói gọn trong 5 chữ :
+                  <span className="text-lg font-medium text-[#27AE60]">
+                    &ldquo;Khách hàng là ân nhân&rdquo;
+                  </span>
+                  <br />
+                  Chúng tôi tìm kiếm khách hàng là tìm kiếm những người bạn
+                  đồng hành. Bởi chúng tôi tin rằng, thành công của bạn chính
+                  là thước đo cho thành công của chúng tôi. Mỗi sản phẩm được
+                  trao đi không chỉ là món ăn, mà còn là sự tận tâm, là cam
+                  kết bền chặt về chất lượng ổn định và an toàn tuyệt đối.
+                </p>
+
+                <div className="pt-4 flex items-center space-x-2">
+                  <div className="w-6 h-1 bg-[#27AE60]/40 rounded-full"></div>
+                  <div className="w-2 h-1 bg-[#27AE60]/60 rounded-full"></div>
+                  <div className="w-1 h-1 bg-[#27AE60]/80 rounded-full"></div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </BalancedLayout>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import SmoothScrollLink from "./SmoothScrollLink";
 
@@ -18,35 +18,39 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
       setScrollPosition(position);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Use passive listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Memoize the dynamic style to avoid recalculations on every render
+  const backgroundStyle = useMemo(() => {
+    return {
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
+      backgroundSize: "cover",
+      backgroundPosition: "center 40%",
+      backgroundAttachment: "fixed",
+      transform: `translateY(${scrollPosition * 0.15}px)`,
+      filter: "brightness(0.9) contrast(1.1)",
+    };
+  }, [scrollPosition]);
+
+  const patternStyle = useMemo(() => {
+    return {
+      backgroundImage: `url('/images/noise.svg')`,
+      backgroundSize: "200px",
     };
   }, []);
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Background with parallax effect - improved for mobile */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center 40%",
-          backgroundAttachment: "fixed",
-          transform: `translateY(${scrollPosition * 0.15}px)`,
-          filter: "brightness(0.9) contrast(1.1)",
-        }}
-      ></div>
+      <div className="absolute inset-0" style={backgroundStyle}></div>
 
       {/* Decorative overlay pattern */}
-      <div
-        className="absolute inset-0 opacity-15"
-        style={{
-          backgroundImage: `url('/images/noise.svg')`,
-          backgroundSize: "200px",
-        }}
-      ></div>
+      <div className="absolute inset-0 opacity-15" style={patternStyle}></div>
 
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 opacity-60"></div>
@@ -84,7 +88,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                 : "translate-y-10 opacity-0"
             } transition-all duration-1000 delay-300 ease-out`}
           >
-            <p className="text-sm sm:text-base md:text-xl font-medium mb-6 sm:mb-8 !text-white/90 max-w-2xl mx-auto drop-shadow-md leading-relaxed px-3 sm:px-0">
+            <p className="!text-3xl sm:text-base md:text-xl font-medium mb-6 sm:mb-8 !text-white max-w-2xl mx-auto drop-shadow-md leading-relaxed px-3 sm:px-0">
               Mang đến hương vị truyền thống, chuẩn vị Sài Gòn với nguyên liệu
               tươi sạch tận nguồn
             </p>
@@ -116,21 +120,21 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                 <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-1 sm:mb-2 md:mb-3">
                   <div className="h-[1px] sm:h-[2px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-white/90 rounded-full"></div>
                   <p
-                    className="text-base sm:text-lg md:text-2xl font-bold !text-white whitespace-normal sm:whitespace-nowrap px-1 sm:px-0"
+                    className="text-2xl sm:text-7xl md:text-6xl font-bold !text-[#27AE60] whitespace-normal sm:whitespace-nowrap px-1 sm:px-0"
                     style={{
-                      textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)",
+                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                     }}
                   >
-                    UY TÍN – CHẤT LƯỢNG – AN TOÀN – ĐẲNG CẤP
+                    THỰC PHẨM BÒ NÉ HẠNH
                   </p>
                   <div className="h-[1px] sm:h-[2px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-white/90 rounded-full"></div>
                 </div>
 
                 <p
-                  className="relative z-10 text-lg sm:text-xl md:text-3xl font-bold !text-white mb-2 sm:mb-3 px-2 sm:px-0"
-                  style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.5)" }}
+                  className="relative z-10 text-xl sm:text-2xl md:text-4xl font-bold !text-[#27AE60] mb-2 sm:mb-3 px-2 sm:px-0"
+                  style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}
                 >
-                  NGUYÊN LIỆU TUYỂN CHỌN - GIÁ CẢ HỢP LÍ
+                  UY TÍN – CHẤT LƯỢNG – AN TOÀN – ĐẲNG CẤP
                 </p>
 
                 <div className="flex items-center justify-center space-x-2 mb-1">
@@ -139,7 +143,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                   <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-300/80 rounded-full animate-pulse animation-delay-1000"></div>
                 </div>
 
-                <p className="text-xs sm:text-sm md:text-base !text-white/90 drop-shadow-sm">
+                <p className="!text-2xl sm:text-base md:text-lg !text-white/90 drop-shadow-sm">
                   Phục vụ hơn{" "}
                   <span className="font-bold text-green-300">100+</span> nhà
                   hàng & quán ăn tại Đà Nẵng
@@ -166,6 +170,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -188,6 +193,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -196,32 +202,11 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span className="text-white text-sm sm:text-base">
+              <span className="!text-white text-sm sm:text-base">
                 Liên Hệ Ngay
               </span>
             </SmoothScrollLink>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator - only shows on tablet and up */}
-      <div className="absolute bottom-5 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:flex flex-col items-center">
-        <p className="text-white/90 text-xs mb-1 sm:mb-2">Khám phá thêm</p>
-        <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full border border-white/60 flex items-center justify-center group hover:border-white transition-all">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 sm:h-5 w-4 sm:w-5 text-white/80 group-hover:text-white transition-colors"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
         </div>
       </div>
 
@@ -234,6 +219,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -246,7 +232,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
       </div>
 
       {/* Add custom styles for animations */}
-      <style jsx global>{`
+      <style jsx>{`
         @keyframes pulse-slow {
           0%,
           100% {
@@ -266,18 +252,6 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
           }
         }
 
-        @keyframes float {
-          0% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-          100% {
-            transform: translateY(0px);
-          }
-        }
-
         .animate-pulse-slow {
           animation: pulse-slow 6s infinite;
         }
@@ -285,10 +259,6 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
         .animate-shimmer-slow {
           animation: shimmer-slow 3s infinite;
           background-size: 200% 100%;
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
         }
 
         .animation-delay-500 {

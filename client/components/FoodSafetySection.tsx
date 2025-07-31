@@ -52,10 +52,12 @@ export const FoodSafetySection = () => {
               isMobile ? "text-2xl" : "text-3xl md:text-4xl"
             } font-bold text-[#212529] mb-2 uppercase`}
           >
-            Nguồn Gốc<span className="!text-[#27AE60]"> Nguyên Liệu</span>
+            <span className="!text-[#27AE60] upcase text-3xl md:text-4xl">
+              Nguồn Gốc Nguyên Liệu
+            </span>
           </h2>
           {!isMobile && (
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="!text-[#27AE60] max-w-2xl mx-auto !text-2xl">
               Cam kết chất lượng - Đảm bảo sức khỏe - Tạo niềm tin
             </p>
           )}
@@ -87,18 +89,68 @@ export const FoodSafetySection = () => {
                 />
 
                 {/* Add text overlay for mobile view */}
-                {isMobile && (
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent z-20 text-white">
-                    <h3 className="text-xl font-semibold !text-[#27AE60] mb-2">
-                      Cam kết chất lượng
-                    </h3>
-                    <p className="!text-white/90 text-sm">
-                      Nguyên liệu tươi sạch, an toàn vệ sinh thực phẩm
-                    </p>
-                  </div>
-                )}
+       
               </div>
             </div>
+
+            {/* Mobile content - Only visible on mobile */}
+            {isMobile && (
+              <div className="space-y-4 mt-6 px-4">
+                <div className="p-1 inline-block bg-green-50 rounded-full">
+                  <div className="w-10 h-10 rounded-full bg-[#27AE60]/10 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-[#27AE60]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-semibold !text-[#27AE60]">
+                  Cam kết chất lượng
+                </h3>
+                <p className="!text-[#27AE60] !text-2xl leading-relaxed text-base">
+                  Chúng tôi cam kết sử dụng nguồn thực phẩm đầu vào tươi sạch,
+                  đảm bảo an toàn vệ sinh thực phẩm theo các tiêu chuẩn của Cục
+                  ATVSTP - Bộ Y tế.
+                </p>
+                <div className="pt-2 space-y-3 !text-[#27AE60] !text-2xl">
+                  {[
+                    "Nguồn thịt bò tươi, chất lượng cao",
+                    "Gia vị tự nhiên, không chất bảo quản",
+                    "Đảm bảo tiêu chuẩn vệ sinh an toàn thực phẩm",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="h-5 w-5 rounded-full bg-[#27AE60]/20 flex-shrink-0 flex items-center justify-center mt-0.5 mr-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-3 w-3 text-[#27AE60]"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <span className="!text-[#27AE60] !text-2xl">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Right column - Content - Only visible on desktop */}
             {!isMobile && (
@@ -124,17 +176,17 @@ export const FoodSafetySection = () => {
                 <h3 className="text-2xl font-semibold !text-[#27AE60]">
                   Cam kết chất lượng
                 </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="!text-2xl !text-[#27AE60] leading-relaxed">
                   Chúng tôi cam kết sử dụng nguồn thực phẩm đầu vào tươi sạch,
                   đảm bảo an toàn vệ sinh thực phẩm theo các tiêu chuẩn của Cục
                   ATVSTP - Bộ Y tế.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="!text-2xl !text-[#27AE60] leading-relaxed">
                   Tất cả nguyên liệu được kiểm soát chặt chẽ từ khâu giết mổ tới
                   khâu nhập hàng, với quy trình kiểm tra nghiêm ngặt và lựa chọn
                   kỹ càng từ các nhà cung cấp uy tín.
                 </p>
-                <div className="pt-4 space-y-4">
+                <div className="pt-4 space-y-4 !text-2xl !text-[#27AE60]">
                   {[
                     "Nguồn thịt bò tươi, chất lượng cao",
                     "Gia vị tự nhiên, không chất bảo quản",
@@ -157,7 +209,7 @@ export const FoodSafetySection = () => {
                           />
                         </svg>
                       </div>
-                      <span className="text-gray-800 font-medium">{item}</span>
+                      <span className="!text-[#27AE60] font-medium">{item}</span>
                     </div>
                   ))}
                 </div>

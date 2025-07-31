@@ -152,7 +152,7 @@ export const AboutSection = () => {
     >
       <div className="relative mb-8">
         <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#E8F5E9] rounded-full"></div>
-        <div className="bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center relative z-10 transform transition-transform hover:rotate-6">
+        <div className="!bg-[#27AE60] text-white rounded-full w-16 h-16 flex items-center justify-center relative z-10 transform transition-transform hover:rotate-6">
           {icon}
         </div>
       </div>
@@ -160,7 +160,7 @@ export const AboutSection = () => {
         <span>{title}</span>
         {/* <div className="ml-2 w-10 h-0.5 bg-[#27AE60]"></div> */}
       </h3>
-      <p className="text-[#212529] leading-relaxed">{content}</p>
+      <p className="!text-2xl !text-[#27AE60] leading-relaxed">{content}</p>
     </div>
   );
 
@@ -191,14 +191,14 @@ export const AboutSection = () => {
       <BalancedLayout className="relative z-10">
         <div className="text-center mb-10">
           <h2 className="inline-block relative text-3xl md:text-4xl font-bold mb-3 text-[#212529]">
-            ĐẾN VỚI<span className="!text-[#27AE60] uppercase"> chúng tôi</span>
+            <span className="!text-[#27AE60] uppercase">Đến với chúng tôi</span>
             <div
               className={`h-1 w-24 bg-[#27AE60] mx-auto mt-4 transition-all duration-1000 ${
                 isVisible ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             ></div>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+          <p className=" !text-2xl text-gray-600 max-w-2xl mx-auto text-base md:text-lg !text-[#27AE60] ">
             Với mong muốn trở thành đối tác tin cậy của mọi nhà hàng, quán ăn
             tại Đà Nẵng và các tỉnh thành lân cận, Bò Né Hạnh không ngừng nỗ lực
             để mang đến những sản phẩm chất lượng với chi phí tối ưu nhất.
@@ -232,10 +232,6 @@ export const AboutSection = () => {
               spaceBetween={20}
               slidesPerView={1}
               pagination={{ clickable: true }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
               loop={true}
               className="about-swiper pb-12"
             >

@@ -12,6 +12,7 @@ import { ColdStorageSection } from "@/components/ColdStorageSection";
 import { FoodSafetySection } from "@/components/FoodSafetySection";
 import { FoodDishesSection } from "@/components/FoodDishesSection";
 import { PromotionsSection } from "@/components/PromotionsSection";
+import JsonLd from "@/components/JsonLd";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,34 +31,75 @@ export default function Home() {
     setModalOpen(true);
   };
 
+  // Breadcrumb data for structured data
+  const breadcrumbData = {
+    items: [
+      {
+        position: 1,
+        name: "Trang chủ",
+        item: "https://bonehanh.com"
+      },
+      {
+        position: 2,
+        name: "Giới thiệu",
+        item: "https://bonehanh.com/#gioi-thieu"
+      },
+      {
+        position: 3,
+        name: "Sản phẩm",
+        item: "https://bonehanh.com/#san-pham"
+      }
+    ]
+  };
+
   return (
     <>
+      <JsonLd 
+        organizationData={true} 
+        localBusinessData={true}
+        breadcrumbData={breadcrumbData}
+      />
       <Header />
 
-      <main>
+      <main itemScope itemType="https://schema.org/WebPage">
         {/* Hero Section */}
         <HeroSection isLoaded={isLoaded} />
 
         {/* About Us Section */}
-        <AboutSection />
+        <section id="gioi-thieu" itemScope itemType="https://schema.org/AboutPage">
+          <AboutSection />
+        </section>
 
         {/* Main Products Section */}
-        <ProductSection />
+        <section id="san-pham" itemScope itemType="https://schema.org/ItemList">
+          <meta itemProp="numberOfItems" content="5" />
+          <ProductSection />
+        </section>
 
         {/* PHƯƠNG CHÂM KINH DOANH Section */}
-        <BusinessPhilosophySection />
+        <section id="phuong-cham">
+          <BusinessPhilosophySection />
+        </section>
 
         {/* Cold Storage System Section */}
-        <ColdStorageSection />
+        <section id="kho-lanh">
+          <ColdStorageSection />
+        </section>
 
         {/* Food Safety Section */}
-        <FoodSafetySection />
+        <section id="an-toan-thuc-pham" itemScope itemType="https://schema.org/HealthAndSafetyInfo">
+          <FoodSafetySection />
+        </section>
 
         {/* Food Dishes Section */}
-        <FoodDishesSection />
+        <section id="mon-an" itemScope itemType="https://schema.org/MenuSection">
+          <FoodDishesSection />
+        </section>
 
         {/* Promotions Section */}
-        <PromotionsSection />
+        <section id="khuyen-mai" itemScope itemType="https://schema.org/PromotionEvent">
+          <PromotionsSection />
+        </section>
       </main>
 
       <Footer />

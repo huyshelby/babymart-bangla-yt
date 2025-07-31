@@ -7,6 +7,7 @@ interface ImageWithFallbackProps extends Omit<ImageProps, "src" | "alt"> {
   src: string;
   fallbackSrc: string;
   alt: string;
+  title?: string;
 }
 
 export default function ImageWithFallback({
@@ -14,6 +15,10 @@ export default function ImageWithFallback({
   fallbackSrc,
   alt,
   fill,
+  title,
+  priority = false,
+  loading = "lazy",
+  sizes,
   ...props
 }: ImageWithFallbackProps) {
   const [imgSrc, setImgSrc] = useState<string>(src);
@@ -32,14 +37,19 @@ export default function ImageWithFallback({
         fill={fill}
         src={imgSrc}
         alt={alt}
+        title={title || alt}
         onError={() => setImgSrc(fallbackSrc)}
         onLoad={() => setIsLoaded(true)}
+        loading={priority ? "eager" : loading}
+        priority={priority}
+        sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+        fetchPriority={priority ? "high" : "auto"}
         className={`transition-opacity duration-300 ${props.className || ""} ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       />
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-100 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gray-100 animate-pulse" aria-hidden="true"></div>
       )}
     </div>
   );

@@ -51,10 +51,12 @@ export const ProductSection = () => {
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 relative inline-block">
-            MỘT SỐ<span className="!text-[#27AE60]"> SẢN PHẨM CHÍNH</span>
+            <span className="!text-[#27AE60] uppercase">
+              Một số sản phẩm chính
+            </span>
             <div className="h-1 w-24 bg-[#27AE60] mx-auto mt-3"></div>
           </h2>
-          <p className="max-w-2xl mx-auto text-gray-600">
+          <p className=" !text-2xl max-w-2xl mx-auto text-gray-600 !text-[#27AE60]">
             Chúng tôi cung cấp các thực phẩm cao cấp, đảm bảo vệ sinh an toàn
             thực phẩm với hương vị đặc trưng từ bí quyết công thức chế biến độc
             đáo
@@ -109,7 +111,7 @@ export const ProductSection = () => {
                     />
                   </svg>
                 </div>
-                <span className="text-lg font-medium">
+                <span className="!text-2xl font-medium !text-[#27AE60]">
                   Bò né (bò tươi ướp sẵn)
                 </span>
               </li>
@@ -130,7 +132,7 @@ export const ProductSection = () => {
                     />
                   </svg>
                 </div>
-                <span className="text-lg font-medium">
+                <span className="!text-2xl font-medium !text-[#27AE60]">
                   Bitstet (bò miếng tươi ướp sẵn)
                 </span>
               </li>
@@ -151,7 +153,7 @@ export const ProductSection = () => {
                     />
                   </svg>
                 </div>
-                <span className="text-lg font-medium">
+                <span className="!text-2xl font-medium !text-[#27AE60]">
                   Pate, nem nướng, chả quế
                 </span>
               </li>
@@ -172,14 +174,14 @@ export const ProductSection = () => {
                     />
                   </svg>
                 </div>
-                <span className="text-lg font-medium">
+                <span className="!text-2xl font-medium !text-[#27AE60]  ">
                   Dầu dấm, xíu mại, xông khói
                 </span>
               </li>
             </ul>
 
             <div className="mt-8 p-4 bg-[#E8F5E9]/50 rounded-lg border border-[#27AE60]/20">
-              <p className="text-[#27AE60] font-medium italic flex items-center">
+              <p className="!text-[#27AE60] !text-2xl italic flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 mr-2"
@@ -201,9 +203,9 @@ export const ProductSection = () => {
             <div className="mt-6">
               <Link
                 href="#lien-he"
-                className="inline-flex items-center bg-[#27AE60] text-white px-6 py-3 rounded-lg hover:bg-[#219653] transition-colors duration-300"
+                className="!text-white inline-flex items-center bg-[#27AE60]  px-6 py-3 rounded-lg hover:bg-[#219653] transition-colors duration-300"
               >
-                <span>Liên hệ đặt hàng</span>
+                <span className="!text-white ">Liên hệ đặt hàng</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 ml-2"

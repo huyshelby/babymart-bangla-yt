@@ -78,7 +78,7 @@ export function Header() {
   };
 
   const aboutSubmenu = [
-    { name: "Về chúng tôi", href: "#gioi-thieu" },
+    { name: "Đến với chúng tôi", href: "#gioithieu" },
     { name: "Phương châm kinh doanh", href: "#phuongcham" },
     { name: "Hệ thống kho lạnh", href: "#hethongkholanh" },
     { name: "Nguồn nguyên liệu", href: "#thucphamdauvao" },
@@ -99,8 +99,8 @@ export function Header() {
               <Image
                 src="/images/logo/logo.jpg"
                 alt="Logo CTY THỰC PHẨM BÒ NÉ HẠNH"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 className="h-10 w-10 mr-2 rounded-full object-cover"
                 onError={(e) => {
                   // Fallback for image error
@@ -114,7 +114,7 @@ export function Header() {
             </div>
             <Link
               href="/"
-              className="text-[#27AE60] font-bold text-[14px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
+              className="text-[#27AE60] font-bold text-[18px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
             >
               CTY THỰC PHẨM BÒ NÉ HẠNH
               <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-500 group-hover:w-full absolute bottom-0"></span>
@@ -354,7 +354,7 @@ export function Header() {
             {/* Liên Hệ */}
             <SmoothScrollLink
               href="#lien-he"
-              className="bg-[#27AE60] hover:bg-[#219653] text-white px-3 lg:px-5 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md flex items-center text-sm lg:text-base focus:ring-2 focus:ring-[#27AE60]/50 focus:outline-none"
+              className="bg-[#27AE60] hover:bg-[#219653] !text-white px-3 lg:px-5 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-md flex items-center text-sm lg:text-base focus:ring-2 focus:ring-[#27AE60]/50 focus:outline-none"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -476,66 +476,100 @@ export function Header() {
                   Trang chủ
                 </Link>
 
-                {/* Giới Thiệu Dropdown - Mobile */}
-                <div>
-                  <button
-                    onClick={() => toggleDropdown("aboutMobile")}
-                    className="flex items-center justify-between w-full px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                {/* Đến với chúng tôi - Mobile */}
+                <SmoothScrollLink
+                  href="#gioi-thieu"
+                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  onClick={closeMobileMenu}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-[#27AE60]"
                   >
-                    <div className="flex items-center">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 mr-2 text-[#27AE60]"
-                      >
-                        <path
-                          d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                          stroke="#27AE60"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      Giới Thiệu
-                    </div>
-                    <svg
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        dropdownOpen["aboutMobile"] ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
+                    <path
+                      d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                      stroke="#27AE60"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Đến với chúng tôi
+                </SmoothScrollLink>
 
-                  {dropdownOpen["aboutMobile"] && (
-                    <div className="pl-10 space-y-1 mt-1">
-                      {aboutSubmenu.map((item, index) => (
-                        <SmoothScrollLink
-                          key={index}
-                          href={item.href}
-                          className="flex items-center py-2 px-4 text-sm text-gray-700 hover:text-[#27AE60] transition-colors duration-200"
-                          onClick={closeMobileMenu}
-                        >
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#27AE60]/60 mr-2"></span>
-                          {item.name}
-                        </SmoothScrollLink>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                {/* Phương châm kinh doanh - Mobile */}
+                <SmoothScrollLink
+                  href="#phuongcham"
+                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  onClick={closeMobileMenu}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-[#27AE60]"
+                  >
+                    <path
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      stroke="#27AE60"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Phương châm kinh doanh
+                </SmoothScrollLink>
+
+                {/* Hệ thống kho lạnh - Mobile */}
+                <SmoothScrollLink
+                  href="#hethongkholanh"
+                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  onClick={closeMobileMenu}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-[#27AE60]"
+                  >
+                    <path
+                      d="M20 7h-3m3 0v11a2 2 0 01-2 2H6a2 2 0 01-2-2V7m16 0V5a2 2 0 00-2-2h-3M4 7h3m-3 0V5a2 2 0 012-2h3m0 0v3m0-3h4m0 0v3"
+                      stroke="#27AE60"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  Hệ thống kho lạnh
+                </SmoothScrollLink>
+
+                {/* Nguồn nguyên liệu - Mobile */}
+                <SmoothScrollLink
+                  href="#thucphamdauvao"
+                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  onClick={closeMobileMenu}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-[#27AE60]"
+                  >
+                    <path
+                      d="M3 6l9 4.5L21 6m-18 0l9-4.5L21 6m-18 0v12l9 4.5m9-16.5v12l-9 4.5m0-12V18"
+                      stroke="#27AE60"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Nguồn nguyên liệu
+                </SmoothScrollLink>
 
                 {/* Sản Phẩm - Mobile */}
                 <SmoothScrollLink
-                  href="#san-pham"
+                  href="#products"
                   className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
@@ -558,7 +592,7 @@ export function Header() {
 
                 {/* Khuyến Mại - Mobile */}
                 <SmoothScrollLink
-                  href="#khuyen-mai"
+                  href="#promotions"
                   className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
