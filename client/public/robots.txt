@@ -5,8 +5,8 @@ Disallow: /private
 Disallow: /admin
 
 # Host
-Host: https://bonehanh.com
+Host: https://thucphambonehanh.com
 
 # Sitemaps
-Sitemap: https://bonehanh.com/sitemap.xml
-Sitemap: https://bonehanh.com/server-sitemap.xml
+Sitemap: https://thucphambonehanh.com/sitemap.xml
+Sitemap: https://thucphambonehanh.com/server-sitemap.xml

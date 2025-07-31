@@ -22,18 +22,18 @@ export default function JsonLd({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Công ty thực phẩm bò né hạnh',
-    url: 'https://bonehanh.com',
-    logo: 'https://bonehanh.com/images/logo/logo.jpg',
+    url: 'https://thucphambonehanh.com',
+    logo: 'https://thucphambonehanh.com/images/logo/logo.jpg',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+84-XXX-XXX-XXX', // Add actual phone number
+      telephone: '+84-935-33-0134', // Add actual phone number
       contactType: 'customer service',
       areaServed: 'VN',
       availableLanguage: ['Vietnamese']
     },
     sameAs: [
-      'https://www.facebook.com/bonehanh', // Add actual Facebook URL
-      'https://www.instagram.com/bonehanh' // Add actual Instagram URL
+      'https://www.facebook.com/profile.php?id=61569445674186&locale=vi_VN', // Add actual Facebook URL
+      // Add actual Instagram URL
     ]
   };
 
@@ -41,16 +41,16 @@ export default function JsonLd({
     '@context': 'https://schema.org',
     '@type': 'FoodEstablishment',
     name: 'Công ty thực phẩm bò né hạnh',
-    image: 'https://bonehanh.com/images/logo/logo.jpg',
-    '@id': 'https://bonehanh.com',
-    url: 'https://bonehanh.com',
-    telephone: '+84-XXX-XXX-XXX', // Add actual phone number
+    image: 'https://thucphambonehanh.com/images/logo/logo.jpg',
+    '@id': 'https://thucphambonehanh.com',
+    url: 'https://thucphambonehanh.com',
+    telephone: '+84-935-33-0134', // Add actual phone number
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Đà Nẵng', // Add actual street address
+      streetAddress: '66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG', // Add actual street address
       addressLocality: 'Đà Nẵng',
       addressRegion: 'Đà Nẵng',
-      postalCode: '550000', // Add actual postal code
+      postalCode: '50000', // Add actual postal code
       addressCountry: 'VN'
     },
     geo: {
@@ -74,7 +74,7 @@ export default function JsonLd({
     },
     priceRange: '$$',
     servesCuisine: 'Vietnamese',
-    menu: 'https://bonehanh.com/#san-pham'
+    menu: 'https://thucphambonehanh.com/#san-pham'
   };
 
   const breadcrumbSchema = breadcrumbData ? {

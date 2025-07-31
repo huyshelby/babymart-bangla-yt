@@ -37,17 +37,17 @@ export default function Home() {
       {
         position: 1,
         name: "Trang chủ",
-        item: "https://bonehanh.com"
+        item: "https://thucphambonehanh.com"
       },
       {
         position: 2,
         name: "Giới thiệu",
-        item: "https://bonehanh.com/#gioi-thieu"
+        item: "https://thucphambonehanh.com/#gioi-thieu"
       },
       {
         position: 3,
         name: "Sản phẩm",
-        item: "https://bonehanh.com/#san-pham"
+        item: "https://thucphambonehanh.com/#san-pham"
       }
     ]
   };

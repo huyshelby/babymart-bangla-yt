@@ -23,7 +23,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bonehanh.com"),
+  metadataBase: new URL("https://thucphambonehanh.com"),
   title: {
     template: "%s | Công ty thực phẩm bò né hạnh",
     default: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://bonehanh.com",
+    canonical: "https://thucphambonehanh.com",
   },
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://bonehanh.com",
+    url: "https://thucphambonehanh.com",
     title: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
     description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm.",
     siteName: "Công ty thực phẩm bò né hạnh",

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://bonehanh.com/sitemap.xml',
+    sitemap: 'https://thucphambonehanh.com/sitemap.xml',
   };
 } 
