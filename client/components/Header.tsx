@@ -99,8 +99,8 @@ export function Header() {
               <Image
                 src="/images/logo/logo.jpg"
                 alt="Logo CTY THỰC PHẨM BÒ NÉ HẠNH"
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 className="h-10 w-10 mr-2 rounded-full object-cover"
                 onError={(e) => {
                   // Fallback for image error
@@ -114,7 +114,7 @@ export function Header() {
             </div>
             <Link
               href="/"
-              className="text-[#27AE60] font-bold text-[18px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
+              className="text-[#27AE60] font-bold text-[20px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
             >
               CTY THỰC PHẨM BÒ NÉ HẠNH
               <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-500 group-hover:w-full absolute bottom-0"></span>
@@ -236,7 +236,7 @@ export function Header() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm lg:text-base">Trang chủ</span>
+              <span className="text-[#27AE60] lg:text-base">Trang chủ</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
             </Link>
 
@@ -265,7 +265,7 @@ export function Header() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="text-sm lg:text-base">Giới Thiệu</span>
+                <span className="text-[#27AE60] lg:text-base">Giới Thiệu</span>
                 <svg
                   className={`ml-1 h-3 w-3 transition-transform duration-200 ${
                     dropdownOpen["about"] ? "rotate-180" : ""
@@ -295,7 +295,7 @@ export function Header() {
                         key={index}
                         href={item.href}
                         onClick={() => setDropdownOpen({})}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#27AE60] transition-colors duration-200"
+                        className="block px-4 py-2 text-sm text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] transition-colors duration-200"
                       >
                         {item.name}
                       </SmoothScrollLink>
@@ -324,7 +324,7 @@ export function Header() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm lg:text-base">Sản Phẩm</span>
+              <span className="text-[#27AE60] lg:text-base">Sản Phẩm</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
             </SmoothScrollLink>
 
@@ -347,7 +347,7 @@ export function Header() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm lg:text-base">Khuyến Mại</span>
+              <span className="text-[#27AE60] lg:text-base">Khuyến Mại</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#27AE60] group-hover:w-full transition-all duration-300"></span>
             </SmoothScrollLink>
 
@@ -396,7 +396,7 @@ export function Header() {
                   height={40}
                   className="rounded-full"
                 />
-                <span className="font-bold text-lg text-[#27AE60]">
+                <span className="font-bold !text-2xl text-[#27AE60]">
                   CTY THỰC PHẨM BÒ NÉ HẠNH
                 </span>
               </div>
@@ -425,7 +425,7 @@ export function Header() {
             <div className="p-6 border-b">
               <div className="text-[#212529] mb-3">
                 <p className="font-bold text-sm mb-1">Địa chỉ:</p>
-                <p className="text-sm">
+                <p className="text-sm !text-[#27AE60]">
                   66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG
                 </p>
               </div>
@@ -449,7 +449,7 @@ export function Header() {
                 {/* Trang chủ - Mobile */}
                 <Link
                   href="/"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -479,7 +479,7 @@ export function Header() {
                 {/* Đến với chúng tôi - Mobile */}
                 <SmoothScrollLink
                   href="#gioi-thieu"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -502,7 +502,7 @@ export function Header() {
                 {/* Phương châm kinh doanh - Mobile */}
                 <SmoothScrollLink
                   href="#phuongcham"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -525,7 +525,7 @@ export function Header() {
                 {/* Hệ thống kho lạnh - Mobile */}
                 <SmoothScrollLink
                   href="#hethongkholanh"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -547,7 +547,7 @@ export function Header() {
                 {/* Nguồn nguyên liệu - Mobile */}
                 <SmoothScrollLink
                   href="#thucphamdauvao"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -570,7 +570,7 @@ export function Header() {
                 {/* Sản Phẩm - Mobile */}
                 <SmoothScrollLink
                   href="#products"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg
@@ -593,7 +593,7 @@ export function Header() {
                 {/* Khuyến Mại - Mobile */}
                 <SmoothScrollLink
                   href="#promotions"
-                  className="flex items-center px-4 py-2.5 text-gray-800 hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
+                  className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
                   onClick={closeMobileMenu}
                 >
                   <svg

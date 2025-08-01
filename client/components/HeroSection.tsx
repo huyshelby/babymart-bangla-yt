@@ -120,7 +120,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                 <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-1 sm:mb-2 md:mb-3">
                   <div className="h-[1px] sm:h-[2px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-white/90 rounded-full"></div>
                   <p
-                    className="text-2xl sm:text-7xl md:text-6xl font-bold !text-[#27AE60] whitespace-normal sm:whitespace-nowrap px-1 sm:px-0"
+                    className="text-3xl sm:text-7xl md:text-6xl font-bold !text-[#27AE60] whitespace-normal sm:whitespace-nowrap px-1 sm:px-0"
                     style={{
                       textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                     }}
@@ -143,7 +143,7 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
                   <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-300/80 rounded-full animate-pulse animation-delay-1000"></div>
                 </div>
 
-                <p className="!text-2xl sm:text-base md:text-lg !text-white/90 drop-shadow-sm">
+                <p className="!text-2xl sm:text-base md:text-lg !text-[#27AE60] drop-shadow-sm">
                   Phục vụ hơn{" "}
                   <span className="font-bold text-green-300">100+</span> nhà
                   hàng & quán ăn tại Đà Nẵng

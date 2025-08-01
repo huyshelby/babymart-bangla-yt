@@ -317,10 +317,10 @@ export const ColdStorageSection = () => {
                         className="object-cover rounded-lg"
                       />
                       {isMobile && (
-                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-                          <p className="!text-white font-medium">
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-3 rounded-b-lg">
+                          <h4 className="text-white text-center font-medium text-sm">
                             {image.caption}
-                          </p>
+                          </h4>
                         </div>
                       )}
                     </div>
@@ -357,6 +357,51 @@ export const ColdStorageSection = () => {
               </div>
             </div>
           </div>
+
+          {/* Features section for mobile view */}
+          {isMobile && (
+            <div className="mt-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+              <h3 className="text-xl font-bold text-[#27AE60] mb-4 text-center">
+                Hệ thống kho lạnh đạt chuẩn
+              </h3>
+              
+              <div className="space-y-4">
+                {features.map((feature) => (
+                  <div key={feature.id} className="flex items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#E8F5E9] flex items-center justify-center mr-3">
+                      <div className="text-[#27AE60]">{feature.icon}</div>
+                    </div>
+                    <div>
+                      <h4 className="text-base font-medium text-[#27AE60] mb-1">
+                        {feature.title}
+                      </h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-4 p-3 bg-[#E8F5E9] rounded-lg border border-[#27AE60]/20">
+                <p className="text-sm text-[#212529] font-medium flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-[#27AE60] mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Nhiệt độ được kiểm soát chuẩn xác trong ngưỡng -18°C đến -22°C
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </BalancedLayout>
 
