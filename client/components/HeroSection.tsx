@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, CSSProperties } from "react";
 import Image from "next/image";
 import SmoothScrollLink from "./SmoothScrollLink";
 
@@ -9,10 +9,25 @@ interface HeroSectionProps {
   isLoaded: boolean;
 }
 
+// Extended CSS Properties interface to include webkit prefixed properties
+interface ExtendedCSSProperties extends CSSProperties {
+  WebkitFilter?: string;
+  WebkitBackfaceVisibility?: 'visible' | 'hidden';
+  WebkitTransform?: string;
+}
+
 export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
+    // Safari detection
+    const isSafariBrowser = 
+      /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+      /Apple/.test(navigator.vendor);
+    
+    setIsSafari(isSafariBrowser);
+
     const handleScroll = () => {
       const position = window.scrollY;
       setScrollPosition(position);
@@ -26,30 +41,51 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
   }, []);
 
   // Memoize the dynamic style to avoid recalculations on every render
-  const backgroundStyle = useMemo(() => {
-    return {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
-      backgroundSize: "cover",
-      backgroundPosition: "center 40%",
-      backgroundAttachment: "fixed",
-      transform: `translateY(${scrollPosition * 0.15}px)`,
-      filter: "brightness(0.9) contrast(1.1)",
-    };
-  }, [scrollPosition]);
+  const backgroundStyle = useMemo((): ExtendedCSSProperties => {
+    // Safari-optimized approach without background-attachment: fixed
+    if (isSafari) {
+      return {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 40%",
+        // Use transform for Safari instead of fixed attachment
+        transform: `translate3d(0, ${scrollPosition * 0.15}px, 0)`,
+        // Use -webkit-filter for better Safari performance
+        WebkitFilter: "brightness(0.9) contrast(1.1)",
+        filter: "brightness(0.9) contrast(1.1)",
+        // Force hardware acceleration
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
+        WebkitTransform: `translate3d(0, ${scrollPosition * 0.15}px, 0)`,
+      };
+    } else {
+      return {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/background/sanpham.jpg")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center 40%",
+        backgroundAttachment: "fixed",
+        transform: `translateY(${scrollPosition * 0.15}px)`,
+        filter: "brightness(0.9) contrast(1.1)",
+      };
+    }
+  }, [scrollPosition, isSafari]);
 
-  const patternStyle = useMemo(() => {
+  const patternStyle = useMemo((): ExtendedCSSProperties => {
     return {
       backgroundImage: `url('/images/noise.svg')`,
       backgroundSize: "200px",
+      // Add Safari-specific optimizations
+      WebkitBackfaceVisibility: "hidden",
+      backfaceVisibility: "hidden",
     };
   }, []);
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background with parallax effect - improved for mobile */}
-      <div className="absolute inset-0" style={backgroundStyle}></div>
+      {/* Background with parallax effect - optimized for Safari */}
+      <div className="absolute inset-0 will-change-transform" style={backgroundStyle}></div>
 
-      {/* Decorative overlay pattern */}
+      {/* Decorative overlay pattern - Safari optimized */}
       <div className="absolute inset-0 opacity-15" style={patternStyle}></div>
 
       {/* Animated gradient overlay */}
@@ -271,6 +307,13 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
 
         .animation-delay-2000 {
           animation-delay: 2s;
+        }
+
+        /* Safari-specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+          .glass-card {
+            -webkit-backdrop-filter: blur(12px);
+          }
         }
 
         /* Mobile optimization */
