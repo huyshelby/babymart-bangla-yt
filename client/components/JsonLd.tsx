@@ -1,109 +1,192 @@
-import React from 'react';
 import Script from 'next/script';
 
-interface JsonLdProps {
-  organizationData?: boolean;
-  localBusinessData?: boolean;
-  breadcrumbData?: {
-    items: Array<{
-      position: number;
-      name: string;
-      item: string;
-    }>;
+interface LocalBusinessJsonLdProps {
+  name: string;
+  description: string;
+  url: string;
+  telephone: string;
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
   };
+  geo: {
+    latitude: number;
+    longitude: number;
+  };
+  images: string[];
+  openingHours: string[];
+  priceRange: string;
 }
 
-export default function JsonLd({ 
-  organizationData = true, 
-  localBusinessData = true, 
-  breadcrumbData 
-}: JsonLdProps) {
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Công ty thực phẩm bò né hạnh',
-    url: 'https://thucphambonehanh.com',
-    logo: 'https://thucphambonehanh.com/images/logo/logo.jpg',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+84-935-33-0134', // Add actual phone number
-      contactType: 'customer service',
-      areaServed: 'VN',
-      availableLanguage: ['Vietnamese']
-    },
-    sameAs: [
-      'https://www.facebook.com/profile.php?id=61569445674186&locale=vi_VN', // Add actual Facebook URL
-      // Add actual Instagram URL
-    ]
-  };
+export const LocalBusinessJsonLd = ({
+  name,
+  description,
+  url,
+  telephone,
+  address,
+  geo,
+  images,
+  openingHours,
+  priceRange,
+}: LocalBusinessJsonLdProps) => {
+  // Chuyển đổi các từ khóa có dấu sang không dấu
+  const nameNonAccent = name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D');
+  
+  const descriptionWithBoth = `${description} - ${
+    nameNonAccent
+  }. Thuc pham Bo Ne Hanh Da Nang (Thực phẩm Bò Né Hạnh Đà Nẵng)`;
 
-  const localBusinessSchema = {
+  const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FoodEstablishment',
-    name: 'Công ty thực phẩm bò né hạnh',
-    image: 'https://thucphambonehanh.com/images/logo/logo.jpg',
-    '@id': 'https://thucphambonehanh.com',
-    url: 'https://thucphambonehanh.com',
-    telephone: '+84-935-33-0134', // Add actual phone number
+    name,
+    alternateName: nameNonAccent,
+    description: descriptionWithBoth,
+    url,
+    telephone,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG', // Add actual street address
-      addressLocality: 'Đà Nẵng',
-      addressRegion: 'Đà Nẵng',
-      postalCode: '50000', // Add actual postal code
-      addressCountry: 'VN'
+      ...address,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 16.0544, // Replace with actual coordinates
-      longitude: 108.2022 // Replace with actual coordinates
+      ...geo,
     },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ],
-      opens: '08:00',
-      closes: '21:00'
-    },
-    priceRange: '$$',
-    servesCuisine: 'Vietnamese',
-    menu: 'https://thucphambonehanh.com/#san-pham'
+    image: images,
+    openingHours,
+    priceRange,
+    servesCuisine: ['Vietnamese', 'Beef', 'Food Processing'],
+    keywords: [
+      'Thực phẩm Bò Né Hạnh',
+      'Bo Ne Hanh',
+      'Bò né Đà Nẵng',
+      'Bo ne Da Nang',
+      'Bò kho Sài Gòn',
+      'Bo kho Sai Gon',
+      'Thực phẩm chế biến sẵn',
+      'Thuc pham che bien san',
+      'Đồ ăn đông lạnh',
+      'Do an dong lanh',
+      'Thực phẩm tươi sạch',
+      'Thuc pham tuoi sach',
+    ]
   };
 
-  const breadcrumbSchema = breadcrumbData ? {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbData.items.map(item => ({
-      '@type': 'ListItem',
-      position: item.position,
-      name: item.name,
-      item: item.item
-    }))
-  } : null;
+  return (
+    <Script
+      id="local-business-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+};
 
-  // Combine all schemas
-  const schemas = [];
-  if (organizationData) schemas.push(organizationSchema);
-  if (localBusinessData) schemas.push(localBusinessSchema);
-  if (breadcrumbData) schemas.push(breadcrumbSchema);
+export const ProductJsonLd = ({
+  name,
+  description,
+  image,
+  price,
+  category,
+  brand,
+}: {
+  name: string;
+  description: string;
+  image: string;
+  price: string;
+  category: string;
+  brand: string;
+}) => {
+  // Chuyển đổi các từ khóa có dấu sang không dấu
+  const nameNonAccent = name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D');
+  
+  const descriptionWithBoth = `${description} - ${nameNonAccent}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    alternateName: nameNonAccent,
+    description: descriptionWithBoth,
+    image,
+    offers: {
+      '@type': 'Offer',
+      price,
+      priceCurrency: 'VND',
+      availability: 'https://schema.org/InStock',
+    },
+    category,
+    brand: {
+      '@type': 'Brand',
+      name: brand,
+    },
+  };
 
   return (
-    <>
-      {schemas.map((schema, index) => (
-        <Script
-          key={`json-ld-${index}`}
-          id={`json-ld-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
-    </>
+    <Script
+      id="product-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
-} 
+};
+
+export const BreadcrumbJsonLd = ({
+  items,
+}: {
+  items: { name: string; url: string }[];
+}) => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': item.url,
+        name: item.name,
+      },
+    })),
+  };
+
+  return (
+    <Script
+      id="breadcrumb-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+};
+
+export const WebsiteJsonLd = () => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'CTY Thực Phẩm Bò Né Hạnh',
+    alternateName: 'CTY Thuc Pham Bo Ne Hanh',
+    url: 'https://thucphambonehanh.com',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://thucphambonehanh.com/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  return (
+    <Script
+      id="website-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}; 

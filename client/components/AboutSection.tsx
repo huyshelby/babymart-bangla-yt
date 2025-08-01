@@ -17,24 +17,25 @@ export const AboutSection = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
       },
       { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      const currentRef = sectionRef.current;
+      observer.observe(currentRef);
+      
+      return () => {
+        observer.unobserve(currentRef);
+      };
     }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
   }, []);
 
   // Card data for reusability

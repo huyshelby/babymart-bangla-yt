@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
 import { useInView } from "react-intersection-observer";
 import { motion, Variants } from "framer-motion";
@@ -18,6 +16,7 @@ interface FoodImage {
   src: string;
   fallbackSrc: string;
   alt: string;
+  id?: string; // Add id property to interface
 }
 
 export const FoodDishesSection = () => {
@@ -77,7 +76,7 @@ export const FoodDishesSection = () => {
       fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
       alt: "Món ăn từ Bò Né Hạnh",
     },
-  ];
+  ].map((img, index) => ({ ...img, id: `food-image-${index}` })); // Add stable id for each image
 
   // Enhanced image card with better quality and subtle effects
   const renderImageCard = (image: FoodImage, index: number) => (
@@ -348,9 +347,9 @@ export const FoodDishesSection = () => {
                 loop={true}
                 className="foods-swiper pb-12"
               >
-                {images.map((image, index) => (
-                  <SwiperSlide key={index} className="h-full">
-                    {renderImageCard(image, index)}
+                {images.map((image) => (
+                  <SwiperSlide key={image.id || `food-image-fallback-${Math.random()}`} className="h-full">
+                    {renderImageCard(image, Number((image.id || '').split('-')[2] || 0))}
                   </SwiperSlide>
                 ))}
               </Swiper>

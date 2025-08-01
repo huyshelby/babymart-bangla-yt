@@ -18,8 +18,10 @@ export default function AnalyticsProvider({
 
   // Track page views
   useEffect(() => {
-    // Track page view without searchParams to avoid SSR issues
-    trackPageView(pathname);
+    // Sửa tại đây - thêm kiểm tra null
+    if (pathname) {
+      trackPageView(pathname);
+    }
   }, [pathname]);
 
   return <>{children}</>;

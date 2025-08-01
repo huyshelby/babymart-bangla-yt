@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -16,11 +15,6 @@ export const FoodSafetySection = () => {
   const [contentRef, contentInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
-  });
-
-  const [bottomImageRef, bottomImageInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
   });
 
   const isMobile = useMediaQuery("(max-width: 768px)");

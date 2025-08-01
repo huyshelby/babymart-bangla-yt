@@ -4,6 +4,7 @@ import "./globals.css";
 import { ContactPopup } from "@/components/ContactPopup";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import baseMetadata from "./metadata";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,29 @@ const beVietnamPro = Be_Vietnam_Pro({
   display: "swap",
 });
 
+// Tạo danh sách từ khóa bao gồm cả có dấu và không dấu
+const generateKeywords = () => {
+  const baseKeywords = [
+    "thực phẩm bò né hạnh",
+    "bò né đà nẵng",
+    "bò kho sài gòn",
+    "cung cấp thực phẩm đà nẵng",
+    "thực phẩm đông lạnh đà nẵng",
+    "thực phẩm chế biến sẵn",
+    "nhà cung cấp thực phẩm uy tín",
+  ];
+  
+  const withoutAccents = baseKeywords.map(keyword => {
+    return keyword
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'D');
+  });
+  
+  return [...baseKeywords, ...withoutAccents];
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://thucphambonehanh.com"),
   title: {
@@ -30,15 +54,7 @@ export const metadata: Metadata = {
   },
   description:
     "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm, giá cả cạnh tranh.",
-  keywords: [
-    "thực phẩm bò né hạnh",
-    "bò né đà nẵng",
-    "bò kho sài gòn",
-    "cung cấp thực phẩm đà nẵng",
-    "thực phẩm đông lạnh đà nẵng",
-    "thực phẩm chế biến sẵn",
-    "nhà cung cấp thực phẩm uy tín",
-  ],
+  keywords: generateKeywords(),
   authors: [{ name: "Bò né hạnh" }],
   creator: "Bò né hạnh",
   publisher: "Bò né hạnh",
@@ -61,7 +77,7 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: "https://thucphambonehanh.com",
     title: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
-    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm.",
+    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né (Bo ne), bò kho (bo kho), patê (pate), nem nướng... tại Đà Nẵng (Da Nang). Đảm bảo chất lượng, an toàn vệ sinh thực phẩm.",
     siteName: "Công ty thực phẩm bò né hạnh",
     images: [
       {
@@ -75,7 +91,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Công ty thực phẩm bò né hạnh - Bò Né, Bò Kho Sài Gòn",
-    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho tại Đà Nẵng",
+    description: "Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né (Bo ne), bò kho (bo kho) tại Đà Nẵng (Da Nang)",
     images: ["/images/logo/logo.jpg"],
   },
 };
@@ -110,6 +126,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/images/logo/logo.jpg" type="image/jpg" />
         <link rel="apple-touch-icon" href="/images/logo/logo.jpg" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="min-h-screen bg-[#FFFBEB] antialiased">
         <AnalyticsProvider>

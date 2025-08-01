@@ -8,23 +8,26 @@ const nextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
-      // Xóa bỏ entry không hợp lệ "hostname: '**'"
-      // Thêm các hostname hợp lệ khác của bạn vào đây nếu cần
+      {
+        protocol: "https",
+        hostname: "cdn.thucphambonehanh.com",
+      },
+      // Add other valid hostnames if needed
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 86400 * 365, // Cache for 1 year
   },
   experimental: {
-    // optimizeCss đã được tích hợp sẵn
+    optimizeCss: true, // Enable CSS optimization
     scrollRestoration: true,
   },
-  // swcMinify đã là mặc định
+  // swcMinify is default
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Enable gzip compression
+  // Headers for performance and security
   async headers() {
     return [
       {
@@ -45,6 +48,21 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+          // Cache optimization
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Optimize core web vitals by preloading critical assets
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Link',
+            value: '</images/logo/logo.jpg>; rel=preload; as=image',
           },
         ],
       },

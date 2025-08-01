@@ -1,116 +1,67 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ImageModal } from "@/components/ImageModal";
 import { HeroSection } from "@/components/HeroSection";
-import { AboutSection } from "@/components/AboutSection";
 import { ProductSection } from "@/components/ProductSection";
+import { AboutSection } from "@/components/AboutSection";
 import { BusinessPhilosophySection } from "@/components/BusinessPhilosophySection";
-import { ColdStorageSection } from "@/components/ColdStorageSection";
 import { FoodSafetySection } from "@/components/FoodSafetySection";
+import { ColdStorageSection } from "@/components/ColdStorageSection";
 import { FoodDishesSection } from "@/components/FoodDishesSection";
 import { PromotionsSection } from "@/components/PromotionsSection";
-import JsonLd from "@/components/JsonLd";
+import { LocalBusinessJsonLd, WebsiteJsonLd } from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Trang chủ | Thực phẩm Bò Né Hạnh - Thực phẩm sạch Đà Nẵng",
+  description:
+    "Công ty Thực phẩm Bò Né Hạnh - Nhà cung cấp thực phẩm chế biến chất lượng cao tại Đà Nẵng. Bo Ne Hanh - Thuc pham sach Da Nang. Chuyên các sản phẩm từ bò tươi ngon, an toàn.",
+  alternates: {
+    canonical: "https://thucphambonehanh.com",
+  },
+};
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalImage, setModalImage] = useState("");
-  const [modalTitle, setModalTitle] = useState("");
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Trigger animations after page load
-    setIsLoaded(true);
-  }, []);
-
-  const openModal = (imageSrc: string, title: string) => {
-    setModalImage(imageSrc);
-    setModalTitle(title);
-    setModalOpen(true);
-  };
-
-  // Breadcrumb data for structured data
-  const breadcrumbData = {
-    items: [
-      {
-        position: 1,
-        name: "Trang chủ",
-        item: "https://thucphambonehanh.com"
-      },
-      {
-        position: 2,
-        name: "Giới thiệu",
-        item: "https://thucphambonehanh.com/#gioi-thieu"
-      },
-      {
-        position: 3,
-        name: "Sản phẩm",
-        item: "https://thucphambonehanh.com/#san-pham"
-      }
-    ]
-  };
-
   return (
     <>
-      <JsonLd 
-        organizationData={true} 
-        localBusinessData={true}
-        breadcrumbData={breadcrumbData}
+      <WebsiteJsonLd />
+      <LocalBusinessJsonLd
+        name="Công ty thực phẩm bò né hạnh"
+        description="Chuyên cung cấp sỉ lẻ các loại thực phẩm chế biến Bò né, bò kho, patê, nem nướng... tại Đà Nẵng. Đảm bảo chất lượng, an toàn vệ sinh thực phẩm."
+        url="https://thucphambonehanh.com"
+        telephone="+84-935-33-0134"
+        address={{
+          streetAddress: "66 HUỲNH NGỌC HUỆ, PHƯỜNG AN KHÊ, THANH PHỐ ĐÀ NẴNG",
+          addressLocality: "Đà Nẵng",
+          addressRegion: "Đà Nẵng",
+          postalCode: "50000",
+          addressCountry: "VN"
+        }}
+        geo={{
+          latitude: 16.0544,
+          longitude: 108.2022
+        }}
+        images={[
+          "https://thucphambonehanh.com/images/logo/logo.jpg",
+          "https://thucphambonehanh.com/images/background/sanpham.jpg"
+        ]}
+        openingHours={[
+          "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 08:00-21:00"
+        ]}
+        priceRange="$$"
       />
+      
       <Header />
-
-      <main itemScope itemType="https://schema.org/WebPage">
-        {/* Hero Section */}
-        <HeroSection isLoaded={isLoaded} />
-
-        {/* About Us Section */}
-        <section id="gioi-thieu" itemScope itemType="https://schema.org/AboutPage">
-          <AboutSection />
-        </section>
-
-        {/* Main Products Section */}
-        <section id="san-pham" itemScope itemType="https://schema.org/ItemList">
-          <meta itemProp="numberOfItems" content="5" />
-          <ProductSection />
-        </section>
-
-        {/* PHƯƠNG CHÂM KINH DOANH Section */}
-        <section id="phuong-cham">
-          <BusinessPhilosophySection />
-        </section>
-
-        {/* Cold Storage System Section */}
-        <section id="kho-lanh">
-          <ColdStorageSection />
-        </section>
-
-        {/* Food Safety Section */}
-        <section id="an-toan-thuc-pham" itemScope itemType="https://schema.org/HealthAndSafetyInfo">
-          <FoodSafetySection />
-        </section>
-
-        {/* Food Dishes Section */}
-        <section id="mon-an" itemScope itemType="https://schema.org/MenuSection">
-          <FoodDishesSection />
-        </section>
-
-        {/* Promotions Section */}
-        <section id="khuyen-mai" itemScope itemType="https://schema.org/PromotionEvent">
-          <PromotionsSection />
-        </section>
+      <main className="overflow-hidden">
+        <HeroSection isLoaded={true} />
+        <ProductSection />
+        <AboutSection />
+        <BusinessPhilosophySection />
+        <FoodSafetySection />
+        <ColdStorageSection />
+        <FoodDishesSection />
+        <PromotionsSection />
       </main>
-
       <Footer />
-
-      {/* Image Modal */}
-      <ImageModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        imageSrc={modalImage}
-        imageTitle={modalTitle}
-      />
     </>
   );
 }

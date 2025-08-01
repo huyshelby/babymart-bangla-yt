@@ -2,9 +2,35 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { Button } from "./ui/button";
+import { useState, useEffect, useRef, useCallback, memo } from "react";
 import SmoothScrollLink from "./SmoothScrollLink";
+
+// Tạo component DropdownMemoized để tối ưu render
+const DropdownMemoized = memo(({ 
+  items, 
+  onClose 
+}: { 
+  items: { name: string; href: string }[]; 
+  onClose: () => void 
+}) => (
+  <div className="absolute top-full left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+    <div className="py-1">
+      {items.map((item, index) => (
+        <SmoothScrollLink
+          key={index}
+          href={item.href}
+          onClick={onClose}
+          className="block px-4 py-2 text-sm text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] transition-colors duration-200"
+        >
+          {item.name}
+        </SmoothScrollLink>
+      ))}
+    </div>
+  </div>
+));
+
+// Add display name to fix the linter error
+DropdownMemoized.displayName = 'DropdownMemoized';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,68 +40,64 @@ export function Header() {
   );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const newScrolled = window.scrollY > 50;
-      setScrolled(newScrolled);
-    };
+  // Sử dụng useCallback để tối ưu hàm xử lý scroll
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Sử dụng useCallback cho hàm đóng dropdown khi click ra ngoài
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdownOpen({});
+    }
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setDropdownOpen({});
-      }
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [handleClickOutside]);
+
+  // Tối ưu hàm toggle menu với useCallback
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    if (!mobileMenuOpen) {
-      document.body.style.overflow = "hidden"; // Prevent background scrolling
+  // Đồng bộ trạng thái menu mobile với overflow body
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Enable scrolling again
+      document.body.style.overflow = "";
     }
-  };
+    
+    // Cleanup khi component unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
-  const closeMobileMenu = () => {
+  // Tối ưu hàm đóng menu
+  const closeAllMenus = useCallback(() => {
     setMobileMenuOpen(false);
-    document.body.style.overflow = "";
-  };
+    setDropdownOpen({});
+  }, []);
 
-  const toggleDropdown = (key: string) => {
-    setDropdownOpen((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
+  // Tối ưu hàm hover dropdown
+  const handleMouseEnter = useCallback((key: string) => {
+    setDropdownOpen(prev => ({ ...prev, [key]: true }));
+  }, []);
 
-  const handleMouseEnter = (key: string) => {
-    setDropdownOpen((prev) => ({
-      ...prev,
-      [key]: true,
-    }));
-  };
-
-  const handleMouseLeave = (key: string) => {
-    setDropdownOpen((prev) => ({
-      ...prev,
-      [key]: false,
-    }));
-  };
+  const handleMouseLeave = useCallback((key: string) => {
+    setDropdownOpen(prev => ({ ...prev, [key]: false }));
+  }, []);
 
   const aboutSubmenu = [
     { name: "Đến với chúng tôi", href: "#gioithieu" },
@@ -102,8 +124,9 @@ export function Header() {
                 width={60}
                 height={60}
                 className="h-10 w-10 mr-2 rounded-full object-cover"
+                priority // Ưu tiên tải ảnh logo
+                quality={85} // Giảm chất lượng để tối ưu
                 onError={(e) => {
-                  // Fallback for image error
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
                   target.src =
@@ -180,7 +203,9 @@ export function Header() {
             <button
               onClick={toggleMobileMenu}
               className="p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-300"
-              aria-label="Menu"
+              aria-label={mobileMenuOpen ? "Đóng menu" : "Mở menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +218,7 @@ export function Header() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
+                  d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
                 />
               </svg>
             </button>
@@ -285,23 +310,10 @@ export function Header() {
               </button>
 
               {dropdownOpen["about"] && (
-                <div
-                  id="about-dropdown"
-                  className="absolute top-full left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-                >
-                  <div className="py-1">
-                    {aboutSubmenu.map((item, index) => (
-                      <SmoothScrollLink
-                        key={index}
-                        href={item.href}
-                        onClick={() => setDropdownOpen({})}
-                        className="block px-4 py-2 text-sm text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] transition-colors duration-200"
-                      >
-                        {item.name}
-                      </SmoothScrollLink>
-                    ))}
-                  </div>
-                </div>
+                <DropdownMemoized 
+                  items={aboutSubmenu} 
+                  onClose={() => setDropdownOpen({})} 
+                />
               )}
             </div>
 
@@ -380,12 +392,14 @@ export function Header() {
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 md:hidden transition-opacity duration-300"
-          onClick={closeMobileMenu}
+          onClick={closeAllMenus}
         >
           <div
             className="fixed right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-out overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
             style={{ animation: "slideIn 0.3s ease-out forwards" }}
+            id="mobile-menu"
+            aria-hidden={!mobileMenuOpen}
           >
             <div className="flex justify-between items-center p-6 border-b">
               <div className="flex items-center space-x-2">
@@ -395,13 +409,14 @@ export function Header() {
                   width={40}
                   height={40}
                   className="rounded-full"
+                  quality={85}
                 />
                 <span className="font-bold !text-2xl text-[#27AE60]">
                   CTY THỰC PHẨM BÒ NÉ HẠNH
                 </span>
               </div>
               <button
-                onClick={closeMobileMenu}
+                onClick={closeAllMenus}
                 className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300 text-gray-500"
                 aria-label="Đóng menu"
               >
@@ -450,7 +465,7 @@ export function Header() {
                 <Link
                   href="/"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -480,7 +495,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#gioi-thieu"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -503,7 +518,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#phuongcham"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -526,7 +541,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#hethongkholanh"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -548,7 +563,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#thucphamdauvao"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -571,7 +586,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#products"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -594,7 +609,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#promotions"
                   className="flex items-center px-4 py-2.5 text-[#27AE60] hover:bg-gray-50 hover:text-[#27AE60] border-l-4 border-transparent hover:border-[#27AE60] transition-all duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -617,7 +632,7 @@ export function Header() {
                 <SmoothScrollLink
                   href="#lien-he"
                   className="flex items-center justify-center px-4 py-3 mx-4 my-3 rounded-md text-center bg-[#27AE60] text-white shadow-sm hover:bg-[#219653] transition-colors duration-300"
-                  onClick={closeMobileMenu}
+                  onClick={closeAllMenus}
                 >
                   <svg
                     viewBox="0 0 24 24"
