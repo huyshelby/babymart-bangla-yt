@@ -56,7 +56,7 @@ const pages = [
     ],
   },
   {
-    loc: '/san-pham',
+    loc: '/#sanpham',
     lastmod: new Date().toISOString(),
     changefreq: 'weekly',
     priority: 0.8,

@@ -98,6 +98,18 @@ export const PromotionsSection = () => {
       alt: "Chương trình khuyến mãi",
      
     },
+    {
+      src: "/images/khuyenmai/anh2.jpg",
+      fallbackSrc:
+        "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+2",
+      alt: "Chương trình khuyến mãi đặc biệt",
+    },
+    {
+      src: "/images/khuyenmai/anh3.jpg",
+      fallbackSrc:
+        "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+3",
+      alt: "Ưu đãi khuyến mãi",
+    },
   ];
 
   return (
@@ -159,7 +171,6 @@ export const PromotionsSection = () => {
                   clickable: true,
                   dynamicBullets: true,
                 }}
-            
                 loop={true}
                 className="promo-swiper rounded-xl overflow-hidden shadow-xl"
               >
@@ -176,15 +187,7 @@ export const PromotionsSection = () => {
                     />
 
                     {/* Overlay content */}
-            <div className="absolute inset-0 flex flex-col justify-between p-6 z-20">
-                      <div>
-                      
-                        <div className="flex items-center">
-                          
-                         
-                        </div>
-                      </div>
-                    </div>
+                
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -261,36 +264,53 @@ export const PromotionsSection = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               {/* Left Side - Image */}
               <div className="relative">
-                <div className="rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:shadow-green-100 hover:scale-[1.02] aspect-[4/3] relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
-                  <ImageWithFallback
-                    src="/images/khuyenmai/anh1.jpg"
-                    fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
-                    alt="Chương trình khuyến mãi"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 hover:scale-110"
-                  />
-                </div>
-
-                {/* Floating promo tag */}
-                {/* <motion.div
-                  initial={{ rotate: 12, scale: 0.8 }}
-                  animate={{ rotate: 12, scale: 1 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 15,
-                    delay: 0.6,
+                <Swiper
+                  modules={[Pagination, Autoplay, EffectFade]}
+                  effect="fade"
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{
+                    clickable: true,
+                    dynamicBullets: true,
                   }}
-                  className="absolute -top-6 -right-6 bg-[#27AE60] text-white rounded-full w-28 h-28 flex items-center justify-center shadow-xl"
+          
+                  loop={true}
+                  className="rounded-xl overflow-hidden shadow-2xl aspect-[4/3] relative"
                 >
-                  <div className="text-center transform -rotate-12">
-                    <div className="text-lg font-medium">SALE</div>
-                    <div className="text-3xl font-black">20%</div>
-                    <div className="text-sm font-light mt-1">Đặc biệt</div>
-                  </div>
-                </motion.div> */}
+                  <SwiperSlide className="relative aspect-[4/3]">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
+                    <ImageWithFallback
+                      src="/images/khuyenmai/anh1.jpg"
+                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
+                      alt="Chương trình khuyến mãi"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 hover:scale-110"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="relative aspect-[4/3]">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
+                    <ImageWithFallback
+                      src="/images/khuyenmai/anh2.jpg"
+                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
+                      alt="Chương trình khuyến mãi"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 hover:scale-110"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="relative aspect-[4/3]">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
+                    <ImageWithFallback
+                      src="/images/khuyenmai/anh3.jpg"
+                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
+                      alt="Chương trình khuyến mãi"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 hover:scale-110"
+                    />
+                  </SwiperSlide>
+                </Swiper>
               </div>
 
               {/* Right Side - Content */}
@@ -370,12 +390,14 @@ export const PromotionsSection = () => {
           height: 100%;
         }
 
-        .promo-swiper .swiper-pagination-bullet {
+        .promo-swiper .swiper-pagination-bullet,
+        .swiper-pagination-bullet {
           background-color: white;
           opacity: 0.7;
         }
 
-        .promo-swiper .swiper-pagination-bullet-active {
+        .promo-swiper .swiper-pagination-bullet-active,
+        .swiper-pagination-bullet-active {
           background-color: white;
           opacity: 1;
         }
