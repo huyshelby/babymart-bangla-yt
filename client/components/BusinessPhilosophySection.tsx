@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
@@ -6,11 +6,12 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import BalancedLayout from "./BalancedLayout";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectFade, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/effect-coverflow";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 // Philosophy values for the slider
@@ -25,6 +26,20 @@ const philosophyValues = [
     id: "value2",
 
     image: "/images/phuongcham/phuongcham2.jpg",
+    fallbackImage:
+      "https://placehold.co/600x400/27AE60/FFFFFF?text=Chất+Lượng+Sản+Phẩm",
+  },
+  {
+    id: "value3",
+
+    image: "/images/phuongcham/phuongcham3.jpg",
+    fallbackImage:
+      "https://placehold.co/600x400/27AE60/FFFFFF?text=Chất+Lượng+Sản+Phẩm",
+  },
+  {
+    id: "value4",
+
+    image: "/images/phuongcham/phuongcham4.jpg",
     fallbackImage:
       "https://placehold.co/600x400/27AE60/FFFFFF?text=Chất+Lượng+Sản+Phẩm",
   },
@@ -205,17 +220,30 @@ export const BusinessPhilosophySection = () => {
               } relative`}
             >
               <Swiper
-                modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                modules={[Navigation, Pagination, Autoplay, EffectFade, EffectCoverflow]}
+                effect="coverflow"
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 2,
+                  slideShadows: false,
+                }}
                 spaceBetween={0}
                 slidesPerView={1}
-                effect="fade"
                 navigation
                 pagination={{ clickable: true, dynamicBullets: true }}
+            
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
                 loop={true}
                 className="h-full philosophy-swiper rounded-2xl"
               >
                 {philosophyValues.map((item) => (
-                  <SwiperSlide key={item.id} className="h-full relative">
+                  <SwiperSlide key={item.id} className="h-full relative"
+                      >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
                     <ImageWithFallback
                       src={item.image}

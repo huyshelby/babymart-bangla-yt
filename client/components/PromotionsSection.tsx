@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import BalancedLayout from "./BalancedLayout";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Pagination, Autoplay, EffectFade, Navigation, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 
 export const PromotionsSection = () => {
   const [titleRef, titleInView] = useInView({
@@ -92,6 +94,7 @@ export const PromotionsSection = () => {
   // Promotion images for mobile carousel
   const promoImages = [
     {
+      id: 1,
       src: "/images/khuyenmai/anh1.jpg",
       fallbackSrc:
         "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+1",
@@ -99,13 +102,22 @@ export const PromotionsSection = () => {
      
     },
     {
+      id: 2,
       src: "/images/khuyenmai/anh2.jpg",
       fallbackSrc:
         "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+2",
       alt: "Chương trình khuyến mãi đặc biệt",
     },
     {
+      id: 3,
       src: "/images/khuyenmai/anh3.jpg",
+      fallbackSrc:
+        "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+3",
+      alt: "Ưu đãi khuyến mãi",
+    },
+    {
+      id: 4,
+      src: "/images/khuyenmai/anh4.jpg",
       fallbackSrc:
         "https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+3",
       alt: "Ưu đãi khuyến mãi",
@@ -163,19 +175,29 @@ export const PromotionsSection = () => {
           {isMobile ? (
             <div className="mb-8">
               <Swiper 
-                modules={[Pagination, Autoplay, EffectFade]}
-                effect="fade"
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{
-                  clickable: true,
-                  dynamicBullets: true,
-                }}
-                loop={true}
+          modules={[Navigation, Pagination, Autoplay, EffectFade, EffectCoverflow]}
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2,
+            slideShadows: false,
+          }}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true, dynamicBullets: true }}
+      
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
                 className="promo-swiper rounded-xl overflow-hidden shadow-xl"
               >
-                {promoImages.map((image, index) => (
-                  <SwiperSlide key={index} className="relative aspect-[16/9]">
+                {promoImages.map((image) => (
+                  <SwiperSlide key={image.id} className="relative aspect-[16/9]">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
                     <ImageWithFallback
                       src={image.src}
@@ -265,51 +287,42 @@ export const PromotionsSection = () => {
               {/* Left Side - Image */}
               <div className="relative">
                 <Swiper
-                  modules={[Pagination, Autoplay, EffectFade]}
-                  effect="fade"
-                  spaceBetween={0}
-                  slidesPerView={1}
-                  pagination={{
-                    clickable: true,
-                    dynamicBullets: true,
-                  }}
-          
-                  loop={true}
+                    modules={[Navigation, Pagination, Autoplay, EffectFade, EffectCoverflow]}
+                    effect="coverflow"
+                    coverflowEffect={{
+                      rotate: 0,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 2,
+                      slideShadows: false,
+                    }}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{ clickable: true, dynamicBullets: true }}
+                
+                    autoplay={{
+                      delay: 3000,
+                      disableOnInteraction: false,
+                    }}
+                    loop={true}
                   className="rounded-xl overflow-hidden shadow-2xl aspect-[4/3] relative"
                 >
-                  <SwiperSlide className="relative aspect-[4/3]">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
-                    <ImageWithFallback
-                      src="/images/khuyenmai/anh1.jpg"
-                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
-                      alt="Chương trình khuyến mãi"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="relative aspect-[4/3]">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
-                    <ImageWithFallback
-                      src="/images/khuyenmai/anh2.jpg"
-                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
-                      alt="Chương trình khuyến mãi"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="relative aspect-[4/3]">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#27AE60]/20 to-transparent mix-blend-overlay z-10"></div>
-                    <ImageWithFallback
-                      src="/images/khuyenmai/anh3.jpg"
-                      fallbackSrc="https://placehold.co/800x600/27AE60/FFFFFF?text=Khuyến+Mãi+Đặc+Biệt"
-                      alt="Chương trình khuyến mãi"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                  </SwiperSlide>
+              
+                  {promoImages.map((item) => (
+                    <SwiperSlide key={item.id} className="h-full relative"
+                      >
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
+                      <ImageWithFallback
+                        src={item.src}
+                        fallbackSrc={item.fallbackSrc}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                        alt="Phương châm kinh doanh"
+                      />
+                    </SwiperSlide>
+                ))}
                 </Swiper>
               </div>
 
@@ -400,6 +413,41 @@ export const PromotionsSection = () => {
         .swiper-pagination-bullet-active {
           background-color: white;
           opacity: 1;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: white;
+          background-color: rgba(39, 174, 96, 0.5);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+          font-size: 18px;
+        }
+        
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+          background-color: rgba(39, 174, 96, 0.8);
+        }
+
+        /* Responsive styles for swiper controls */
+        @media (max-width: 640px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            width: 32px;
+            height: 32px;
+          }
+          .swiper-button-next:after,
+          .swiper-button-prev:after {
+            font-size: 14px;
+          }
         }
       `}</style>
     </section>

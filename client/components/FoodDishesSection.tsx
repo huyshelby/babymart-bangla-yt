@@ -344,6 +344,10 @@ export const FoodDishesSection = () => {
                   nextEl: ".swiper-button-next",
                   prevEl: ".swiper-button-prev",
                 }}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: true,
+                }}
                 loop={true}
                 className="foods-swiper pb-12"
               >

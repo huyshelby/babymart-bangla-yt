@@ -262,8 +262,8 @@ export const ColdStorageSection = () => {
                 navigation
                 pagination={{ clickable: true }}
                 autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
+                  delay: 3000,
+                  disableOnInteraction: true,
                 }}
                 loop={true}
                 className="storage-swiper rounded-xl overflow-hidden aspect-[4/3]"
