@@ -53,8 +53,8 @@ export default function Home() {
       <Header />
       <main className="overflow-hidden">
         <HeroSection isLoaded={true} />
-        <ProductSection />
         <AboutSection />
+        <ProductSection />
         <BusinessPhilosophySection />
         <FoodSafetySection />
         <ColdStorageSection />
