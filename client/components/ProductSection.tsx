@@ -205,7 +205,7 @@ export const ProductSection = () => {
             </div>
 
             <div className="mt-8 p-4 bg-[#E8F5E9]/50 rounded-lg border border-[#27AE60]/20">
-              <p className="text-[#27AE60] text-lg md:text-xl italic flex items-center">
+              <p className="!text-[#27AE60] text-lg md:text-xl italic flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 mr-2"

@@ -137,9 +137,11 @@ export function Header() {
             </div>
             <Link
               href="/"
-              className="text-[#27AE60] font-bold text-[20px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
+              className="text-[#27AE60] font-bold text-[25px] xs:text-sm sm:text-base md:text-lg relative group-hover:text-[#219653] transition-colors duration-300"
             >
-              CTY THỰC PHẨM BÒ NÉ HẠNH
+              CTY THỰC PHẨM 
+              <br/> 
+              BÒ NÉ HẠNH
               <span className="block h-0.5 w-0 bg-[#27AE60] transition-all duration-500 group-hover:w-full absolute bottom-0"></span>
             </Link>
           </div>
