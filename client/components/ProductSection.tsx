@@ -155,7 +155,7 @@ export const ProductSection = () => {
             <span className="text-[#27AE60]">Các Thực phẩm Nổi bật</span>
             <div className="h-1.5 w-32 bg-[#27AE60] mx-auto mt-4 rounded-full"></div>
           </h2>    
-          <p className="text-xl max-w-2xl mx-auto text-gray-600 text-[#27AE60]">
+          <p className="text-xl max-w-2xl mx-auto text-gray-600 !text-[#27AE60]">
             Chúng tôi cung cấp các thực phẩm cao cấp, đảm bảo vệ sinh an toàn
             thực phẩm với hương vị đặc trưng từ bí quyết công thức chế biến độc
             đáo
@@ -170,7 +170,7 @@ export const ProductSection = () => {
         >
           {/* Product List with Elegant Styling */}
           <div className="w-full bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100">
-            <h3 className="text-[#27AE60] text-2xl font-bold mb-6 flex items-center">
+            <h3 className="!text-[#27AE60] text-2xl font-bold mb-6 flex items-center">
               <span className="h-6 w-1.5 bg-[#27AE60] rounded-full mr-3 inline-block"></span>
               Danh mục sản phẩm
             </h3>
@@ -198,9 +198,7 @@ export const ProductSection = () => {
                     <span className="text-2xl md:text-xl font-medium text-[#27AE60] block">
                       {product.name}
                     </span>
-                    <span className="text-xl text-gray-500 hidden md:block">
-                      {product.description}
-                    </span>
+                
                   </div>
                 </div>
               ))}

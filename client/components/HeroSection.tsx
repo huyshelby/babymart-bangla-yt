@@ -129,8 +129,8 @@ export const HeroSection = ({ isLoaded }: HeroSectionProps) => {
             isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           } transition-all duration-1000 ease-out`}
         >
-          <h1 className="font-black uppercase text-white drop-shadow-xl mb-6 sm:mb-8">
-            <span className="text-5xl bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent"
+          <h1 className="font-black uppercase text-white drop-shadow-xl mb-6  sm:mb-8 text-center">
+            <span className="text-5xl bg-gradient-to-r from-white via-green-200 to-white bg-clip-text text-transparent inline-block "
                   style={{ textShadow: "0 0 15px rgba(255,255,255,0.5)" }}>
                CTY&nbsp;THỰC&nbsp;PHẨM <br />
               BÒ NÉ HẠNH
