@@ -152,10 +152,10 @@ export const ProductSection = () => {
           }`}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6 relative inline-block">
-            <span className="text-[#27AE60]">Các Thực phẩm Nổi bật</span>
+            <span className="text-[#27AE60]">Các thực phẩm nổi bật</span>
             <div className="h-1.5 w-32 bg-[#27AE60] mx-auto mt-4 rounded-full"></div>
           </h2>    
-          <p className="text-xl max-w-2xl mx-auto text-gray-600 !text-[#27AE60]">
+          <p className="!text-2xl max-w-2xl mx-auto text-gray-600 !text-[#27AE60]">
             Chúng tôi cung cấp các thực phẩm cao cấp, đảm bảo vệ sinh an toàn
             thực phẩm với hương vị đặc trưng từ bí quyết công thức chế biến độc
             đáo

@@ -239,10 +239,10 @@ export const PromotionsSection = () => {
                         {promo.icon}
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold !text-[#27AE60]">
+                        <h4 className="!text-2xl font-semibold !text-[#27AE60]">
                           {promo.title}
                         </h4>
-                        <p className="!text-[#27AE60] !text-lg mt-1">
+                        <p className="!text-[#27AE60] !text-2xl mt-1">
                           {promo.description}
                         </p>
                       </div>
@@ -350,7 +350,7 @@ export const PromotionsSection = () => {
                         {promo.icon}
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold !text-[#27AE60] group-hover:text-[#27AE60] transition-colors">
+                        <h4 className="!text-2xl font-semibold !text-[#27AE60] group-hover:text-[#27AE60] transition-colors">
                           {promo.title}
                         </h4>
                         <p className=" !text-2xl !text-[#27AE60] mt-1 leading-relaxed">
