@@ -76,6 +76,26 @@ export const FoodDishesSection = () => {
       fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
       alt: "Món ăn từ Bò Né Hạnh",
     },
+    {
+      src: "/images/monamthuc/anh5.jpg",
+      fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
+      alt: "Món ăn từ Bò Né Hạnh",
+    },
+    {
+      src: "/images/monamthuc/anh6.jpg",
+      fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
+      alt: "Món ăn từ Bò Né Hạnh",
+    },
+    {
+      src: "/images/monamthuc/anh7.jpg",
+      fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
+      alt: "Món ăn từ Bò Né Hạnh",
+    },
+    {
+      src: "/images/monamthuc/anh8.jpg",
+      fallbackSrc: "https://placehold.co/600x400/27AE60/FFFFFF?text=Món+Ăn+4",
+      alt: "Món ăn từ Bò Né Hạnh",
+    },
   ].map((img, index) => ({ ...img, id: `food-image-${index}` })); // Add stable id for each image
 
   // Enhanced image card with better quality and subtle effects
@@ -178,8 +198,9 @@ export const FoodDishesSection = () => {
             <span className="text-[#27AE60]">ẨM THỰC PHONG PHÚ</span>
           </h2>
           <p className=" !text-2xl !text-[#27AE60] max-w-2xl mx-auto text-lg">
-            Các món ẩm thực được chế biến từ thực phẩm do Công ty CP Bò Né Hạnh
-            cung cấp tại các nhà hàng, quán ăn được khách hàng yêu thích
+            Khách hàng đến thưởng thức tại các quán ăn của chúng tôi luôn vui vẻ
+            chờ xếp chỗ, và chờ phục vụ, nhưng mọi người đều thỏa mãn và mong
+            muốn quay trở lại.
           </p>
 
           {/* Enhanced divider with spoon icon */}
@@ -352,8 +373,14 @@ export const FoodDishesSection = () => {
                 className="foods-swiper pb-12"
               >
                 {images.map((image) => (
-                  <SwiperSlide key={image.id || `food-image-fallback-${Math.random()}`} className="h-full">
-                    {renderImageCard(image, Number((image.id || '').split('-')[2] || 0))}
+                  <SwiperSlide
+                    key={image.id || `food-image-fallback-${Math.random()}`}
+                    className="h-full"
+                  >
+                    {renderImageCard(
+                      image,
+                      Number((image.id || "").split("-")[2] || 0)
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>
