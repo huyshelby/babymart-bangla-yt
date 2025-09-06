@@ -197,10 +197,12 @@ export const FoodDishesSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             <span className="text-[#27AE60]">ẨM THỰC PHONG PHÚ</span>
           </h2>
-          <p className=" !text-2xl !text-[#27AE60] max-w-2xl mx-auto text-lg">
-            Khách hàng đến thưởng thức tại các quán ăn của chúng tôi luôn vui vẻ
-            chờ xếp chỗ, và chờ phục vụ, nhưng mọi người đều thỏa mãn và mong
-            muốn quay trở lại.
+          <p className=" !text-2xl !text-[#27AE60] max-w-2xl mx-auto text-lg !text-center">
+            Các món ẩm thực được chế biến từ thực phẩm do Công ty CP Bò Né Hạnh
+            cung cấp tại các nhà hàng, quán ăn được khách hàng yêu thích, khách
+            hàng đến thưởng thức tại các quán ăn của chúng tôi luôn vui vẻ chờ
+            xếp chỗ, và chờ phục vụ, nhưng mọi người đều thỏa mãn và mong muốn
+            quay trở lại.
           </p>
 
           {/* Enhanced divider with spoon icon */}
